@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\flashlightcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\monsterdetection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\monsterdetection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\flashlightcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\flashlightcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\sanitysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\sanitysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\noisebarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\noisebarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\noisemeter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\noisemeter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\noisebarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\noisebarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\gameevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerController.cs",
@@ -52,20 +60,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SanitySystem.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\SanitySystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\SanitySystem.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\SanitySystem.cs",
+              "RelativeToolTip": "Assets\\Code\\SanitySystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T12:55:07.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MonsterDetection.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MonsterDetection.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\MonsterDetection.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MonsterDetection.cs",
+              "RelativeToolTip": "Assets\\Code\\MonsterDetection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwBoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T12:53:31.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FlashlightController.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\FlashlightController.cs",
               "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
               "RelativeToolTip": "Assets\\Code\\FlashlightController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvyUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T01:02:22.465Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AudioManager.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\AudioManager.cs",
@@ -73,11 +107,12 @@
               "RelativeToolTip": "Assets\\Code\\AudioManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T21:24:22.412Z"
+              "WhenOpened": "2025-08-29T21:24:22.412Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "GameEvents.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameEvents.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\GameEvents.cs",
@@ -85,11 +120,12 @@
               "RelativeToolTip": "Assets\\Code\\GameEvents.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAUwAQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T21:01:19.016Z"
+              "WhenOpened": "2025-08-29T21:01:19.016Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "NoiseBarUI.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseBarUI.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\NoiseBarUI.cs",
@@ -97,11 +133,12 @@
               "RelativeToolTip": "Assets\\Code\\NoiseBarUI.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T20:51:22.349Z"
+              "WhenOpened": "2025-08-29T20:51:22.349Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "NoiseMeter.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseMeter.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\NoiseMeter.cs",
@@ -109,7 +146,8 @@
               "RelativeToolTip": "Assets\\Code\\NoiseMeter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T20:50:08.026Z"
+              "WhenOpened": "2025-08-29T20:50:08.026Z",
+              "EditorCaption": ""
             }
           ]
         }
