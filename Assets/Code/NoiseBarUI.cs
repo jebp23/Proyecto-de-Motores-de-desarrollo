@@ -15,6 +15,6 @@ public class NoiseBarUI : MonoBehaviour
             noiseSlider.value = normalizedValue;
 
         if (fillImage != null)
-            fillImage.color = new Color32(0xA4, 0x20, 0x20, 0xFF); // siempre rojo #A42020
+            fillImage.color = new Color32(0xA4, 0x20, 0x20, 0xFF); 
     }
 }
