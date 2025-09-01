@@ -3,12 +3,12 @@
 public class FlashlightRaycast : MonoBehaviour
 {
     [Header("Flashlight Settings")]
-    [SerializeField] private Light flashlight;     // La luz de la linterna
-    [SerializeField] private float range = 15f;    // Alcance del raycast
-    [SerializeField] private LayerMask monsterMask; // Layer para el monstruo
+    [SerializeField] private Light flashlight;    
+    [SerializeField] private float range = 15f;    
+    [SerializeField] private LayerMask monsterMask; 
 
     [Header("Audio Settings")]
-    [SerializeField] private float cooldown = 2f; // Segundos entre gruñidos
+    [SerializeField] private float cooldown = 2f; 
     private float _lastGrowlTime;
 
     private void Update()

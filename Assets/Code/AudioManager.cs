@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Monster Clips")]
     [SerializeField] private AudioClip growlClip;
-    [SerializeField] private float growlCooldown = 2f; // ⏱️ tiempo mínimo entre gruñidos
+    [SerializeField] private float growlCooldown = 2f;
 
     private float _lastGrowlTime;
 
@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // 🔊 Pasos
     public void PlayFootstep(bool isRunning)
     {
         AudioClip[] clips = isRunning ? footstepRunClips : footstepWalkClips;
@@ -38,7 +37,7 @@ public class AudioManager : MonoBehaviour
         _sfxSource.PlayOneShot(clip);
     }
 
-    // 🔊 Gruñido con cooldown
+
     public void PlayGrowl()
     {
         if (_sfxSource != null && growlClip != null)
