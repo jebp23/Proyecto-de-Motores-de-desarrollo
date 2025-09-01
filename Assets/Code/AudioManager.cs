@@ -1,16 +1,21 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager I { get; private set; }
 
-    [Header("Footsteps")]
+    [Header("Audio Sources")]
     [SerializeField] private AudioSource _sfxSource;
-    [SerializeField] private AudioClip _footstepClip;
-    [SerializeField] private float _baseFootstepIntervalAtWalk = 0.44f;
 
+    [Header("Footstep Clips")]
+    [SerializeField] private AudioClip[] footstepWalkClips;
+    [SerializeField] private AudioClip[] footstepRunClips;
 
-    public float BaseFootstepIntervalAtWalk => _baseFootstepIntervalAtWalk;
+    [Header("Monster Clips")]
+    [SerializeField] private AudioClip growlClip;
+    [SerializeField] private float growlCooldown = 2f; // ⏱️ tiempo mínimo entre gruñidos
+
+    private float _lastGrowlTime;
 
     private void Awake()
     {
@@ -20,17 +25,29 @@ public class AudioManager : MonoBehaviour
             return;
         }
         I = this;
+        DontDestroyOnLoad(gameObject);
     }
 
+    // 🔊 Pasos
     public void PlayFootstep(bool isRunning)
     {
-        if (_footstepClip == null) return;
+        AudioClip[] clips = isRunning ? footstepRunClips : footstepWalkClips;
+        if (clips == null || clips.Length == 0) return;
 
-        _sfxSource.pitch = isRunning
-            ? Random.Range(1.0f, 1.2f)
-            : Random.Range(0.8f, 1.0f);
+        AudioClip clip = clips[Random.Range(0, clips.Length)];
+        _sfxSource.PlayOneShot(clip);
+    }
 
-        _sfxSource.PlayOneShot(_footstepClip);
+    // 🔊 Gruñido con cooldown
+    public void PlayGrowl()
+    {
+        if (_sfxSource != null && growlClip != null)
+        {
+            if (Time.time - _lastGrowlTime >= growlCooldown)
+            {
+                _sfxSource.PlayOneShot(growlClip);
+                _lastGrowlTime = Time.time;
+            }
+        }
     }
 }
-

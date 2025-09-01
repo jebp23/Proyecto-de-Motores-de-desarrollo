@@ -13,13 +13,12 @@ public class FlashlightController : MonoBehaviour
         if (!flashlight) flashlight = GetComponentInChildren<Light>(true);
         if (flashlight) flashlight.enabled = startOn;
 
-        _input = new PlayerInputs();   // clase generada desde tu .inputactions
+        _input = new PlayerInputs();  
     }
 
     private void OnEnable()
     {
         _input.Enable();
-        // IMPORTANTE: para toggles usa 'started' o configura la acción con "Press (Press Only)"
         _input.Player.Flashlight.started += OnFlashlightStarted;
     }
 
