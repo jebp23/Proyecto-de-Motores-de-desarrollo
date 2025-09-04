@@ -2618,8 +2618,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxSource: {fileID: 1723553672}
-  _footstepClip: {fileID: 8300000, guid: 141a889555578ec4bb8809f19b80518e, type: 3}
-  _baseFootstepIntervalAtWalk: 0.44
+  footstepWalkClips: []
+  footstepRunClips: []
+  growlClip: {fileID: 0}
+  growlCooldown: 2
 --- !u!4 &1723553671
 Transform:
   m_ObjectHideFlags: 0

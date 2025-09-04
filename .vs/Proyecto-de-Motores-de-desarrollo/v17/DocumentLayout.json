@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\",
+  "WorkspaceRootPath": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
+    {
+
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\logicaopciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\logicaopciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
     {
       "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -9,10 +14,20 @@
     {
       "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\flashlightraycast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\flashlightraycast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\sanitysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\sanitysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|d:\\utn videojuegos\\segundo cuatrimestre\\motores de desarrollo\\proyecto terror mdd\\proyecto-de-motores-de-desarrollo\\assets\\code\\controladoropciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\controladoropciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\logicaentreescenas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\logicaentreescenas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\noisemeter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,6 +52,7 @@
     {
       "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\monsterdetection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\monsterdetection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+
     }
   ],
   "DocumentGroupContainers": [
@@ -51,6 +67,17 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+
+              "Title": "LogicaOpciones.cs",
+              "DocumentMoniker": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LogicaOpciones.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\LogicaOpciones.cs",
+              "ToolTip": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LogicaOpciones.cs",
+              "RelativeToolTip": "Assets\\Code\\LogicaOpciones.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwDAAAAAAAAAA",
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerController.cs",
@@ -64,15 +91,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FlashlightRaycast.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightRaycast.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\FlashlightRaycast.cs",
               "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightRaycast.cs",
               "RelativeToolTip": "Assets\\Code\\FlashlightRaycast.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAowCkAAAAsAAAAAAAAAA==",
+
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-01T20:58:40.428Z",
+              "WhenOpened": "2025-09-03T19:34:10.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+
+              "DocumentIndex": 1,
+              "Title": "ControladorOpciones.cs",
+              "DocumentMoniker": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ControladorOpciones.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ControladorOpciones.cs",
+              "ToolTip": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ControladorOpciones.cs",
+              "RelativeToolTip": "Assets\\Code\\ControladorOpciones.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T19:26:59.601Z",
               "EditorCaption": ""
             },
             {
@@ -86,78 +128,31 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-01T12:55:07.697Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MonsterDetection.cs",
-              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MonsterDetection.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\MonsterDetection.cs",
-              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MonsterDetection.cs",
-              "RelativeToolTip": "Assets\\Code\\MonsterDetection.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBoAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-01T12:53:31.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FlashlightController.cs",
-              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\FlashlightController.cs",
-              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
-              "RelativeToolTip": "Assets\\Code\\FlashlightController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwA8AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-01T01:02:22.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AudioManager.cs",
-              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\AudioManager.cs",
-              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
-              "RelativeToolTip": "Assets\\Code\\AudioManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T21:24:22.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GameEvents.cs",
-              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameEvents.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\GameEvents.cs",
-              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameEvents.cs",
-              "RelativeToolTip": "Assets\\Code\\GameEvents.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T21:01:19.016Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NoiseBarUI.cs",
-              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseBarUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\NoiseBarUI.cs",
-              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseBarUI.cs",
-              "RelativeToolTip": "Assets\\Code\\NoiseBarUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T20:51:22.349Z"
+
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "NoiseMeter.cs",
-              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseMeter.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\NoiseMeter.cs",
-              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseMeter.cs",
-              "RelativeToolTip": "Assets\\Code\\NoiseMeter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAEAAAAAAAAAA==",
+              "Title": "LogicaEntreEscenas.cs",
+              "DocumentMoniker": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LogicaEntreEscenas.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\LogicaEntreEscenas.cs",
+              "ToolTip": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LogicaEntreEscenas.cs",
+              "RelativeToolTip": "Assets\\Code\\LogicaEntreEscenas.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T20:50:08.026Z"
+              "WhenOpened": "2025-09-03T19:24:40.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\MainMenu.cs",
+              "ToolTip": "D:\\UTN Videojuegos\\Segundo cuatrimestre\\Motores de desarrollo\\Proyecto terror mdd\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
+              "RelativeToolTip": "Assets\\Code\\MainMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T19:16:55.553Z"
             }
           ]
         }
