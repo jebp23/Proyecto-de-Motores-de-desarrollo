@@ -3,17 +3,25 @@ using UnityEngine.InputSystem;
 
 public class FlashlightController : MonoBehaviour
 {
-    [SerializeField] private Light flashlight;
+    [SerializeField] private Light flashlightLight; // Ahora la referencia es solo al componente Light
     [SerializeField] private bool startOn = true;
 
     private PlayerInputs _input;
 
     private void Awake()
     {
-        if (!flashlight) flashlight = GetComponentInChildren<Light>(true);
-        if (flashlight) flashlight.enabled = startOn;
+        if (flashlightLight == null)
+        {
+            // Busca el componente Light en los hijos si no está asignado en el Inspector
+            flashlightLight = GetComponentInChildren<Light>(true);
+        }
 
-        _input = new PlayerInputs();  
+        if (flashlightLight)
+        {
+            flashlightLight.enabled = startOn;
+        }
+
+        _input = new PlayerInputs();
     }
 
     private void OnEnable()
@@ -30,7 +38,7 @@ public class FlashlightController : MonoBehaviour
 
     private void OnFlashlightStarted(InputAction.CallbackContext ctx)
     {
-        if (!flashlight) return;
-        flashlight.enabled = !flashlight.enabled;
+        if (!flashlightLight) return;
+        flashlightLight.enabled = !flashlightLight.enabled;
     }
 }
