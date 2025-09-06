@@ -1040,7 +1040,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 44f20711c84123c4f9a405104dbe5258, type: 2}
     - target: {fileID: 919132149155446097, guid: d236a22c8f57c6e4f832f223d2af7e88, type: 3}
       propertyPath: m_Name
-      value: SM_Papers_002
+      value: DocumentPlaceholder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
