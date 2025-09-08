@@ -2,7 +2,7 @@
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager I { get; private set; }
+    public static AudioManager I { get; private set; } //La "I" representa "instance"
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource _sfxSource;

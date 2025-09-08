@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject victoryPanel;
-    [SerializeField] private TMP_Text progressText; // Opcional, para mostrar X/N documentos
+    [SerializeField] private TMP_Text progressText; 
 
     private Document[] allDocuments;
     private int collectedDocs = 0;

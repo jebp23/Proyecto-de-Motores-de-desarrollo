@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\controlbrillo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\controlbrillo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:1:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:1:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,8 +23,8 @@
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:1:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:1:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\flashlightcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,50 +58,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerController.cs",
               "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Code\\PlayerController.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAADwv8QAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAAwKkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-29T21:21:40.379Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\AudioManager.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
+              "RelativeToolTip": "Assets\\Code\\AudioManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T17:57:26.961Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ControlBrillo.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ControlBrillo.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ControlBrillo.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ControlBrillo.cs",
+              "RelativeToolTip": "Assets\\Code\\ControlBrillo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T16:58:05.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "GameManager.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\GameManager.cs",
               "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameManager.cs",
               "RelativeToolTip": "Assets\\Code\\GameManager.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAADwv0IAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T18:42:45.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "DocumentInteraction.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DocumentInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\DocumentInteraction.cs",
               "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DocumentInteraction.cs",
               "RelativeToolTip": "Assets\\Code\\DocumentInteraction.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAADwv30AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-06T16:31:05.087Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Document.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\Document.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Document.cs",
@@ -101,11 +136,12 @@
               "RelativeToolTip": "Assets\\Code\\Document.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-06T16:29:57.99Z"
+              "WhenOpened": "2025-09-06T16:29:57.99Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "FlashlightController.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\FlashlightController.cs",
@@ -117,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "FlashlightRaycast.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightRaycast.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\FlashlightRaycast.cs",
@@ -129,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerController.cs",
@@ -137,11 +173,12 @@
               "RelativeToolTip": "Assets\\Code\\PlayerController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T19:26:59.601Z"
+              "WhenOpened": "2025-09-03T19:26:59.601Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "FlashlightRaycast.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightRaycast.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\FlashlightRaycast.cs",
@@ -153,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "LogicaEntreEscenas.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LogicaEntreEscenas.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\LogicaEntreEscenas.cs",
@@ -165,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\MainMenu.cs",
