@@ -2,7 +2,7 @@ using System;
 
 public static class GameEvents
 {
-    public static event Action<float> OnNoiseChanged; 
+    public static event Action<float> OnNoiseChanged;
     public static void RaiseNoiseChanged(float normalized) => OnNoiseChanged?.Invoke(normalized);
 
     public static event Action OnLevelRestart;

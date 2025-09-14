@@ -4,9 +4,9 @@ using TMPro;
 
 public class DocumentInteraction : MonoBehaviour
 {
-    [Header("Refs")]
-    [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private PlayerController playerController;
+    [Header("References")]
+    [SerializeField] private PlayerInput playerInput;                   // to read Interact action
+    [SerializeField] private PlayerRigidBodyController player;          // <-- updated: RB controller
     [SerializeField] private FlashlightController flashlightController;
     [SerializeField] private GameObject openPrompt;
     [SerializeField] private GameObject closePrompt;
@@ -14,15 +14,19 @@ public class DocumentInteraction : MonoBehaviour
     [SerializeField] private TMP_Text documentTextUI;
     [SerializeField] private GameObject docReadingPanel;
 
+    [Header("UI Toggle")]
+    [SerializeField] private float toggleCooldown = 0.15f;             // anti-bounce in unscaled time
+
     private InputAction interactAction;
     private Document currentDocument;
     private bool isReading;
+    private float nextToggleAllowedAt;                                  // unscaled time
 
     private void Awake()
     {
-        if (!playerInput) playerInput = FindObjectOfType<PlayerInput>();
-        if (!playerController) playerController = FindObjectOfType<PlayerController>();
-        if (!flashlightController) flashlightController = FindObjectOfType<FlashlightController>();
+        if (!playerInput) playerInput = FindFirstObjectByType<PlayerInput>();
+        if (!player) player = FindFirstObjectByType<PlayerRigidBodyController>();
+        if (!flashlightController) flashlightController = FindFirstObjectByType<FlashlightController>();
 
         if (openPrompt) openPrompt.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
@@ -34,16 +38,15 @@ public class DocumentInteraction : MonoBehaviour
     {
         if (playerInput != null)
         {
-            // Suscribirse a la acción "Interact" que siempre está activa
             interactAction = playerInput.actions.FindAction("Interact");
             if (interactAction != null)
             {
-                interactAction.started += OnInteract;
+                interactAction.started += OnInteractStarted;
                 interactAction.Enable();
             }
             else
             {
-                Debug.LogError("[DocumentInteraction] No se encontró la acción 'Interact'.");
+                Debug.LogError("[DocumentInteraction] 'Interact' action not found.");
             }
         }
     }
@@ -52,7 +55,7 @@ public class DocumentInteraction : MonoBehaviour
     {
         if (interactAction != null)
         {
-            interactAction.started -= OnInteract;
+            interactAction.started -= OnInteractStarted;
         }
     }
 
@@ -62,7 +65,7 @@ public class DocumentInteraction : MonoBehaviour
         if (doc)
         {
             currentDocument = doc;
-            if (openPrompt) openPrompt.SetActive(true);
+            if (openPrompt && !isReading) openPrompt.SetActive(true);
         }
     }
 
@@ -76,53 +79,56 @@ public class DocumentInteraction : MonoBehaviour
         }
     }
 
-    private void OnInteract(InputAction.CallbackContext ctx)
+    private void OnInteractStarted(InputAction.CallbackContext ctx)
     {
-        if (isReading)
+        if (Time.unscaledTime < nextToggleAllowedAt) return;
+
+        if (isReading) CloseDocument();
+        else OpenDocument();
+
+        nextToggleAllowedAt = Time.unscaledTime + toggleCooldown;
+    }
+
+    private void OpenDocument()
+    {
+        if (currentDocument == null)
         {
-            // Cerrar documento
-            if (documentPanel) documentPanel.SetActive(false);
-            if (closePrompt) closePrompt.SetActive(false);
-            if (docReadingPanel) docReadingPanel.SetActive(false);
-
-            Time.timeScale = 1f;
-            if (playerController) playerController.enabled = true;
-            if (flashlightController) flashlightController.enabled = true;
-
-            // Lógica para resetear el estado del prompt
-            if (currentDocument == null)
-            {
-                openPrompt.SetActive(false);
-            }
-            else
-            {
-                openPrompt.SetActive(true);
-            }
-
-            isReading = false;
+            Debug.LogWarning("[DocumentInteraction] No document in range to open.");
+            return;
         }
-        else
-        {
-            // Abrir documento
-            if (currentDocument != null)
-            {
-                if (documentTextUI) documentTextUI.text = currentDocument.documentText;
-                if (documentPanel) documentPanel.SetActive(true);
-                if (docReadingPanel) docReadingPanel.SetActive(true);
-                if (openPrompt) openPrompt.SetActive(false);
-                if (closePrompt) closePrompt.SetActive(true);
 
-                Time.timeScale = 0f;
-                if (playerController) playerController.enabled = false;
-                if (flashlightController) flashlightController.enabled = false;
+        if (documentTextUI) documentTextUI.text = currentDocument.documentText;
+        if (documentPanel) documentPanel.SetActive(true);
+        if (docReadingPanel) docReadingPanel.SetActive(true);
+        if (openPrompt) openPrompt.SetActive(false);
+        if (closePrompt) closePrompt.SetActive(true);
 
-                currentDocument.collected = true;
-                isReading = true;
-            }
-            else
-            {
-                Debug.LogWarning("[DocumentInteraction] No hay documento en rango para abrir.");
-            }
-        }
+        // pause world & enter UI input mode
+        Time.timeScale = 0f;
+        //if (player) player.EnterUIMode();
+        if (flashlightController) flashlightController.enabled = false;
+
+        currentDocument.collected = true;
+        isReading = true;
+    }
+
+    private void CloseDocument()
+    {
+        if (!isReading) return;
+
+        if (documentPanel) documentPanel.SetActive(false);
+        if (docReadingPanel) docReadingPanel.SetActive(false);
+        if (closePrompt) closePrompt.SetActive(false);
+
+        // resume world & exit UI input mode
+        //if (player) player.ExitUIMode();
+        Time.timeScale = 1f;
+
+        if (flashlightController) flashlightController.enabled = true;
+
+        // restore prompt state if still in trigger
+        if (currentDocument && openPrompt) openPrompt.SetActive(true);
+
+        isReading = false;
     }
 }
