@@ -20,9 +20,9 @@ public class PlayerRigidBodyController : MonoBehaviour
     [SerializeField] private float inputDeadzone = 0.12f;
 
     [Header("Animation & Sound")]
-    [SerializeField] private string paramMoveSpeed = "MoveSpeed";
-    [SerializeField] private string paramIsSprinting = "IsSprinting";
-    [SerializeField] private string paramIsCrouching = "IsCrouching";
+    private string paramMoveSpeed = "MoveSpeed";
+    private string paramIsSprinting = "IsSprinting";
+    private string paramIsCrouching = "IsCrouching";
     [SerializeField] private float walkFootstepCadence = 0.5f;
     [SerializeField] private float sprintFootstepCadence = 0.3f;
 
@@ -167,11 +167,8 @@ public class PlayerRigidBodyController : MonoBehaviour
 
     private void PlayFootstepAndAddNoise()
     {
-        // Si el personaje está agachado, no hace ruido y no reproduce sonido de pasos.
         if (isCrouching)
         {
-            // Opcional: Podrías hacer un ruido muy bajo si quisieras
-            // noiseMeter?.AddNormalizedNoise(0.001f);
             return;
         }
 
