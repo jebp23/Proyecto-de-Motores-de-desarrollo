@@ -28976,6 +28976,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5349312246933799438, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 10371422e0f82654d89442663fddec5b, type: 2}
     - target: {fileID: 5438755900613432287, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: noiseMeter
       value: 
