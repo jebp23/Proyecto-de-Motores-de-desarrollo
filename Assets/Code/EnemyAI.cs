@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent agent;
     private bool playerInSight; // Para saber si el jugador está a la vista
+    private Animator animator; // Referencia al Animator
 
     void Start()
     {
@@ -24,6 +25,11 @@ public class EnemyAI : MonoBehaviour
             Debug.LogError("NavMeshAgent no encontrado en el objeto del enemigo.");
             enabled = false;
             return;
+        }
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning("Animator no encontrado en el objeto del enemigo. Las animaciones no funcionarán.");
         }
 
         if (target == null)
@@ -97,18 +103,30 @@ public class EnemyAI : MonoBehaviour
             if (distanceToTarget > stoppingDistance)
             {
                 agent.SetDestination(target.position);
+                if (animator != null)
+                {
+                    animator.SetBool("isWalking", true); // Activa la animación de caminar
+                }
             }
             else
             {
                 // Si está dentro de la distancia de parada, detente
                 agent.SetDestination(transform.position);
                 RotateTowardsTarget();
+                if (animator != null)
+                {
+                    animator.SetBool("isWalking", false); // Detiene la animación de caminar
+                }
             }
         }
         else
         {
             // Si el jugador no está a la vista, detente
             agent.SetDestination(transform.position);
+            if (animator != null)
+            {
+                animator.SetBool("isWalking", false); // Detiene la animación de caminar
+            }
         }
     }
 
