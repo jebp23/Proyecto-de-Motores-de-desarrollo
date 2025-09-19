@@ -249,7 +249,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8325095178171942151}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 10371422e0f82654d89442663fddec5b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -313,9 +313,6 @@ MonoBehaviour:
   crouchSpeed: 2.1
   rotationSpeed: 540
   inputDeadzone: 0.12
-  paramMoveSpeed: MoveSpeed
-  paramIsSprinting: IsSprinting
-  paramIsCrouching: IsCrouching
   walkFootstepCadence: 0.5
   sprintFootstepCadence: 0.3
   noisePerWalkStep: 0.19
@@ -433,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484128538761520324, guid: 77cf697b482e9034191e12319af11197, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.8
+      value: -0.097
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
