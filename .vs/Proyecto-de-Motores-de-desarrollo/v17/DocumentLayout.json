@@ -76,7 +76,7 @@
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
               "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
               "RelativeToolTip": "Assets\\Code\\PlayerRigidBodyController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAQwAsBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAqwKgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-13T15:39:54.942Z",
               "EditorCaption": ""
@@ -91,7 +91,8 @@
               "RelativeToolTip": "Assets\\Code\\NoiseMeter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T19:15:27.386Z"
+              "WhenOpened": "2025-09-14T19:15:27.386Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -103,7 +104,8 @@
               "RelativeToolTip": "Assets\\Code\\GameEvents.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T19:39:42.44Z"
+              "WhenOpened": "2025-09-14T19:39:42.44Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -115,7 +117,8 @@
               "RelativeToolTip": "Assets\\Code\\NoiseBarUI.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T19:48:13.526Z"
+              "WhenOpened": "2025-09-14T19:48:13.526Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
