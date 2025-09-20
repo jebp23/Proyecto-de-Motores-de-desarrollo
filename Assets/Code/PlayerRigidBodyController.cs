@@ -11,6 +11,7 @@ public class PlayerRigidBodyController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private NoiseMeter noiseMeter;
+    [SerializeField] private CapsuleCollider capsule; 
 
     [Header("Movement")]
     [SerializeField] private float walkSpeed = 2.0f;
@@ -33,7 +34,25 @@ public class PlayerRigidBodyController : MonoBehaviour
     [Header("Misc")]
     [SerializeField] private float smallVelocityEpsilon = 0.05f;
 
-    // --- Inputs ---
+    [Header("Crouch Collider")]
+    [Tooltip("Altura del CapsuleCollider al agacharse.")]
+    [SerializeField] private float crouchHeight = 1.2f;
+    [Tooltip("Centro del CapsuleCollider al agacharse (local).")]
+    [SerializeField] private Vector3 crouchCenter = new Vector3(0f, 0.6f, 0f);
+    [Tooltip("Velocidad de interpolación para evitar saltos bruscos.")]
+    [SerializeField] private float colliderLerpSpeed = 12f;
+
+    [Header("Stand Up Check")]
+    [Tooltip("Capas que bloquean al ponerse de pie (excluir la capa 'Player').")]
+    [SerializeField] private LayerMask standUpMask = ~0;
+    [Tooltip("Margen para evitar falsos positivos al chequear espacio.")]
+    [SerializeField] private float standUpSkin = 0.02f;
+
+    private float originalHeight;
+    private Vector3 originalCenter;
+    private bool wasCrouching;
+
+
     private PlayerInputs playerInputs;
     private Vector2 moveInput;
     private bool isSprinting;
@@ -44,10 +63,15 @@ public class PlayerRigidBodyController : MonoBehaviour
     {
         if (animator == null) animator = GetComponent<Animator>();
         if (rb == null) rb = GetComponent<Rigidbody>();
+        if (capsule == null) capsule = GetComponent<CapsuleCollider>();
         if (noiseMeter == null) Debug.LogError("NoiseMeter reference not set on PlayerRigidBodyController.");
 
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        originalHeight = capsule.height;
+        originalCenter = capsule.center;
+        wasCrouching = false;
 
         playerInputs = new PlayerInputs();
     }
@@ -55,24 +79,26 @@ public class PlayerRigidBodyController : MonoBehaviour
     private void OnEnable()
     {
         playerInputs.Enable();
-        playerInputs.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        playerInputs.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+      
+        playerInputs.Player.Move.performed += OnMovePerformed;
+        playerInputs.Player.Move.canceled += OnMoveCanceled;
 
-        playerInputs.Player.Sprint.performed += ctx => isSprinting = true;
-        playerInputs.Player.Sprint.canceled += ctx => isSprinting = false;
+        playerInputs.Player.Sprint.performed += OnSprintPerformed;
+        playerInputs.Player.Sprint.canceled += OnSprintCanceled;
 
-        playerInputs.Player.Crouch.performed += ctx => isCrouching = !isCrouching;
+        playerInputs.Player.Crouch.performed += OnCrouchPerformed;
     }
 
     private void OnDisable()
     {
-        playerInputs.Player.Move.performed -= ctx => moveInput = ctx.ReadValue<Vector2>();
-        playerInputs.Player.Move.canceled -= ctx => moveInput = Vector2.zero;
+        playerInputs.Player.Move.performed -= OnMovePerformed;
+        playerInputs.Player.Move.canceled -= OnMoveCanceled;
 
-        playerInputs.Player.Sprint.performed -= ctx => isSprinting = true;
-        playerInputs.Player.Sprint.canceled -= ctx => isSprinting = false;
+        playerInputs.Player.Sprint.performed -= OnSprintPerformed;
+        playerInputs.Player.Sprint.canceled -= OnSprintCanceled;
 
-        playerInputs.Player.Crouch.performed -= ctx => isCrouching = !isCrouching;
+        playerInputs.Player.Crouch.performed -= OnCrouchPerformed;
+
         playerInputs.Disable();
     }
 
@@ -85,13 +111,37 @@ public class PlayerRigidBodyController : MonoBehaviour
     private void Update()
     {
         HandleFootsteps();
+        HandleCrouchCollider(); 
     }
+
+    private void OnMovePerformed(InputAction.CallbackContext ctx) => moveInput = ctx.ReadValue<Vector2>();
+    private void OnMoveCanceled(InputAction.CallbackContext ctx) => moveInput = Vector2.zero;
+
+    private void OnSprintPerformed(InputAction.CallbackContext ctx) => isSprinting = true;
+    private void OnSprintCanceled(InputAction.CallbackContext ctx) => isSprinting = false;
+
+    private void OnCrouchPerformed(InputAction.CallbackContext ctx)
+    {
+        if (isCrouching)
+        {
+            if (CanStandUp())
+                isCrouching = false;
+            else
+                isCrouching = true; 
+        }
+        else
+        {
+            isCrouching = true;
+        }
+    }
+
 
     private void UpdateMovement()
     {
         Vector3 desiredDir = GetDesiredDirection();
         float targetSpeed = GetTargetSpeed();
 
+   
         Vector3 currentVelocity = rb.linearVelocity;
         Vector3 desiredPlanarVelocity = desiredDir * targetSpeed;
 
@@ -167,10 +217,7 @@ public class PlayerRigidBodyController : MonoBehaviour
 
     private void PlayFootstepAndAddNoise()
     {
-        if (isCrouching)
-        {
-            return;
-        }
+        if (isCrouching) return;
 
         if (AudioManager.I != null)
         {
@@ -182,5 +229,39 @@ public class PlayerRigidBodyController : MonoBehaviour
             float noiseAmount = isSprinting ? noisePerSprintStep : noisePerWalkStep;
             noiseMeter.AddNormalizedNoise(noiseAmount);
         }
+    }
+
+
+    private void HandleCrouchCollider()
+    {
+        float targetHeight = isCrouching ? crouchHeight : originalHeight;
+        Vector3 targetCenter = isCrouching ? crouchCenter : originalCenter;
+
+        capsule.height = Mathf.Lerp(capsule.height, targetHeight, Time.deltaTime * colliderLerpSpeed);
+        capsule.center = Vector3.Lerp(capsule.center, targetCenter, Time.deltaTime * colliderLerpSpeed);
+    }
+
+    
+    private bool CanStandUp()
+    {
+        float targetHeight = originalHeight;
+        float radius = Mathf.Max(capsule.radius - standUpSkin, 0.01f);
+
+        Vector3 worldCenter = transform.TransformPoint(originalCenter);
+        float halfHeight = Mathf.Max(targetHeight * 0.5f - radius, 0f);
+
+        Vector3 bottom = worldCenter + Vector3.down * halfHeight;
+        Vector3 top = worldCenter + Vector3.up * halfHeight;
+
+        Collider[] hits = Physics.OverlapCapsule(
+            bottom, top, radius, standUpMask, QueryTriggerInteraction.Ignore
+        );
+
+        foreach (var col in hits)
+        {
+            if (col.transform.IsChildOf(transform)) continue;
+            return false;
+        }
+        return true;
     }
 }
