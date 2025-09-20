@@ -231,7 +231,6 @@ public class PlayerRigidBodyController : MonoBehaviour
         }
     }
 
-
     private void HandleCrouchCollider()
     {
         float targetHeight = isCrouching ? crouchHeight : originalHeight;

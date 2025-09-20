@@ -28925,18 +28925,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3779678457217311065}
     - target: {fileID: 3236526961656506347, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236526961656506347, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236526961656506347, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3236526961656506347, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.2
       objectReference: {fileID: 0}
@@ -28976,18 +28964,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5349312246933799438, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 10371422e0f82654d89442663fddec5b, type: 2}
     - target: {fileID: 5438755900613432287, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: noiseMeter
       value: 
       objectReference: {fileID: 1790326689}
-    - target: {fileID: 5438755900613432287, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: cameraTarget
-      value: 
-      objectReference: {fileID: 184183087}
     - target: {fileID: 5438755900613432287, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -29012,17 +28992,9 @@ PrefabInstance:
       propertyPath: docReadingPanel
       value: 
       objectReference: {fileID: 1233765954}
-    - target: {fileID: 5624520456798781038, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.097
-      objectReference: {fileID: 0}
     - target: {fileID: 8325095178171942151, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: m_Name
       value: PlayerPlaceholder
-      objectReference: {fileID: 0}
-    - target: {fileID: 8325095178171942151, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
