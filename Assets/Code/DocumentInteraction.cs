@@ -109,6 +109,7 @@ public class DocumentInteraction : MonoBehaviour
         if (flashlightController) flashlightController.enabled = false;
 
         currentDocument.collected = true;
+        GameManager.I?.DocumentCollected(currentDocument);
         isReading = true;
     }
 

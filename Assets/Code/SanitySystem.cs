@@ -5,6 +5,7 @@ public class SanitySystem : MonoBehaviour
 {
     [SerializeField] private Slider sanitySlider;
     [SerializeField] private float maxSanity = 100f;
+    private bool hasDepleted = false;
 
     private float currentSanity;
 
@@ -15,16 +16,38 @@ public class SanitySystem : MonoBehaviour
         sanitySlider.value = currentSanity;
     }
 
+    // SanitySystem.cs
+
+    // SanitySystem.cs
+
     public void TakeDamage(float amount)
     {
+        if (hasDepleted) return;
+
         currentSanity -= amount;
         currentSanity = Mathf.Clamp(currentSanity, 0, maxSanity);
         sanitySlider.value = currentSanity;
 
         if (currentSanity <= 0)
         {
-            Debug.Log("Perdiste chabon");
-            //Recordar conectar esto con la pantalla de game over (condición de perdida)
+            var lives = FindFirstObjectByType<LivesSystem>();
+            if (lives != null) lives.LoseLife();
+
+            var gm = FindFirstObjectByType<GameManager>();
+            bool isGameOver = (gm != null && gm.CurrentState == GameState.GameOver);
+
+            if (!isGameOver)
+                SpawnPoint.I?.RespawnPlayer(gameObject);
+
+            hasDepleted = true; // ← evita múltiples descuentos en el mismo “death”
         }
     }
+
+    public void RestoreFull()
+    {
+        currentSanity = maxSanity;
+        sanitySlider.value = currentSanity;
+        hasDepleted = false; // ← volvemos a habilitar daño luego del respawn
+    }
+
 }

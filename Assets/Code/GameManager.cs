@@ -75,5 +75,23 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    [SerializeField] private GameObject gameOverPanel;
+
+    public void TriggerGameOver()
+    {
+        if (state == GameState.GameOver) return;
+        state = GameState.GameOver;
+        if (gameOverPanel) gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    }
+
+
     public GameState CurrentState => state;
 }
