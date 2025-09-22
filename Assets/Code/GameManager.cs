@@ -1,85 +1,65 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public enum GameState
-{
-    Playing,
-    Paused,
-    Victory,
-    GameOver
-}
+public enum GameState { Playing, Paused, Victory, GameOver }
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager I { get; private set; }
 
     [Header("UI")]
-    [SerializeField] private GameObject victoryPanel;
-    [SerializeField] private TMP_Text progressText; 
+    [SerializeField] GameObject victoryPanel;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] TMP_Text progressText;
 
-    private Document[] allDocuments;
+    [Header("Docs")]
+    [SerializeField] Document[] allDocuments;
+
     private int collectedDocs = 0;
     private GameState state = GameState.Playing;
 
-    private void Awake()
+    void Awake()
     {
-        // Singleton
-        if (I != null && I != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (I != null && I != this) { Destroy(gameObject); return; }
         I = this;
-        DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        // Buscar todos los documentos en la escena
-        allDocuments = FindObjectsOfType<Document>();
-        Debug.Log($"[GameManager] Documentos totales: {allDocuments.Length}");
+    void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
+    void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 
+    void Start() { BootstrapScene(); }
+    void OnSceneLoaded(Scene s, LoadSceneMode m) { BootstrapScene(); }
+
+    void BootstrapScene()
+    {
+        state = GameState.Playing;
+        Time.timeScale = 1f;
+
+        if (victoryPanel) victoryPanel.SetActive(false);
+        if (gameOverPanel) gameOverPanel.SetActive(false);
+
+        if (allDocuments == null || allDocuments.Length == 0)
+            allDocuments = FindObjectsOfType<Document>(true);
+
+        collectedDocs = 0;
         UpdateProgressUI();
     }
 
-    public void DocumentCollected(Document doc)
+    void UpdateProgressUI()
     {
-        if (!doc.collected)
-        {
-            doc.collected = true;
-            collectedDocs++;
-            Debug.Log($"[GameManager] Documento recogido ({collectedDocs}/{allDocuments.Length})");
-
-            UpdateProgressUI();
-
-            if (collectedDocs >= allDocuments.Length)
-            {
-                TriggerVictory();
-            }
-        }
+        if (progressText) progressText.text = $"{collectedDocs}/{(allDocuments?.Length ?? 0)}";
     }
 
-    private void UpdateProgressUI()
+    public void DocumentCollected(Document d)
     {
-        if (progressText)
-            progressText.text = $"{collectedDocs}/{allDocuments.Length}";
+        collectedDocs++;
+        UpdateProgressUI();
+        if (collectedDocs >= (allDocuments?.Length ?? 0)) TriggerVictory();
     }
-
-    private void TriggerVictory()
-    {
-        state = GameState.Victory;
-        Debug.Log("[GameManager] ¡Victoria! Todos los documentos fueron leídos.");
-        if (victoryPanel) victoryPanel.SetActive(true);
-
-        // Opcional: detener el tiempo
-        Time.timeScale = 0f;
-    }
-
-    [SerializeField] private GameObject gameOverPanel;
 
     public void TriggerGameOver()
     {
-        if (state == GameState.GameOver) return;
         state = GameState.GameOver;
         if (gameOverPanel) gameOverPanel.SetActive(true);
         Time.timeScale = 0f;
@@ -88,10 +68,16 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.buildIndex);
     }
 
+    void TriggerVictory()
+    {
+        state = GameState.Victory;
+        if (victoryPanel) victoryPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
 
     public GameState CurrentState => state;
 }
