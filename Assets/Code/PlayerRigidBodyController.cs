@@ -35,10 +35,17 @@ public class PlayerRigidBodyController : MonoBehaviour
     [SerializeField] private float smallVelocityEpsilon = 0.05f;
 
     [Header("Crouch Collider")]
+    [Tooltip("Altura del CapsuleCollider al agacharse.")]
     [SerializeField] private float crouchHeight = 1.2f;
+    [Tooltip("Centro del CapsuleCollider al agacharse (local).")]
     [SerializeField] private Vector3 crouchCenter = new Vector3(0f, 0.6f, 0f);
+    [Tooltip("Velocidad de interpolación para evitar saltos bruscos.")]
     [SerializeField] private float colliderLerpSpeed = 12f;
+
+    [Header("Stand Up Check")]
+    [Tooltip("Capas que bloquean al ponerse de pie (excluir la capa 'Player').")]
     [SerializeField] private LayerMask standUpMask = ~0;
+    [Tooltip("Margen para evitar falsos positivos al chequear espacio.")]
     [SerializeField] private float standUpSkin = 0.02f;
 
     private float originalHeight;

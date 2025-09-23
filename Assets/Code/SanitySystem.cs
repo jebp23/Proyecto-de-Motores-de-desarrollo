@@ -7,42 +7,24 @@ public class SanitySystem : MonoBehaviour
     [SerializeField] private float maxSanity = 100f;
 
     private float currentSanity;
-    private bool hasDepleted; 
 
     private void Awake()
     {
         currentSanity = maxSanity;
-        if (sanitySlider)
-        {
-            sanitySlider.maxValue = maxSanity;
-            sanitySlider.value = currentSanity;
-        }
+        sanitySlider.maxValue = maxSanity;
+        sanitySlider.value = currentSanity;
     }
 
     public void TakeDamage(float amount)
     {
-        if (hasDepleted) return;
+        currentSanity -= amount;
+        currentSanity = Mathf.Clamp(currentSanity, 0, maxSanity);
+        sanitySlider.value = currentSanity;
 
-        currentSanity = Mathf.Clamp(currentSanity - amount, 0f, maxSanity);
-        if (sanitySlider) sanitySlider.value = currentSanity;
-
-        if (currentSanity <= 0f)
+        if (currentSanity <= 0)
         {
-            hasDepleted = true;
-
-            LivesSystem.I?.LoseLife();
-
-
-            if (GameManager.I == null || GameManager.I.CurrentState != GameState.GameOver)
-                SpawnPoint.I?.RespawnPlayer(gameObject);
+            Debug.Log("Perdiste chabon");
+            //Recordar conectar esto con la pantalla de game over (condición de perdida)
         }
-    }
-
-
-    public void RestoreFull()
-    {
-        currentSanity = maxSanity;
-        if (sanitySlider) sanitySlider.value = currentSanity;
-        hasDepleted = false;
     }
 }
