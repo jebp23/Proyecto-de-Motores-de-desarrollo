@@ -5,8 +5,8 @@ using TMPro;
 public class DocumentInteraction : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerInput playerInput;                   // to read Interact action
-    [SerializeField] private PlayerRigidBodyController player;          // <-- updated: RB controller
+    [SerializeField] private PlayerInput playerInput;                  
+    [SerializeField] private PlayerRigidBodyController player;     
     [SerializeField] private FlashlightController flashlightController;
     [SerializeField] private GameObject openPrompt;
     [SerializeField] private GameObject closePrompt;
@@ -15,12 +15,12 @@ public class DocumentInteraction : MonoBehaviour
     [SerializeField] private GameObject docReadingPanel;
 
     [Header("UI Toggle")]
-    [SerializeField] private float toggleCooldown = 0.15f;             // anti-bounce in unscaled time
+    [SerializeField] private float toggleCooldown = 0.15f;            
 
     private InputAction interactAction;
     private Document currentDocument;
     private bool isReading;
-    private float nextToggleAllowedAt;                                  // unscaled time
+    private float nextToggleAllowedAt;                                 
 
     private void Awake()
     {
@@ -103,12 +103,12 @@ public class DocumentInteraction : MonoBehaviour
         if (openPrompt) openPrompt.SetActive(false);
         if (closePrompt) closePrompt.SetActive(true);
 
-        // pause world & enter UI input mode
+
         Time.timeScale = 0f;
-        //if (player) player.EnterUIMode();
         if (flashlightController) flashlightController.enabled = false;
 
         currentDocument.collected = true;
+        GameManager.I?.DocumentCollected(currentDocument);
         isReading = true;
     }
 
@@ -119,14 +119,10 @@ public class DocumentInteraction : MonoBehaviour
         if (documentPanel) documentPanel.SetActive(false);
         if (docReadingPanel) docReadingPanel.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
-
-        // resume world & exit UI input mode
-        //if (player) player.ExitUIMode();
         Time.timeScale = 1f;
 
         if (flashlightController) flashlightController.enabled = true;
-
-        // restore prompt state if still in trigger
+    
         if (currentDocument && openPrompt) openPrompt.SetActive(true);
 
         isReading = false;
