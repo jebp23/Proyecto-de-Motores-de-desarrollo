@@ -21,17 +21,4 @@ public class NoiseBarUI : MonoBehaviour
 
         Debug.Log("Value of the noise: " + normalizedValue);
     }
-
-
-    //private void OnTriggerEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player") && normalizedValue >= 0.3)
-    //    {
-    //        AlertMode();
-    //    }
-    //    else if (normalizedValue >= 0.5)
-    //    {
-    //        AtatckMode();
-    //    }
-    //}
 }
