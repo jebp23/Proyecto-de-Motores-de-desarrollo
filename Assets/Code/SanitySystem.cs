@@ -34,7 +34,9 @@ public class SanitySystem : MonoBehaviour
 
 
             if (GameManager.I == null || GameManager.I.CurrentState != GameState.GameOver)
-                SpawnPoint.I?.RespawnPlayer(gameObject);
+            {
+                DeathFadeController.I?.PlayDeathSequence(gameObject);
+            }
         }
     }
 

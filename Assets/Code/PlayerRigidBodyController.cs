@@ -256,4 +256,11 @@ public class PlayerRigidBodyController : MonoBehaviour
         }
         return true;
     }
+
+    public void SetInputEnabled(bool on)
+    {
+        if (on) playerInputs.Enable();
+        else playerInputs.Disable();
+    }
+
 }

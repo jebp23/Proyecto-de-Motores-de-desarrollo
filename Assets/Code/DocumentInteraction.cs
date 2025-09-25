@@ -97,6 +97,8 @@ public class DocumentInteraction : MonoBehaviour
             return;
         }
 
+
+        NoteSequencer.I?.EnsureAssignment(currentDocument);
         if (documentTextUI) documentTextUI.text = currentDocument.documentText;
         if (documentPanel) documentPanel.SetActive(true);
         if (docReadingPanel) docReadingPanel.SetActive(true);
