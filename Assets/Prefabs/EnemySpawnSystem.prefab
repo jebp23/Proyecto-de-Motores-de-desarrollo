@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &243513514115506103
 Transform:
   m_ObjectHideFlags: 0
@@ -173,10 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5304170482822034782}
+  - {fileID: 2175743587100266270}
+  - {fileID: 7808772132255284363}
+  - {fileID: 146610958876923597}
   monsterPrefab: {fileID: 8070939206821501076, guid: a8af6123d2fdb8149a35e20bae307677, type: 3}
   monsterTag: Monster
   spawnOnSceneLoaded: 1
