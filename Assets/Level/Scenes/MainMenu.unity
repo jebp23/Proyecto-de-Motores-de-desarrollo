@@ -985,7 +985,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -1633,6 +1633,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 1897700772395921978, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -315.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897700772395921978, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 236.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033435746499246272, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387839309519655721, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052733648903379153, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 303.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310653700115516032, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_fontSize
+      value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310653700115516032, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 92
+      objectReference: {fileID: 0}
     - target: {fileID: 3430375200482999188, guid: 62a5ab3786d145947843349d9321a725, type: 3}
       propertyPath: m_Name
       value: OpcionesEnEscenas
@@ -1648,6 +1676,30 @@ PrefabInstance:
     - target: {fileID: 3900974432805306500, guid: 62a5ab3786d145947843349d9321a725, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4087727515674511279, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 233.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836783498115913182, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -44.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360245055251167086, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360245055251167086, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360245055251167086, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245037275554966014, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6300946724128799926, guid: 62a5ab3786d145947843349d9321a725, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1668,6 +1720,14 @@ PrefabInstance:
     - target: {fileID: 6300946724128799926, guid: 62a5ab3786d145947843349d9321a725, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7148659676265684824, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -314.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490667366546771884, guid: 62a5ab3786d145947843349d9321a725, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7698548847549416976, guid: 62a5ab3786d145947843349d9321a725, type: 3}
       propertyPath: m_IsActive
