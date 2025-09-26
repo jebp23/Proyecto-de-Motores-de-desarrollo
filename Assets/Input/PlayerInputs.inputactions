@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LightAttack",
+                    "type": "Button",
+                    "id": "6c861b14-a2f5-4ff6-962a-4b388fcb9da7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -429,8 +438,8 @@
                 },
                 {
                     "name": "",
-                    "id": "e8618481-c5ea-4d42-98e0-37e9efac8331",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "4f5d7b5f-837b-4e68-867d-d08da42dbdf3",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -440,12 +449,56 @@
                 },
                 {
                     "name": "",
-                    "id": "4f5d7b5f-837b-4e68-867d-d08da42dbdf3",
-                    "path": "<Keyboard>/f",
+                    "id": "e40ab96f-23f4-4fb6-8fe7-edf698b3ee39",
+                    "path": "<XInputController>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b28da2ae-f741-4833-bb54-5a3ccbf3cf87",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b3bb861-4f32-41ce-8d40-cb3a2a4691fa",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63b7b90e-6931-405d-be1a-34654e99257b",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ae537a3-9313-4306-bee0-618d4e7c76a2",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

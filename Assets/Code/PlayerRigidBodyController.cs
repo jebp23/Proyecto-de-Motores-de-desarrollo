@@ -41,6 +41,12 @@ public class PlayerRigidBodyController : MonoBehaviour
     [SerializeField] private LayerMask standUpMask = ~0;
     [SerializeField] private float standUpSkin = 0.02f;
 
+    [Header("Footstep Volumes")]
+    [SerializeField, Range(0f, 1f)] float walkStepVolume = 0.6f;
+    [SerializeField, Range(0f, 1f)] float runStepVolume = 1f;
+    [SerializeField] AudioSource footstepSource;
+
+
     private float originalHeight;
     private Vector3 originalCenter;
     private bool wasCrouching;

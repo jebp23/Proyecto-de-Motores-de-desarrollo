@@ -17,6 +17,7 @@ public class EnemyMonster : MonoBehaviour
     [Header("Animation")]
     [SerializeField] Animator animator;
     [SerializeField] string walkBool = "isWalking";
+    [SerializeField] string stunnedBool = "isStunned";
 
     [Header("Detection")]
     [SerializeField] MonoBehaviour detectionStrategyComponent;
@@ -41,6 +42,19 @@ public class EnemyMonster : MonoBehaviour
     [SerializeField] bool forceEnableStrategyOnStart = true;
     [SerializeField] int enableGuardFrames = 20;
 
+    [Header("Light Stun")]
+    [SerializeField] bool canBeStunnedByLight = false;
+    [SerializeField] float stunSeconds = 2.5f;
+    [SerializeField] bool freezeAgentOnStun = true;
+    [SerializeField] AudioClip stunSfx;
+    [SerializeField, Range(0f, 1f)] float stunSfxVolume = 1f;
+
+    [Header("SFX Detection")]
+    [SerializeField] AudioClip detectionSfx;
+    [SerializeField, Range(0f, 1f)] float detectionSfxVolume = 1f;
+    [SerializeField] float detectionSfxRearmSeconds = 1.0f;
+    [SerializeField] AudioSource sfxSource;
+
     NavMeshAgent agent;
     bool isChasing;
     Vector3 lastPerceivedTargetPos;
@@ -49,7 +63,14 @@ public class EnemyMonster : MonoBehaviour
     float patrolWaitTimer;
     int guardCounter;
 
+    bool isStunned;
+    float stunEndTime;
+
+    bool detectionArmed = true;
+    float lastNotDetectTime;
+
     public bool CurrentlyDetecting { get; private set; }
+    public bool IsStunned => isStunned;
 
     void Awake()
     {
@@ -64,6 +85,8 @@ public class EnemyMonster : MonoBehaviour
         if (ignoreBoardsAtRuntime) IgnoreBoardsCollisions();
         if (agent) agent.speed = idleSpeed;
         guardCounter = enableGuardFrames;
+        detectionArmed = true;
+        lastNotDetectTime = Time.time;
     }
 
     void OnEnable()
@@ -85,6 +108,12 @@ public class EnemyMonster : MonoBehaviour
             guardCounter--;
         }
 
+        if (isStunned)
+        {
+            if (Time.time >= stunEndTime) EndStun();
+            else { Stop(); return; }
+        }
+
         if (!target || agent == null || detection == null) { PatrolUpdate(false); return; }
         if (!agent.isOnNavMesh) { PatrolUpdate(false); return; }
 
@@ -92,12 +121,25 @@ public class EnemyMonster : MonoBehaviour
 
         if (CurrentlyDetecting)
         {
+            if (detectionArmed)
+            {
+                if (detectionSfx)
+                {
+                    if (sfxSource) sfxSource.PlayOneShot(detectionSfx, detectionSfxVolume);
+                    else AudioSource.PlayClipAtPoint(detectionSfx, transform.position, detectionSfxVolume);
+                }
+                detectionArmed = false;
+            }
+
             isChasing = true;
             lastPerceivedTargetPos = perceivedPos;
             Chase(perceivedPos);
         }
         else
         {
+            if (!detectionArmed && Time.time - lastNotDetectTime >= detectionSfxRearmSeconds) detectionArmed = true;
+            lastNotDetectTime = Time.time;
+
             if (isChasing)
             {
                 float dist = Vector3.Distance(transform.position, lastPerceivedTargetPos);
@@ -190,7 +232,12 @@ public class EnemyMonster : MonoBehaviour
 
     void Stop()
     {
-        if (agent.isOnNavMesh) agent.SetDestination(transform.position);
+        if (agent.isOnNavMesh)
+        {
+            agent.SetDestination(transform.position);
+            if (isStunned && freezeAgentOnStun) agent.isStopped = true;
+            else agent.isStopped = false;
+        }
         if (animator && !string.IsNullOrEmpty(walkBool)) animator.SetBool(walkBool, false);
     }
 
@@ -271,6 +318,29 @@ public class EnemyMonster : MonoBehaviour
                 Physics.IgnoreCollision(a, b, true);
             }
         }
+    }
+
+    public void ApplyLightStun(float customDuration)
+    {
+        if (!canBeStunnedByLight) return;
+        float d = customDuration > 0f ? customDuration : stunSeconds;
+        isStunned = true;
+        stunEndTime = Time.time + d;
+        if (agent) { agent.ResetPath(); if (freezeAgentOnStun) agent.isStopped = true; }
+        CurrentlyDetecting = false;
+        if (animator && !string.IsNullOrEmpty(stunnedBool)) animator.SetBool(stunnedBool, true);
+        if (stunSfx)
+        {
+            if (sfxSource) sfxSource.PlayOneShot(stunSfx, stunSfxVolume);
+            else AudioSource.PlayClipAtPoint(stunSfx, transform.position, stunSfxVolume);
+        }
+    }
+
+    void EndStun()
+    {
+        isStunned = false;
+        if (agent) agent.isStopped = false;
+        if (animator && !string.IsNullOrEmpty(stunnedBool)) animator.SetBool(stunnedBool, false);
     }
 
     public Transform Target => target;

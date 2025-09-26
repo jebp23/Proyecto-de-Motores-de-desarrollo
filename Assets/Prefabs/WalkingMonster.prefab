@@ -485,14 +485,32 @@ MonoBehaviour:
   playerTag: Player
   stoppingDistance: 2
   rotationSpeed: 5
+  idleSpeed: 1.5
+  chaseSpeed: 4.5
   animator: {fileID: 3290512891414042708}
   walkBool: isWalking
+  stunnedBool: isStunned
   detectionStrategyComponent: {fileID: -5194175758419654504}
   ignoreBoardsAtRuntime: 0
   boardsRootTag: Boards
-  chaseSpeed: 4
-  idleSpeed: 1.5
   sanityDamagePerSecond: 8
+  patrolEnabled: 0
+  patrolPoints: []
+  patrolSpeed: 2.5
+  patrolWaitSeconds: 0.5
+  patrolPingPong: 0
+  patrolRandom: 0
+  forceEnableStrategyOnStart: 1
+  enableGuardFrames: 20
+  canBeStunnedByLight: 1
+  stunSeconds: 2.5
+  freezeAgentOnStun: 1
+  stunSfx: {fileID: 8300000, guid: f417f106a09922241b59d832a7c996bf, type: 3}
+  stunSfxVolume: 0.61
+  detectionSfx: {fileID: 8300000, guid: d56efedb39a182d4f9ac57c7a370e899, type: 3}
+  detectionSfxVolume: 1
+  detectionSfxRearmSeconds: 1
+  sfxSource: {fileID: 0}
 --- !u!114 &-5194175758419654504
 MonoBehaviour:
   m_ObjectHideFlags: 0

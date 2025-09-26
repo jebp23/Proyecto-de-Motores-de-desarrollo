@@ -2,51 +2,53 @@
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager I { get; private set; } 
+    public static AudioManager I { get; private set; }
 
-    [Header("Audio Sources")]
-    [SerializeField] private AudioSource _sfxSource;
+    [Header("Output")]
+    [SerializeField] AudioSource sfxSource;
 
-    [Header("Footstep Clips")]
-    [SerializeField] private AudioClip[] footstepWalkClips;
-    [SerializeField] private AudioClip[] footstepRunClips;
+    [Header("Footsteps")]
+    [SerializeField] AudioClip[] footstepWalkClips;
+    [SerializeField] AudioClip[] footstepRunClips;
+    [SerializeField, Range(0f, 1f)] float walkFootstepVolume = 0.6f;
+    [SerializeField, Range(0f, 1f)] float runFootstepVolume = 1f;
+    [SerializeField] Vector2 footstepPitchRange = new Vector2(0.95f, 1.05f);
 
-    [Header("Monster Clips")]
-    [SerializeField] private AudioClip growlClip;
-    [SerializeField] private float growlCooldown = 2f;
+    [Header("Misc SFX")]
+    [SerializeField] AudioClip growlClip;
+    [SerializeField] float growlCooldown = 2f;
 
-    private float _lastGrowlTime;
+    float lastGrowlTime;
 
-    private void Awake()
+    void Awake()
     {
-        if (I != null && I != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (I != null && I != this) { Destroy(gameObject); return; }
         I = this;
-        DontDestroyOnLoad(gameObject);
     }
 
-    public void PlayFootstep(bool isRunning)
+    public void PlayFootstep(bool running)
     {
-        AudioClip[] clips = isRunning ? footstepRunClips : footstepWalkClips;
-        if (clips == null || clips.Length == 0) return;
-
-        AudioClip clip = clips[Random.Range(0, clips.Length)];
-        _sfxSource.PlayOneShot(clip);
+        if (sfxSource == null) return;
+        AudioClip[] bank = running ? footstepRunClips : footstepWalkClips;
+        if (bank == null || bank.Length == 0) return;
+        int idx = Random.Range(0, bank.Length);
+        float vol = running ? runFootstepVolume : walkFootstepVolume;
+        float pitch = Random.Range(footstepPitchRange.x, footstepPitchRange.y);
+        sfxSource.pitch = pitch;
+        sfxSource.PlayOneShot(bank[idx], vol);
     }
-
 
     public void PlayGrowl()
     {
-        if (_sfxSource != null && growlClip != null)
-        {
-            if (Time.time - _lastGrowlTime >= growlCooldown)
-            {
-                _sfxSource.PlayOneShot(growlClip);
-                _lastGrowlTime = Time.time;
-            }
-        }
+        if (!growlClip || sfxSource == null) return;
+        if (Time.time - lastGrowlTime < growlCooldown) return;
+        sfxSource.PlayOneShot(growlClip);
+        lastGrowlTime = Time.time;
+    }
+
+    public void PlayOneShot(AudioClip clip, float volume = 1f)
+    {
+        if (!clip || sfxSource == null) return;
+        sfxSource.PlayOneShot(clip, volume);
     }
 }
