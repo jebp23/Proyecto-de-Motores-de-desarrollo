@@ -48,7 +48,14 @@ MonoBehaviour:
   victoryPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   progressText: {fileID: 0}
-  allDocuments: []
+  totalNotes: 4
+  deathFader: {fileID: 7206471955197097394}
+  deathSfxObjectName: DeathSFXSource
+  deathSfxTag: DeathSFXSource
+  respawnGraceSeconds: 2
+  spawnClearRadius: 5
+  restartFadeOut: 0
+  restartBlackHold: 1.2
 --- !u!114 &7206471955197097394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,16 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46509222f1951f54ca1d714e66b8c627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCanvas: {fileID: 0}
-  uiCanvas: {fileID: 0}
-  autoSortAboveUI: 1
-  orderOffset: 100
-  panelRoot: {fileID: 0}
-  fadeGroup: {fileID: 0}
-  blackImage: {fileID: 0}
-  fadeInTime: 0.15
-  holdTime: 1.5
-  fadeOutTime: 0.25
-  hideUICanvasDuringBlackout: 0
-  deathSfx: {fileID: 8300000, guid: ceefceaeb1b522d4b8f518458ee1c28a, type: 3}
-  sfxSource: {fileID: 0}
+  canvasGroup: {fileID: 0}
+  defaultFadeOut: 0.1
+  defaultBlackHold: 2
+  defaultFadeIn: 0.4

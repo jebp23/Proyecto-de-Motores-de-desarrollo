@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8845698747195659975}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1820.1299, y: 258.81796, z: 59.77793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -45,12 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987a0e76e97e9e3468a87f1258e788c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sfxSource: {fileID: 8906961195248486337}
+  sfxSource: {fileID: 8906961195248486337}
   footstepWalkClips:
   - {fileID: 8300000, guid: 141a889555578ec4bb8809f19b80518e, type: 3}
   footstepRunClips:
   - {fileID: 8300000, guid: 141a889555578ec4bb8809f19b80518e, type: 3}
-  growlClip: {fileID: 8300000, guid: d56efedb39a182d4f9ac57c7a370e899, type: 3}
+  walkFootstepVolume: 0.36
+  runFootstepVolume: 0.72
+  footstepPitchRange: {x: 0.95, y: 1.05}
+  growlClip: {fileID: 0}
   growlCooldown: 2
 --- !u!82 &8906961195248486337
 AudioSource:

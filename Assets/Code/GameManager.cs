@@ -21,15 +21,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] float respawnGraceSeconds = 2f;
     [SerializeField] float spawnClearRadius = 5f;
 
+    [Header("Restart Transition")]
+    [SerializeField] float restartFadeOut = -1f;
+    [SerializeField] float restartBlackHold = -1f;
+
     HashSet<Document> collectedSet = new HashSet<Document>();
     int collectedNotes;
     GameState state = GameState.Playing;
     bool respawning;
-
-    PlayerRigidBodyController cachedPlayerCtrl;
-    Rigidbody cachedRb;
-    FlashlightController cachedFlashlightCtrl;
-    FlashlightBeam cachedBeam;
 
     void Awake()
     {
@@ -41,14 +40,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         GameEvents.OnLevelRestart += OnLevelRestart;
-        DeathFadeController.OnBlackHoldFinished += OnBlackHoldFinished;
     }
 
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         GameEvents.OnLevelRestart -= OnLevelRestart;
-        DeathFadeController.OnBlackHoldFinished -= OnBlackHoldFinished;
     }
 
     void Start() { BootstrapScene(); }
@@ -79,7 +76,13 @@ public class GameManager : MonoBehaviour
         if (pause != null) { pause.EsconderOpciones(); pause.BlockPause(true); }
         Time.timeScale = 1f;
         if (!deathFader) deathFader = FindFirstObjectByType<DeathFadeController>(FindObjectsInactive.Include);
-        if (deathFader) yield return deathFader.FadeOut(null);
+        if (deathFader)
+        {
+            float fo = restartFadeOut >= 0f ? restartFadeOut : deathFader.DefaultFadeOut;
+            float bh = restartBlackHold >= 0f ? restartBlackHold : deathFader.DefaultBlackHold;
+            yield return deathFader.FadeOut(fo);
+            yield return deathFader.BlackHold(bh);
+        }
         AudioManager.I?.FadeOutAll(0.3f);
         var current = SceneManager.GetActiveScene();
         SceneManager.LoadScene(current.buildIndex);
@@ -120,67 +123,37 @@ public class GameManager : MonoBehaviour
         if (pause != null) { pause.EsconderOpciones(); pause.BlockPause(true); }
 
         if (!deathFader) deathFader = FindFirstObjectByType<DeathFadeController>(FindObjectsInactive.Include);
-
-        CachePlayerRefs();
-        EnablePlayerControl(false);
-        ZeroPlayerVelocity();
-        ToggleFlashlight(false);
-
         AudioSource except = ResolveDeathSfxSource();
         AudioManager.I?.FadeOutAll(0.25f, except);
         if (deathFader) yield return deathFader.FadeOut(null);
         AudioManager.I?.StopAll(except);
 
         var player = GameObject.FindWithTag("Player");
+        PlayerRigidBodyController ctrl = null;
+
         if (player != null)
         {
-            SpawnPoint.I?.RespawnPlayer(player);
+            ctrl = player.GetComponent<PlayerRigidBodyController>();
+            if (ctrl) { ctrl.SetInputEnabled(false); ctrl.ResetMovementState(true); }
+            if (SpawnPoint.I) SpawnPoint.I.TeleportImmediate(player);
+            if (ctrl) ctrl.ResetMovementState(true);
             StartCoroutine(TempIgnoreCollisionsWithEnemies(player, respawnGraceSeconds));
         }
 
-        ClearAroundSpawn(player != null ? player.transform.position : Vector3.zero);
+        Vector3 center = SpawnPoint.I ? SpawnPoint.I.SpawnPosition : (player ? player.transform.position : Vector3.zero);
+        ClearAroundSpawn(center);
         SuppressAllEnemies(respawnGraceSeconds);
 
-        if (deathFader) deathFader.HoldThenFadeIn(null, null);
+        if (deathFader) yield return deathFader.BlackHold(null);
+        else yield return new WaitForSecondsRealtime(0.15f);
+
+        if (deathFader) yield return deathFader.FadeIn(null);
         AudioManager.I?.ReplayStopped();
         AudioManager.I?.FadeInAll(deathFader ? deathFader.DefaultFadeIn : 0.35f);
 
+        if (ctrl) { ctrl.ResetMovementState(true); ctrl.SetInputEnabled(true); }
         if (pause != null) pause.BlockPause(false);
         respawning = false;
-    }
-
-    void OnBlackHoldFinished()
-    {
-        EnablePlayerControl(true);
-        ToggleFlashlight(true);
-    }
-
-    void CachePlayerRefs()
-    {
-        var playerGo = GameObject.FindWithTag("Player");
-        cachedPlayerCtrl = playerGo ? playerGo.GetComponent<PlayerRigidBodyController>() : null;
-        cachedRb = playerGo ? playerGo.GetComponent<Rigidbody>() : null;
-        cachedFlashlightCtrl = FindFirstObjectByType<FlashlightController>(FindObjectsInactive.Include);
-        cachedBeam = FindFirstObjectByType<FlashlightBeam>(FindObjectsInactive.Include);
-    }
-
-    void EnablePlayerControl(bool on)
-    {
-        if (cachedPlayerCtrl != null) cachedPlayerCtrl.SetInputEnabled(on);
-    }
-
-    void ZeroPlayerVelocity()
-    {
-        if (cachedRb == null) return;
-        try { cachedRb.linearVelocity = Vector3.zero; } catch { }
-        cachedRb.linearVelocity = Vector3.zero;
-        cachedRb.angularVelocity = Vector3.zero;
-    }
-
-    void ToggleFlashlight(bool on)
-    {
-        if (cachedFlashlightCtrl != null) cachedFlashlightCtrl.enabled = on;
-        if (cachedBeam != null && cachedBeam.enabled != on) cachedBeam.enabled = on;
     }
 
     IEnumerator TempIgnoreCollisionsWithEnemies(GameObject player, float seconds)
@@ -238,7 +211,7 @@ public class GameManager : MonoBehaviour
     {
         collectedSet.Clear();
         collectedNotes = 0;
-        var docs = FindObjectsByType<Document>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        var docs = Object.FindObjectsOfType<Document>(true);
         for (int i = 0; i < docs.Length; i++)
         {
             var d = docs[i];

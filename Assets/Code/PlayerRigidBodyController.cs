@@ -11,7 +11,7 @@ public class PlayerRigidBodyController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private NoiseMeter noiseMeter;
-    [SerializeField] private CapsuleCollider capsule; 
+    [SerializeField] private CapsuleCollider capsule;
 
     [Header("Movement")]
     [SerializeField] private float walkSpeed = 2.0f;
@@ -46,11 +46,9 @@ public class PlayerRigidBodyController : MonoBehaviour
     [SerializeField, Range(0f, 1f)] float runStepVolume = 1f;
     [SerializeField] AudioSource footstepSource;
 
-
     private float originalHeight;
     private Vector3 originalCenter;
     private bool wasCrouching;
-
 
     private PlayerInputs playerInputs;
     private Vector2 moveInput;
@@ -64,27 +62,21 @@ public class PlayerRigidBodyController : MonoBehaviour
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (capsule == null) capsule = GetComponent<CapsuleCollider>();
         if (noiseMeter == null) Debug.LogError("NoiseMeter reference not set on PlayerRigidBodyController.");
-
         rb.useGravity = true;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-
         originalHeight = capsule.height;
         originalCenter = capsule.center;
         wasCrouching = false;
-
         playerInputs = new PlayerInputs();
     }
 
     private void OnEnable()
     {
         playerInputs.Enable();
-      
         playerInputs.Player.Move.performed += OnMovePerformed;
         playerInputs.Player.Move.canceled += OnMoveCanceled;
-
         playerInputs.Player.Sprint.performed += OnSprintPerformed;
         playerInputs.Player.Sprint.canceled += OnSprintCanceled;
-
         playerInputs.Player.Crouch.performed += OnCrouchPerformed;
     }
 
@@ -92,12 +84,9 @@ public class PlayerRigidBodyController : MonoBehaviour
     {
         playerInputs.Player.Move.performed -= OnMovePerformed;
         playerInputs.Player.Move.canceled -= OnMoveCanceled;
-
         playerInputs.Player.Sprint.performed -= OnSprintPerformed;
         playerInputs.Player.Sprint.canceled -= OnSprintCanceled;
-
         playerInputs.Player.Crouch.performed -= OnCrouchPerformed;
-
         playerInputs.Disable();
     }
 
@@ -110,12 +99,11 @@ public class PlayerRigidBodyController : MonoBehaviour
     private void Update()
     {
         HandleFootsteps();
-        HandleCrouchCollider(); 
+        HandleCrouchCollider();
     }
 
     private void OnMovePerformed(InputAction.CallbackContext ctx) => moveInput = ctx.ReadValue<Vector2>();
     private void OnMoveCanceled(InputAction.CallbackContext ctx) => moveInput = Vector2.zero;
-
     private void OnSprintPerformed(InputAction.CallbackContext ctx) => isSprinting = true;
     private void OnSprintCanceled(InputAction.CallbackContext ctx) => isSprinting = false;
 
@@ -123,10 +111,8 @@ public class PlayerRigidBodyController : MonoBehaviour
     {
         if (isCrouching)
         {
-            if (CanStandUp())
-                isCrouching = false;
-            else
-                isCrouching = true; 
+            if (CanStandUp()) isCrouching = false;
+            else isCrouching = true;
         }
         else
         {
@@ -134,18 +120,13 @@ public class PlayerRigidBodyController : MonoBehaviour
         }
     }
 
-
     private void UpdateMovement()
     {
         Vector3 desiredDir = GetDesiredDirection();
         float targetSpeed = GetTargetSpeed();
-
-   
         Vector3 currentVelocity = rb.linearVelocity;
         Vector3 desiredPlanarVelocity = desiredDir * targetSpeed;
-
         rb.linearVelocity = new Vector3(desiredPlanarVelocity.x, currentVelocity.y, desiredPlanarVelocity.z);
-
         if (desiredDir.sqrMagnitude > smallVelocityEpsilon)
         {
             Quaternion targetRot = Quaternion.LookRotation(desiredDir, Vector3.up);
@@ -156,15 +137,12 @@ public class PlayerRigidBodyController : MonoBehaviour
     private Vector3 GetDesiredDirection()
     {
         if (moveInput.magnitude < inputDeadzone) return Vector3.zero;
-
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-
         forward.y = 0;
         right.y = 0;
         forward.Normalize();
         right.Normalize();
-
         return forward * moveInput.y + right * moveInput.x;
     }
 
@@ -179,7 +157,6 @@ public class PlayerRigidBodyController : MonoBehaviour
     {
         Vector3 planarVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         float animSpeed = planarVelocity.magnitude;
-
         float mappedSpeed = 0f;
         if (animSpeed > smallVelocityEpsilon)
         {
@@ -187,7 +164,6 @@ public class PlayerRigidBodyController : MonoBehaviour
             else if (isSprinting) mappedSpeed = Mathf.Clamp01(animSpeed / runSpeed);
             else mappedSpeed = Mathf.Clamp01(animSpeed / walkSpeed) * 0.5f;
         }
-
         animator.SetFloat(paramMoveSpeed, mappedSpeed);
         animator.SetBool(paramIsSprinting, isSprinting);
         animator.SetBool(paramIsCrouching, isCrouching);
@@ -198,7 +174,6 @@ public class PlayerRigidBodyController : MonoBehaviour
         Vector3 planarVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         float currentSpeed = planarVelocity.magnitude;
         float cadence = isSprinting ? sprintFootstepCadence : walkFootstepCadence;
-
         if (currentSpeed > smallVelocityEpsilon)
         {
             _footstepTimer += Time.deltaTime;
@@ -217,12 +192,7 @@ public class PlayerRigidBodyController : MonoBehaviour
     private void PlayFootstepAndAddNoise()
     {
         if (isCrouching) return;
-
-        if (AudioManager.I != null)
-        {
-            AudioManager.I.PlayFootstep(isSprinting);
-        }
-
+        if (AudioManager.I != null) AudioManager.I.PlayFootstep(isSprinting);
         if (noiseMeter != null)
         {
             float noiseAmount = isSprinting ? noisePerSprintStep : noisePerWalkStep;
@@ -234,27 +204,19 @@ public class PlayerRigidBodyController : MonoBehaviour
     {
         float targetHeight = isCrouching ? crouchHeight : originalHeight;
         Vector3 targetCenter = isCrouching ? crouchCenter : originalCenter;
-
         capsule.height = Mathf.Lerp(capsule.height, targetHeight, Time.deltaTime * colliderLerpSpeed);
         capsule.center = Vector3.Lerp(capsule.center, targetCenter, Time.deltaTime * colliderLerpSpeed);
     }
 
-    
     private bool CanStandUp()
     {
         float targetHeight = originalHeight;
         float radius = Mathf.Max(capsule.radius - standUpSkin, 0.01f);
-
         Vector3 worldCenter = transform.TransformPoint(originalCenter);
         float halfHeight = Mathf.Max(targetHeight * 0.5f - radius, 0f);
-
         Vector3 bottom = worldCenter + Vector3.down * halfHeight;
         Vector3 top = worldCenter + Vector3.up * halfHeight;
-
-        Collider[] hits = Physics.OverlapCapsule(
-            bottom, top, radius, standUpMask, QueryTriggerInteraction.Ignore
-        );
-
+        Collider[] hits = Physics.OverlapCapsule(bottom, top, radius, standUpMask, QueryTriggerInteraction.Ignore);
         foreach (var col in hits)
         {
             if (col.transform.IsChildOf(transform)) continue;
@@ -269,4 +231,23 @@ public class PlayerRigidBodyController : MonoBehaviour
         else playerInputs.Disable();
     }
 
+    public void ResetMovementState(bool keepCrouch = false)
+    {
+        moveInput = Vector2.zero;
+        isSprinting = false;
+        if (!keepCrouch) isCrouching = false;
+        _footstepTimer = 0f;
+#if UNITY_6000_0_OR_NEWER
+        rb.linearVelocity = Vector3.zero;
+#else
+        rb.velocity = Vector3.zero;
+#endif
+        rb.angularVelocity = Vector3.zero;
+        if (animator)
+        {
+            animator.SetFloat(paramMoveSpeed, 0f);
+            animator.SetBool(paramIsSprinting, false);
+            animator.SetBool(paramIsCrouching, isCrouching);
+        }
+    }
 }

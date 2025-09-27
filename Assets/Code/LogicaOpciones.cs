@@ -60,4 +60,16 @@ public class LogicaOpciones : MonoBehaviour
         allowPause = !block;
         if (block && isPaused) EsconderOpciones();
     }
+
+    public void OnClickRestartLevel()
+    {
+        var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
+        if (pause) pause.EsconderOpciones();
+        GameManager.I?.RestartLevel();
+    }
+
+    public void OnClickResume()
+    {
+        FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include)?.EsconderOpciones();
+    }
 }

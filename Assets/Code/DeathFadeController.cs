@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,8 +9,6 @@ public class DeathFadeController : MonoBehaviour
     [SerializeField] float defaultFadeOut = 0.6f;
     [SerializeField] float defaultBlackHold = 0.6f;
     [SerializeField] float defaultFadeIn = 0.6f;
-
-    public static event Action OnBlackHoldFinished;
 
     void Awake()
     {
@@ -53,7 +50,6 @@ public class DeathFadeController : MonoBehaviour
             t += Time.unscaledDeltaTime;
             yield return null;
         }
-        OnBlackHoldFinished?.Invoke();
     }
 
     public IEnumerator FadeIn(float? duration = null)
@@ -77,17 +73,6 @@ public class DeathFadeController : MonoBehaviour
     {
         yield return FadeOut(fadeOut);
         yield return BlackHold(blackHold);
-        yield return FadeIn(fadeIn);
-    }
-
-    public void HoldThenFadeIn(float? hold = null, float? fadeIn = null)
-    {
-        StartCoroutine(HoldThenFadeInCo(hold, fadeIn));
-    }
-
-    IEnumerator HoldThenFadeInCo(float? hold, float? fadeIn)
-    {
-        yield return BlackHold(hold);
         yield return FadeIn(fadeIn);
     }
 
