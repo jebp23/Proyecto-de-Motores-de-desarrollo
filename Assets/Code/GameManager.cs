@@ -229,8 +229,9 @@ public class GameManager : MonoBehaviour
         if (doc == null) return;
         if (collectedSet.Add(doc)) collectedNotes++;
         UpdateProgressUI();
-        if (collectedNotes >= totalNotes) TriggerVictory();
+        NotesQuestManager.I?.OnNoteCollected();
     }
+
 
     public GameState CurrentState => state;
 }

@@ -1,109 +1,145 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
+using UnityEngine.InputSystem.LowLevel;
 
 public class DocumentInteraction : MonoBehaviour
 {
-    [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private PlayerRigidBodyController player;
-    [SerializeField] private FlashlightController flashlightController;
-    [SerializeField] private GameObject openPrompt;
-    [SerializeField] private GameObject closePrompt;
-    [SerializeField] private GameObject documentPanel;
-    [SerializeField] private TMP_Text documentTextUI;
-    [SerializeField] private GameObject docReadingPanel;
-    [SerializeField] private float toggleCooldown = 0.15f;
+    [SerializeField] PlayerRigidBodyController player;
+    [SerializeField] Behaviour flashlightBehaviour;
 
-    private InputAction interactAction;
-    private Document currentDocument;
-    private bool isReading;
-    private float nextToggleAllowedAt;
+    [SerializeField] GameObject openPrompt;
+    [SerializeField] GameObject closePrompt;
+    [SerializeField] GameObject documentPanel;
+    [SerializeField] GameObject docReadingPanel;
+    [SerializeField] TMP_Text documentTextUI;
+    [SerializeField] float toggleCooldown = 0.12f;
 
-    private void Awake()
+    [SerializeField] Key interactKey = Key.E;
+    [SerializeField] GamepadButton interactButton = GamepadButton.North;
+    [SerializeField] Key closeKey = Key.Escape;
+    [SerializeField] GamepadButton closeButton = GamepadButton.B;
+
+    readonly HashSet<Document> inRangeDocs = new HashSet<Document>();
+    Document currentDocument;
+    bool isReading;
+    float lastToggleTime;
+
+    void OnEnable()
     {
-        if (!playerInput) playerInput = FindFirstObjectByType<PlayerInput>();
         if (!player) player = FindFirstObjectByType<PlayerRigidBodyController>();
-        if (!flashlightController) flashlightController = FindFirstObjectByType<FlashlightController>();
         if (openPrompt) openPrompt.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
         if (documentPanel) documentPanel.SetActive(false);
         if (docReadingPanel) docReadingPanel.SetActive(false);
     }
 
-    private void OnEnable()
+    void Update()
     {
-        if (playerInput != null)
-        {
-            interactAction = playerInput.actions.FindAction("Interact");
-            if (interactAction != null)
-            {
-                interactAction.started += OnInteractStarted;
-                interactAction.Enable();
-            }
-        }
+        if (Time.unscaledTime - lastToggleTime < toggleCooldown) return;
+
+        bool interactPressed =
+            (Keyboard.current != null && Keyboard.current[interactKey].wasPressedThisFrame) ||
+            (Gamepad.current != null && Gamepad.current[interactButton].wasPressedThisFrame);
+
+        bool closePressed =
+            (Keyboard.current != null && Keyboard.current[closeKey].wasPressedThisFrame) ||
+            (Gamepad.current != null && Gamepad.current[closeButton].wasPressedThisFrame);
+
+        if (!isReading && interactPressed) TryOpen();
+        else if (isReading && (closePressed || interactPressed)) CloseDocument();
     }
 
-    private void OnDisable()
+    void OnTriggerEnter(Collider other)
     {
-        if (interactAction != null)
-        {
-            interactAction.started -= OnInteractStarted;
-        }
+        var doc = FindDocument(other);
+        if (!doc) return;
+        inRangeDocs.Add(doc);
+        PickClosest();
+        if (!isReading && currentDocument && openPrompt) openPrompt.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerExit(Collider other)
     {
-        var doc = other.GetComponent<Document>();
-        if (doc)
-        {
-            currentDocument = doc;
-            if (openPrompt && !isReading) openPrompt.SetActive(true);
-        }
+        var doc = FindDocument(other);
+        if (!doc) return;
+        inRangeDocs.Remove(doc);
+        if (currentDocument == doc) currentDocument = null;
+        PickClosest();
+        if (!isReading && openPrompt) openPrompt.SetActive(currentDocument != null);
     }
 
-    private void OnTriggerExit(Collider other)
+    void TryOpen()
     {
-        var doc = other.GetComponent<Document>();
-        if (doc && doc == currentDocument)
-        {
-            currentDocument = null;
-            if (openPrompt) openPrompt.SetActive(false);
-        }
-    }
+        if (!currentDocument) return;
 
-    private void OnInteractStarted(InputAction.CallbackContext ctx)
-    {
-        if (Time.unscaledTime < nextToggleAllowedAt) return;
-        if (isReading) CloseDocument();
-        else OpenDocument();
-        nextToggleAllowedAt = Time.unscaledTime + toggleCooldown;
-    }
-
-    private void OpenDocument()
-    {
-        if (currentDocument == null) return;
         NoteSequencer.I?.EnsureAssignment(currentDocument);
         if (documentTextUI) documentTextUI.text = currentDocument.documentText;
+
+        if (openPrompt) openPrompt.SetActive(false);
         if (documentPanel) documentPanel.SetActive(true);
         if (docReadingPanel) docReadingPanel.SetActive(true);
-        if (openPrompt) openPrompt.SetActive(false);
         if (closePrompt) closePrompt.SetActive(true);
+
+        if (player) player.SetInputEnabled(false);
+        if (flashlightBehaviour) flashlightBehaviour.enabled = false;
         Time.timeScale = 0f;
-        if (flashlightController) flashlightController.enabled = false;
-        currentDocument.collected = true;
-        GameManager.I?.DocumentCollected(currentDocument);
+
+        if (!currentDocument.collected)
+        {
+            currentDocument.collected = true;
+            GameManager.I?.DocumentCollected(currentDocument);
+        }
+
         isReading = true;
+        lastToggleTime = Time.unscaledTime;
     }
 
-    private void CloseDocument()
+    void CloseDocument()
     {
-        if (!isReading) return;
         if (documentPanel) documentPanel.SetActive(false);
         if (docReadingPanel) docReadingPanel.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
+
         Time.timeScale = 1f;
-        if (flashlightController) flashlightController.enabled = true;
-        if (currentDocument && openPrompt) openPrompt.SetActive(true);
+        if (player) player.SetInputEnabled(true);
+        if (flashlightBehaviour) flashlightBehaviour.enabled = true;
+
         isReading = false;
+        lastToggleTime = Time.unscaledTime;
+
+        PickClosest();
+        if (openPrompt) openPrompt.SetActive(currentDocument != null);
+    }
+
+    Document FindDocument(Collider c)
+    {
+        if (!c) return null;
+        var d = c.GetComponent<Document>();
+        if (d) return d;
+        d = c.GetComponentInParent<Document>();
+        if (d) return d;
+        var t = c.transform;
+        for (int i = 0; i < t.childCount; i++)
+        {
+            var cd = t.GetChild(i).GetComponent<Document>();
+            if (cd) return cd;
+        }
+        return null;
+    }
+
+    void PickClosest()
+    {
+        Document best = null;
+        float bestDist = float.MaxValue;
+        Vector3 p = transform.position;
+        foreach (var d in inRangeDocs)
+        {
+            if (!d) continue;
+            float dist = Vector3.SqrMagnitude(d.transform.position - p);
+            if (dist < bestDist) { bestDist = dist; best = d; }
+        }
+        currentDocument = best;
     }
 }

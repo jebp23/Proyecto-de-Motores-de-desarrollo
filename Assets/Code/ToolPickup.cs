@@ -2,13 +2,13 @@
 
 public class ToolPickup : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] string playerTag = "Player";
+
+    void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-
+        if (!other.CompareTag(playerTag)) return;
+        NotesQuestManager.I?.SetHasTool(true);
         NoteSequencer.I?.SetHasTool(true);
-        ToolNotificationUI.I?.Show(6f); 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
-
 }
