@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\",
+  "WorkspaceRootPath": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|c:\\users\\kariu\\desktop\\jueguito\\proyecto-de-motores-de-desarrollo\\assets\\code\\expandirboxcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\expandirboxcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\enemymonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\enemymonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ExpandirBoxCollider.cs",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ExpandirBoxCollider.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\ExpandirBoxCollider.cs",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ExpandirBoxCollider.cs",
-              "RelativeToolTip": "Assets\\Code\\ExpandirBoxCollider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA3AAAAAAAAAA==",
+              "Title": "EnemyMonster.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\EnemyMonster.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\EnemyMonster.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\EnemyMonster.cs",
+              "RelativeToolTip": "Assets\\Code\\EnemyMonster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T19:34:07.713Z",
+              "WhenOpened": "2025-09-27T13:41:42.464Z",
               "EditorCaption": ""
             }
           ]
