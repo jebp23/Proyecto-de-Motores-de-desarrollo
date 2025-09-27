@@ -4,30 +4,26 @@ using TMPro;
 
 public class DocumentInteraction : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private PlayerInput playerInput;                  
-    [SerializeField] private PlayerRigidBodyController player;     
+    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private PlayerRigidBodyController player;
     [SerializeField] private FlashlightController flashlightController;
     [SerializeField] private GameObject openPrompt;
     [SerializeField] private GameObject closePrompt;
     [SerializeField] private GameObject documentPanel;
     [SerializeField] private TMP_Text documentTextUI;
     [SerializeField] private GameObject docReadingPanel;
-
-    [Header("UI Toggle")]
-    [SerializeField] private float toggleCooldown = 0.15f;            
+    [SerializeField] private float toggleCooldown = 0.15f;
 
     private InputAction interactAction;
     private Document currentDocument;
     private bool isReading;
-    private float nextToggleAllowedAt;                                 
+    private float nextToggleAllowedAt;
 
     private void Awake()
     {
         if (!playerInput) playerInput = FindFirstObjectByType<PlayerInput>();
         if (!player) player = FindFirstObjectByType<PlayerRigidBodyController>();
         if (!flashlightController) flashlightController = FindFirstObjectByType<FlashlightController>();
-
         if (openPrompt) openPrompt.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
         if (documentPanel) documentPanel.SetActive(false);
@@ -43,10 +39,6 @@ public class DocumentInteraction : MonoBehaviour
             {
                 interactAction.started += OnInteractStarted;
                 interactAction.Enable();
-            }
-            else
-            {
-                Debug.LogError("[DocumentInteraction] 'Interact' action not found.");
             }
         }
     }
@@ -82,33 +74,22 @@ public class DocumentInteraction : MonoBehaviour
     private void OnInteractStarted(InputAction.CallbackContext ctx)
     {
         if (Time.unscaledTime < nextToggleAllowedAt) return;
-
         if (isReading) CloseDocument();
         else OpenDocument();
-
         nextToggleAllowedAt = Time.unscaledTime + toggleCooldown;
     }
 
     private void OpenDocument()
     {
-        if (currentDocument == null)
-        {
-            Debug.LogWarning("[DocumentInteraction] No document in range to open.");
-            return;
-        }
-
-
+        if (currentDocument == null) return;
         NoteSequencer.I?.EnsureAssignment(currentDocument);
         if (documentTextUI) documentTextUI.text = currentDocument.documentText;
         if (documentPanel) documentPanel.SetActive(true);
         if (docReadingPanel) docReadingPanel.SetActive(true);
         if (openPrompt) openPrompt.SetActive(false);
         if (closePrompt) closePrompt.SetActive(true);
-
-
         Time.timeScale = 0f;
         if (flashlightController) flashlightController.enabled = false;
-
         currentDocument.collected = true;
         GameManager.I?.DocumentCollected(currentDocument);
         isReading = true;
@@ -117,16 +98,12 @@ public class DocumentInteraction : MonoBehaviour
     private void CloseDocument()
     {
         if (!isReading) return;
-
         if (documentPanel) documentPanel.SetActive(false);
         if (docReadingPanel) docReadingPanel.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
         Time.timeScale = 1f;
-
         if (flashlightController) flashlightController.enabled = true;
-    
         if (currentDocument && openPrompt) openPrompt.SetActive(true);
-
         isReading = false;
     }
 }

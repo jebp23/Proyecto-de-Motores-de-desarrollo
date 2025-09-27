@@ -21,11 +21,6 @@ public class EnemyMonster : MonoBehaviour
 
     [Header("Detection")]
     [SerializeField] MonoBehaviour detectionStrategyComponent;
-    IDetectionStrategy detection;
-
-    [Header("Boards passthrough")]
-    [SerializeField] bool ignoreBoardsAtRuntime = false;
-    [SerializeField] string boardsRootTag = "Boards";
 
     [Header("Sanity Damage")]
     [SerializeField] float sanityDamagePerSecond = 0f;
@@ -42,19 +37,18 @@ public class EnemyMonster : MonoBehaviour
     [SerializeField] bool forceEnableStrategyOnStart = true;
     [SerializeField] int enableGuardFrames = 20;
 
+    [Header("Collision")]
+    [SerializeField] bool ignorePlayerBodyCollision = true;
+
     [Header("Light Stun")]
-    [SerializeField] bool canBeStunnedByLight = false;
+    [SerializeField] bool canBeStunnedByLight = true;
     [SerializeField] float stunSeconds = 2.5f;
     [SerializeField] bool freezeAgentOnStun = true;
     [SerializeField] AudioClip stunSfx;
     [SerializeField, Range(0f, 1f)] float stunSfxVolume = 1f;
-
-    [Header("SFX Detection")]
-    [SerializeField] AudioClip detectionSfx;
-    [SerializeField, Range(0f, 1f)] float detectionSfxVolume = 1f;
-    [SerializeField] float detectionSfxRearmSeconds = 1.0f;
     [SerializeField] AudioSource sfxSource;
 
+    IDetectionStrategy detection;
     NavMeshAgent agent;
     bool isChasing;
     Vector3 lastPerceivedTargetPos;
@@ -62,12 +56,10 @@ public class EnemyMonster : MonoBehaviour
     int patrolDir = 1;
     float patrolWaitTimer;
     int guardCounter;
-
     bool isStunned;
     float stunEndTime;
-
-    bool detectionArmed = true;
-    float lastNotDetectTime;
+    float suppressUntilTime;
+    GameObject playerGO;
 
     public bool CurrentlyDetecting { get; private set; }
     public bool IsStunned => isStunned;
@@ -76,17 +68,12 @@ public class EnemyMonster : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         if (!animator) animator = GetComponent<Animator>();
-        if (!target)
-        {
-            var p = GameObject.FindWithTag(playerTag);
-            if (p) target = p.transform;
-        }
+        playerGO = GameObject.FindWithTag(playerTag);
+        if (!target && playerGO) target = playerGO.transform;
         BindDetection();
-        if (ignoreBoardsAtRuntime) IgnoreBoardsCollisions();
-        if (agent) agent.speed = idleSpeed;
+        if (agent) { agent.speed = idleSpeed; agent.stoppingDistance = stoppingDistance; }
         guardCounter = enableGuardFrames;
-        detectionArmed = true;
-        lastNotDetectTime = Time.time;
+        if (ignorePlayerBodyCollision) IgnorePlayerBodyCollisions();
     }
 
     void OnEnable()
@@ -95,51 +82,35 @@ public class EnemyMonster : MonoBehaviour
         guardCounter = enableGuardFrames;
     }
 
-    void Start()
-    {
-        if (forceEnableStrategyOnStart) EnableStrategy();
-    }
-
     void Update()
     {
-        if (forceEnableStrategyOnStart && guardCounter > 0)
-        {
-            EnableStrategy();
-            guardCounter--;
-        }
-
         if (isStunned)
         {
             if (Time.time >= stunEndTime) EndStun();
             else { Stop(); return; }
         }
 
+        if (Time.time < suppressUntilTime)
+        {
+            PatrolUpdate(false);
+            return;
+        }
+
         if (!target || agent == null || detection == null) { PatrolUpdate(false); return; }
         if (!agent.isOnNavMesh) { PatrolUpdate(false); return; }
+
+        if (forceEnableStrategyOnStart && guardCounter > 0) { EnableStrategy(); guardCounter--; }
 
         CurrentlyDetecting = detection.Detect(target, out var perceivedPos);
 
         if (CurrentlyDetecting)
         {
-            if (detectionArmed)
-            {
-                if (detectionSfx)
-                {
-                    if (sfxSource) sfxSource.PlayOneShot(detectionSfx, detectionSfxVolume);
-                    else AudioSource.PlayClipAtPoint(detectionSfx, transform.position, detectionSfxVolume);
-                }
-                detectionArmed = false;
-            }
-
             isChasing = true;
             lastPerceivedTargetPos = perceivedPos;
             Chase(perceivedPos);
         }
         else
         {
-            if (!detectionArmed && Time.time - lastNotDetectTime >= detectionSfxRearmSeconds) detectionArmed = true;
-            lastNotDetectTime = Time.time;
-
             if (isChasing)
             {
                 float dist = Vector3.Distance(transform.position, lastPerceivedTargetPos);
@@ -160,8 +131,6 @@ public class EnemyMonster : MonoBehaviour
             Stop();
             return;
         }
-
-        if (justLostTarget) patrolWaitTimer = patrolWaitSeconds;
 
         if (patrolWaitTimer > 0f)
         {
@@ -206,10 +175,7 @@ public class EnemyMonster : MonoBehaviour
             return;
         }
 
-        if (!patrolPingPong)
-        {
-            patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
-        }
+        if (!patrolPingPong) patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
         else
         {
             patrolIndex += patrolDir;
@@ -223,38 +189,33 @@ public class EnemyMonster : MonoBehaviour
         if (agent.isOnNavMesh)
         {
             agent.speed = chaseSpeed;
+            agent.isStopped = false;
             agent.SetDestination(pos);
         }
         if (animator && !string.IsNullOrEmpty(walkBool)) animator.SetBool(walkBool, true);
-        float distToTarget = Vector3.Distance(transform.position, pos);
-        if (distToTarget <= stoppingDistance) RotateTowards(pos);
+        Vector3 flat = pos; flat.y = transform.position.y;
+        Vector3 dir = flat - transform.position;
+        if (dir.sqrMagnitude > 0.001f)
+        {
+            Quaternion look = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, look, Time.deltaTime * rotationSpeed);
+        }
     }
 
     void Stop()
     {
         if (agent.isOnNavMesh)
         {
-            agent.SetDestination(transform.position);
-            if (isStunned && freezeAgentOnStun) agent.isStopped = true;
-            else agent.isStopped = false;
+            agent.ResetPath();
+            agent.isStopped = false;
         }
         if (animator && !string.IsNullOrEmpty(walkBool)) animator.SetBool(walkBool, false);
-    }
-
-    void RotateTowards(Vector3 pos)
-    {
-        Vector3 dir = pos - transform.position;
-        dir.y = 0f;
-        if (dir.sqrMagnitude < 0.0001f) return;
-        Quaternion look = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Slerp(transform.rotation, look, Time.deltaTime * rotationSpeed);
     }
 
     void OnTriggerStay(Collider other)
     {
         if (sanityDamagePerSecond <= 0f) return;
-        if (!CurrentlyDetecting) return;
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag(playerTag)) return;
         var s = other.GetComponent<SanitySystem>();
         if (s != null) s.TakeDamage(sanityDamagePerSecond * Time.deltaTime);
     }
@@ -301,21 +262,19 @@ public class EnemyMonster : MonoBehaviour
         if (beh && !beh.enabled) beh.enabled = true;
     }
 
-    void IgnoreBoardsCollisions()
+    void IgnorePlayerBodyCollisions()
     {
-        var boardsRoot = GameObject.FindWithTag(boardsRootTag);
-        if (!boardsRoot) return;
-        var myCols = GetComponentsInChildren<Collider>(true);
-        var boardCols = boardsRoot.GetComponentsInChildren<Collider>(true);
-        for (int i = 0; i < myCols.Length; i++)
+        if (!playerGO) playerGO = GameObject.FindWithTag(playerTag);
+        if (!playerGO) return;
+        var pcols = playerGO.GetComponentsInChildren<Collider>(true);
+        var mycols = GetComponentsInChildren<Collider>(true);
+        for (int i = 0; i < mycols.Length; i++)
         {
-            var a = myCols[i];
-            if (!a) continue;
-            for (int j = 0; j < boardCols.Length; j++)
+            if (mycols[i] == null || mycols[i].isTrigger) continue;
+            for (int j = 0; j < pcols.Length; j++)
             {
-                var b = boardCols[j];
-                if (!b) continue;
-                Physics.IgnoreCollision(a, b, true);
+                if (pcols[j] == null || pcols[j].isTrigger) continue;
+                Physics.IgnoreCollision(mycols[i], pcols[j], true);
             }
         }
     }
@@ -328,6 +287,7 @@ public class EnemyMonster : MonoBehaviour
         stunEndTime = Time.time + d;
         if (agent) { agent.ResetPath(); if (freezeAgentOnStun) agent.isStopped = true; }
         CurrentlyDetecting = false;
+        isChasing = false;
         if (animator && !string.IsNullOrEmpty(stunnedBool)) animator.SetBool(stunnedBool, true);
         if (stunSfx)
         {
@@ -341,6 +301,45 @@ public class EnemyMonster : MonoBehaviour
         isStunned = false;
         if (agent) agent.isStopped = false;
         if (animator && !string.IsNullOrEmpty(stunnedBool)) animator.SetBool(stunnedBool, false);
+    }
+
+    public void UsePatrolRoute(PatrolRoute route)
+    {
+        if (route == null) { patrolEnabled = false; patrolPoints = null; return; }
+        patrolPoints = route.Points;
+        patrolEnabled = patrolPoints != null && patrolPoints.Length > 0;
+        patrolIndex = 0;
+    }
+
+    public void SetPatrolPoints(Transform[] pts)
+    {
+        patrolPoints = pts;
+        patrolEnabled = patrolPoints != null && patrolPoints.Length > 0;
+        patrolIndex = 0;
+    }
+
+    public void SuppressFor(float seconds)
+    {
+        suppressUntilTime = Mathf.Max(suppressUntilTime, Time.time + Mathf.Max(0f, seconds));
+        isChasing = false;
+        CurrentlyDetecting = false;
+        if (agent) { agent.ResetPath(); agent.isStopped = false; }
+    }
+
+    public void WarpAwayFrom(Vector3 origin, float minDistance)
+    {
+        if (agent == null) return;
+        Vector3 dir = transform.position - origin;
+        dir.y = 0f;
+        if (dir.sqrMagnitude < 0.001f) dir = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+        dir.Normalize();
+        Vector3 target = origin + dir * Mathf.Max(0.1f, minDistance);
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(target, out hit, minDistance + 2f, NavMesh.AllAreas)) agent.Warp(hit.position);
+        else agent.Warp(target);
+        isChasing = false;
+        CurrentlyDetecting = false;
+        agent.ResetPath();
     }
 
     public Transform Target => target;

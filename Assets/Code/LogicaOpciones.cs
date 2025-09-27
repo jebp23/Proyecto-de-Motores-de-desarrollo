@@ -1,72 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
-public class LogicaOpciones : MonoBehaviour   
+public class LogicaOpciones : MonoBehaviour
 {
     public bool isPaused = false;
     public ControladorOpciones panelOpciones;
-    private EventSystem eventSystem;
+    EventSystem eventSystem;
+    bool allowPause = true;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         panelOpciones = GameObject.FindGameObjectWithTag("opciones").GetComponent<ControladorOpciones>();
         eventSystem = EventSystem.current;
-
-        if (eventSystem == null)
-        {
-            Debug.LogWarning("No se encontró un EventSystem en la escena. El menú no podrá recibir input.");
-        }
+        isPaused = false;
+        Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        ManejoPausa();
+        if (!allowPause) return;
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+            TogglePause();
     }
 
-    public void ManejoPausa()
+    public void TogglePause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!isPaused)
-            {
-                MostrarOpciones();
-            }
-            else
-            {
-                EsconderOpciones();
-            }
-        }
+        if (!allowPause) return;
+        if (GameManager.I != null && GameManager.I.CurrentState != GameState.Playing) return;
+        if (isPaused) EsconderOpciones(); else MostrarOpciones();
     }
+
     public void MostrarOpciones()
     {
-        panelOpciones.optionsScreen.SetActive(true);
-        Time.timeScale = 0;
+        if (!allowPause) return;
+        if (GameManager.I != null && GameManager.I.CurrentState != GameState.Playing) return;
+        if (panelOpciones && panelOpciones.optionsScreen) panelOpciones.optionsScreen.SetActive(true);
+        Time.timeScale = 0f;
         isPaused = true;
-
-        if (eventSystem != null)
-        {
-            eventSystem.SetSelectedGameObject(null);
-            if (panelOpciones.firstSelectedButton != null)
-            {
-                eventSystem.SetSelectedGameObject(panelOpciones.firstSelectedButton);
-            }
-        }
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        var c = FindFirstObjectByType<CursorLock>(FindObjectsInactive.Include);
+        if (c) c.OnPauseChanged(true);
     }
 
-        public void EsconderOpciones()
+    public void EsconderOpciones()
     {
-        panelOpciones.optionsScreen.SetActive(false);
-        Time.timeScale = 1;
+        if (panelOpciones && panelOpciones.optionsScreen) panelOpciones.optionsScreen.SetActive(false);
+        Time.timeScale = 1f;
         isPaused = false;
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        var c = FindFirstObjectByType<CursorLock>(FindObjectsInactive.Include);
+        if (c) c.OnPauseChanged(false);
+    }
+
+    public void BlockPause(bool block)
+    {
+        allowPause = !block;
+        if (block && isPaused) EsconderOpciones();
     }
 }

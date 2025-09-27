@@ -493,7 +493,7 @@ MonoBehaviour:
   detectionStrategyComponent: {fileID: -5194175758419654504}
   ignoreBoardsAtRuntime: 0
   boardsRootTag: Boards
-  sanityDamagePerSecond: 8
+  sanityDamagePerSecond: 5
   patrolEnabled: 0
   patrolPoints: []
   patrolSpeed: 2.5

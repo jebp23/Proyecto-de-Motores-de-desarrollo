@@ -1,137 +1,73 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DeathFadeController : MonoBehaviour
 {
     public static DeathFadeController I { get; private set; }
 
-    [Header("Canvases")]
-    [SerializeField] private Canvas deathCanvas;
-    [SerializeField] private Canvas uiCanvas;
-    [SerializeField] private bool autoSortAboveUI = true;
-    [SerializeField] private int orderOffset = 100;
-
-    [Header("UI Elements")]
-    [SerializeField] private GameObject panelRoot;     // hijo con Image negro + CanvasGroup (INACTIVO por defecto)
-    [SerializeField] private CanvasGroup fadeGroup;    // CanvasGroup del panel negro
-    [SerializeField] private Image blackImage;         // Image negro full screen (raycastTarget = true)
-
-    [Header("Timings")]
-    [SerializeField, Min(0f)] private float fadeInTime = 0.25f;
-    [SerializeField, Min(0f)] private float holdTime = 1.0f;  // duración del blackout
-    [SerializeField, Min(0f)] private float fadeOutTime = 0.25f;
-    [SerializeField] private bool hideUICanvasDuringBlackout = false;
-
-    [Header("Audio")]
-    [SerializeField] private AudioClip deathSfx;
-    [SerializeField] private AudioSource sfxSource; // opcional
-
-    private bool _isRunning;
+    [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] float defaultFadeOut = 0.6f;
+    [SerializeField] float defaultFadeIn = 0.6f;
+    [SerializeField] GameObject[] uiRootsToHide;
+    [SerializeField] Canvas targetCanvas;
 
     void Awake()
     {
-        if (I != null && I != this) { Destroy(gameObject); return; }
         I = this;
-
-        if (autoSortAboveUI && deathCanvas)
+        if (canvasGroup == null) canvasGroup = GetComponentInChildren<CanvasGroup>(true);
+        if (!targetCanvas && canvasGroup) targetCanvas = canvasGroup.GetComponentInParent<Canvas>(true);
+        if (targetCanvas)
         {
-            deathCanvas.overrideSorting = true;
-            int baseOrder = uiCanvas ? uiCanvas.sortingOrder : 0;
-            deathCanvas.sortingOrder = baseOrder + orderOffset;
+            targetCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            targetCanvas.overrideSorting = true;
+            targetCanvas.sortingOrder = 32760;
         }
-
-        if (fadeGroup)
+        if (canvasGroup)
         {
-            fadeGroup.alpha = 0f;
-            fadeGroup.blocksRaycasts = false;
-            fadeGroup.interactable = false;
+            canvasGroup.alpha = 0f;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.interactable = false;
+            canvasGroup.gameObject.SetActive(true);
         }
-        if (blackImage) blackImage.raycastTarget = true; // bloquea clics
-        if (panelRoot && panelRoot.activeSelf) panelRoot.SetActive(false); // INACTIVO por defecto
     }
 
-    public void PlayDeathSequence(GameObject playerGO)
+    public IEnumerator FadeOut(float? duration = null, bool hideUI = true)
     {
-        if (_isRunning || playerGO == null) return;
-        StartCoroutine(DeathCR(playerGO));
-    }
-
-    private IEnumerator DeathCR(GameObject playerGO)
-    {
-        _isRunning = true;
-
-        // Mostrar panel y bloquear input
-        if (panelRoot && !panelRoot.activeSelf) panelRoot.SetActive(true);
-        SetPlayerInput(playerGO, false);
-
-        // SFX
-        if (deathSfx)
-        {
-            if (sfxSource) sfxSource.PlayOneShot(deathSfx);
-            else AudioManager.I?.PlayGrowl(); // o usa tu AudioManager si preferís otro método:contentReference[oaicite:4]{index=4}
-        }
-
-        // Opcional: ocultar UICanvas entero mientras dura el blackout
-        if (hideUICanvasDuringBlackout && uiCanvas) uiCanvas.gameObject.SetActive(false);
-
-        // Fade In
-        yield return StartCoroutine(FadeTo(1f, fadeInTime));
-
-        // Reubicar jugador (si no hay Game Over)
-        if (GameManager.I == null || GameManager.I.CurrentState != GameState.GameOver)
-        {
-            SpawnPoint.I?.RespawnPlayer(playerGO); // tu respawn del jugador
-        }
-
-        // Mantener negro
+        if (!canvasGroup) yield break;
+        if (hideUI && uiRootsToHide != null) foreach (var go in uiRootsToHide) if (go) go.SetActive(false);
+        float d = duration.HasValue ? duration.Value : defaultFadeOut;
+        canvasGroup.gameObject.SetActive(true);
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = true;
+        float a0 = canvasGroup.alpha;
         float t = 0f;
-        while (t < holdTime) { t += Time.unscaledDeltaTime; yield return null; }
-
-        // Fade Out
-        yield return StartCoroutine(FadeTo(0f, fadeOutTime));
-
-        // Restaurar UI + input si no hay GameOver
-        if (hideUICanvasDuringBlackout && uiCanvas) uiCanvas.gameObject.SetActive(true);
-        if (GameManager.I == null || GameManager.I.CurrentState != GameState.GameOver)
-            SetPlayerInput(playerGO, true);
-
-        if (panelRoot) panelRoot.SetActive(false);
-        _isRunning = false;
-    }
-
-    private IEnumerator FadeTo(float target, float duration)
-    {
-        if (!fadeGroup) yield break;
-        fadeGroup.blocksRaycasts = true;
-        fadeGroup.interactable = true;
-
-        float start = fadeGroup.alpha;
-        float t = 0f;
-        while (t < duration)
+        while (t < d)
         {
             t += Time.unscaledDeltaTime;
-            float k = duration <= 0f ? 1f : Mathf.Clamp01(t / duration);
-            fadeGroup.alpha = Mathf.Lerp(start, target, k);
+            canvasGroup.alpha = Mathf.Lerp(a0, 1f, t / Mathf.Max(0.01f, d));
             yield return null;
         }
-        fadeGroup.alpha = target;
-
-        if (Mathf.Approximately(target, 0f))
-        {
-            fadeGroup.blocksRaycasts = false;
-            fadeGroup.interactable = false;
-        }
+        canvasGroup.alpha = 1f;
     }
 
-    private void SetPlayerInput(GameObject playerGO, bool on)
+    public IEnumerator FadeIn(float? duration = null, bool showUI = true)
     {
-        var ctrl = playerGO.GetComponent<PlayerRigidBodyController>();
-        if (ctrl != null)
+        if (!canvasGroup) yield break;
+        float d = duration.HasValue ? duration.Value : defaultFadeIn;
+        float a0 = canvasGroup.alpha;
+        float t = 0f;
+        while (t < d)
         {
-            ctrl.SetInputEnabled(on); // añade este método al controlador del jugador
+            t += Time.unscaledDeltaTime;
+            canvasGroup.alpha = Mathf.Lerp(a0, 0f, t / Mathf.Max(0.01f, d));
+            yield return null;
         }
-        var flashlight = playerGO.GetComponentInChildren<FlashlightController>(true);
-        if (flashlight) flashlight.enabled = on;
+        canvasGroup.alpha = 0f;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
+        if (showUI && uiRootsToHide != null) foreach (var go in uiRootsToHide) if (go) go.SetActive(true);
     }
+
+    public float DefaultFadeOut => defaultFadeOut;
+    public float DefaultFadeIn => defaultFadeIn;
 }
