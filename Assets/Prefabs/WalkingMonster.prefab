@@ -491,9 +491,7 @@ MonoBehaviour:
   walkBool: isWalking
   stunnedBool: isStunned
   detectionStrategyComponent: {fileID: -5194175758419654504}
-  ignoreBoardsAtRuntime: 0
-  boardsRootTag: Boards
-  sanityDamagePerSecond: 5
+  sanityDamagePerSecond: 40
   patrolEnabled: 0
   patrolPoints: []
   patrolSpeed: 2.5
@@ -507,10 +505,17 @@ MonoBehaviour:
   freezeAgentOnStun: 1
   stunSfx: {fileID: 8300000, guid: f417f106a09922241b59d832a7c996bf, type: 3}
   stunSfxVolume: 0.61
+  sfxSource: {fileID: 0}
   detectionSfx: {fileID: 8300000, guid: d56efedb39a182d4f9ac57c7a370e899, type: 3}
   detectionSfxVolume: 1
   detectionSfxRearmSeconds: 1
-  sfxSource: {fileID: 0}
+  pinStopDistance: 1.1
+  pinResumeDistance: 1.6
+  pinBackWallCheck: 0.6
+  pinCheckHeight: 1.2
+  environmentMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &-5194175758419654504
 MonoBehaviour:
   m_ObjectHideFlags: 0

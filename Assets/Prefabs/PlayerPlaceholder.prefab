@@ -31,6 +31,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3236526961656506347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8253000347504227157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3068270480025752214}
+  - component: {fileID: 8223113479930997673}
+  m_Layer: 6
+  m_Name: DeathSFXSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3068270480025752214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253000347504227157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3236526961656506347}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &8223113479930997673
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253000347504227157}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8325095178171942151
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,12 +171,12 @@ GameObject:
   - component: {fileID: 3236526961656506347}
   - component: {fileID: 8041492084142572510}
   - component: {fileID: 1011347274692632860}
-  - component: {fileID: 1712833988622131985}
   - component: {fileID: 5580376010196592409}
   - component: {fileID: 5349312246933799438}
   - component: {fileID: 7247716728459162470}
   - component: {fileID: 5438755900613432287}
   - component: {fileID: 3370954109175209179}
+  - component: {fileID: 8103316607770379000}
   m_Layer: 6
   m_Name: PlayerPlaceholder
   m_TagString: Player
@@ -70,6 +199,7 @@ Transform:
   m_Children:
   - {fileID: 8539475188974774102}
   - {fileID: 7117556020600311995}
+  - {fileID: 3068270480025752214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8041492084142572510
@@ -208,19 +338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sanitySlider: {fileID: 0}
   maxSanity: 100
---- !u!114 &1712833988622131985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8325095178171942151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccdaa501f60eb44bb8610392c1daada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashlight: {fileID: 0}
+  deathSfxSource: {fileID: 8223113479930997673}
+  deathClip: {fileID: 8300000, guid: ceefceaeb1b522d4b8f518458ee1c28a, type: 3}
 --- !u!114 &5580376010196592409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 8041492084142572510}
   player: {fileID: 5438755900613432287}
-  flashlightController: {fileID: 1712833988622131985}
+  flashlightController: {fileID: 0}
   openPrompt: {fileID: 0}
   closePrompt: {fileID: 0}
   documentPanel: {fileID: 0}
@@ -275,7 +394,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.025
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -308,6 +427,7 @@ MonoBehaviour:
   animator: {fileID: 5691595004356975826}
   rb: {fileID: 7247716728459162470}
   noiseMeter: {fileID: 0}
+  capsule: {fileID: 5349312246933799438}
   walkSpeed: 4
   runSpeed: 7
   crouchSpeed: 2.1
@@ -318,6 +438,16 @@ MonoBehaviour:
   noisePerWalkStep: 0.19
   noisePerSprintStep: 0.29
   smallVelocityEpsilon: 0.05
+  crouchHeight: 1.2
+  crouchCenter: {x: 0, y: 0.6, z: 0}
+  colliderLerpSpeed: 12
+  standUpMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  standUpSkin: 0.02
+  walkStepVolume: 0.6
+  runStepVolume: 1
+  footstepSource: {fileID: 0}
 --- !u!95 &3370954109175209179
 Animator:
   serializedVersion: 7
@@ -340,6 +470,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8103316607770379000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8325095178171942151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f2d57ad41c3e44d8d7a07473d06486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlight: {fileID: 0}
+  burstRange: 15
+  monsterMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stunDuration: 2
+  cooldown: 3.5
+  vfxBoostIntensity: 950
+  vfxBoostAngle: 10
+  vfxBoostTime: 0.2
+  requireFlashlightOn: 1
+  attackSfx: {fileID: 8300000, guid: 43c2e06cee64dd14482505e18487df2c, type: 3}
+  attackSfxVolume: 0.8
+  sfxSource: {fileID: 0}
+  playerInput: {fileID: 8041492084142572510}
+  toggleActionName: Flashlight
+  attackActionName: LightAttack
 --- !u!1 &8552887373156237612
 GameObject:
   m_ObjectHideFlags: 0

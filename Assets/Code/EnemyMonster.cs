@@ -42,13 +42,13 @@ public class EnemyMonster : MonoBehaviour
     [SerializeField] float stunSeconds = 2.5f;
     [SerializeField] bool freezeAgentOnStun = true;
     [SerializeField] AudioClip stunSfx;
+    [SerializeField, Range(0f, 1f)] float stunSfxVolume = 1f;
 
     [Header("SFX")]
     [SerializeField] AudioSource sfxSource;
     [SerializeField] AudioClip detectionSfx;
     [SerializeField, Range(0f, 1f)] float detectionSfxVolume = 1f;
     [SerializeField] float detectionSfxRearmSeconds = 1.0f;
-    [SerializeField, Range(0f, 1f)] float stunSfxVolume = 1f;
 
     [Header("Pinning Control")]
     [SerializeField] float pinStopDistance = 1.1f;
@@ -120,7 +120,8 @@ public class EnemyMonster : MonoBehaviour
         if (forceEnableStrategyOnStart && guardCounter > 0) { EnableStrategy(); guardCounter--; }
 
         bool prevDetect = CurrentlyDetecting;
-        CurrentlyDetecting = detection.Detect(target, out var perceivedPos);
+        Vector3 perceivedPos;
+        CurrentlyDetecting = detection.Detect(target, out perceivedPos);
 
         float dist = Vector3.Distance(transform.position, target.position);
         bool pinNow = CheckPinning(dist);
@@ -136,27 +137,25 @@ public class EnemyMonster : MonoBehaviour
             isPinning = false;
         }
 
+        if (CurrentlyDetecting && !prevDetect && detectionArmed)
+        {
+            if (detectionSfx)
+            {
+                if (sfxSource) sfxSource.PlayOneShot(detectionSfx, detectionSfxVolume);
+                else AudioSource.PlayClipAtPoint(detectionSfx, transform.position, detectionSfxVolume);
+            }
+            detectionArmed = false;
+        }
+
         if (CurrentlyDetecting)
         {
-            if (detectionArmed)
-            {
-                if (detectionSfx)
-                {
-                    if (sfxSource) sfxSource.PlayOneShot(detectionSfx, detectionSfxVolume);
-                    else AudioSource.PlayClipAtPoint(detectionSfx, transform.position, detectionSfxVolume);
-                }
-                detectionArmed = false;
-            }
             isChasing = true;
             lastPerceivedTargetPos = perceivedPos;
             Chase(perceivedPos);
         }
         else
         {
-            if (!prevDetect)
-            {
-                if (Time.time - lastNotDetectTime >= detectionSfxRearmSeconds) detectionArmed = true;
-            }
+            if (!detectionArmed && Time.time - lastNotDetectTime >= detectionSfxRearmSeconds) detectionArmed = true;
             lastNotDetectTime = Time.time;
 
             if (isChasing)
@@ -281,6 +280,7 @@ public class EnemyMonster : MonoBehaviour
     {
         if (sanityDamagePerSecond <= 0f) return;
         if (!other.CompareTag(playerTag)) return;
+        if (!CurrentlyDetecting) return;
         var s = other.GetComponent<SanitySystem>();
         if (s != null) s.TakeDamage(sanityDamagePerSecond * Time.deltaTime);
     }

@@ -151,13 +151,40 @@ MonoBehaviour:
   stoppingDistance: 2
   rotationSpeed: 5
   idleSpeed: 1.5
-  chaseSpeed: 8
+  chaseSpeed: 4.5
   animator: {fileID: 0}
   walkBool: isWalking
+  stunnedBool: isStunned
   detectionStrategyComponent: {fileID: 2146650608103728970}
-  ignoreBoardsAtRuntime: 1
-  boardsRootTag: Boards
-  sanityDamagePerSecond: 6
+  sanityDamagePerSecond: 30
+  patrolEnabled: 1
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  patrolSpeed: 3
+  patrolWaitSeconds: 0.3
+  patrolPingPong: 0
+  patrolRandom: 1
+  forceEnableStrategyOnStart: 1
+  enableGuardFrames: 20
+  canBeStunnedByLight: 1
+  stunSeconds: 2.5
+  freezeAgentOnStun: 1
+  stunSfx: {fileID: 0}
+  sfxSource: {fileID: 0}
+  detectionSfx: {fileID: 0}
+  detectionSfxVolume: 1
+  detectionSfxRearmSeconds: 1
+  stunSfxVolume: 1
+  pinStopDistance: 1.1
+  pinResumeDistance: 1.6
+  pinBackWallCheck: 0.6
+  pinCheckHeight: 1.2
+  environmentMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &2146650608103728970
 MonoBehaviour:
   m_ObjectHideFlags: 0
