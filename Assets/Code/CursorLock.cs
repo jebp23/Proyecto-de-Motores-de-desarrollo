@@ -5,7 +5,7 @@ public class CursorLock : MonoBehaviour
 {
     [Header("Options")]
     [SerializeField] bool autoLockOnStart = true;
-    [SerializeField] Key toggleKey = Key.Escape;   // libera/bloquea con Esc
+    [SerializeField] Key toggleKey = Key.Escape;   
 
     bool shouldBeLocked;
 
@@ -16,7 +16,6 @@ public class CursorLock : MonoBehaviour
 
     void Update()
     {
-        // Permite alternar (útil para abrir menús sin sistema de pausa aún)
         if (Keyboard.current != null && Keyboard.current[toggleKey].wasPressedThisFrame)
         {
             if (Cursor.lockState == CursorLockMode.Locked) UnlockCursor();
@@ -24,7 +23,6 @@ public class CursorLock : MonoBehaviour
         }
     }
 
-    // Si el editor o el SO quitan el foco, al volver lo recapturamos.
     void OnApplicationFocus(bool hasFocus)
     {
         if (hasFocus && shouldBeLocked) LockCursor();
@@ -44,7 +42,6 @@ public class CursorLock : MonoBehaviour
         Cursor.visible = true;
     }
 
-    // Útil si tenés un GameManager con pausa:
     public void OnPauseChanged(bool paused)
     {
         if (paused) UnlockCursor(); else LockCursor();

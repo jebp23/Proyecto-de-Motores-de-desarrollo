@@ -12,7 +12,6 @@ public class Resolutions : MonoBehaviour
     public TMP_Dropdown resolutionsDropDown;
     Resolution[] resolutions;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (Screen.fullScreen)
@@ -27,7 +26,6 @@ public class Resolutions : MonoBehaviour
         CheckResolution();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

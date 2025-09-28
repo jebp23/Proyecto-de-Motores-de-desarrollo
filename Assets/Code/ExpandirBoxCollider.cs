@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class ExpandirBoxCollider : MonoBehaviour
 {
-    //Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    //CODIGO COMPLETAMENTE PROVISORIO (ARREGLAR CAMARA)Buen día gente 
     void Start()
     {
         BoxCollider[] colliders = Object.FindObjectsByType<BoxCollider>(FindObjectsSortMode.None);
@@ -20,7 +17,6 @@ public class ExpandirBoxCollider : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 

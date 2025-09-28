@@ -67,7 +67,6 @@ public class VisionDetectionStrategy : MonoBehaviour, IDetectionStrategy
         return true;
     }
 
-#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -83,5 +82,4 @@ public class VisionDetectionStrategy : MonoBehaviour, IDetectionStrategy
             Gizmos.DrawRay(transform.position, right * forward * detectionRange);
         }
     }
-#endif
 }
