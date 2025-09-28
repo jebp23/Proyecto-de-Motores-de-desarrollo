@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0c2f79e317bcf4ab32d1781947b50d, type: 3}
+  m_Name: NotesPhase2
+  m_EditorClassIdentifier: 
+  notes:
+  - "Estoy escondida debajo de la cama\u2026 Escucho sus pisadas cerca\u2026 Creo
+    que me va a encontrar\u2026 Si alguien encuentra esta carta sepan que mi nombre
+    es \u201CMalena\u201D."
+  - "Hay un par de puertas que no logre abrir\u2026 Pero creo ver algunos agujeros
+    en la pared."
+  - "Estoy escondida detr\xE1s del mueble\u2026 Lo escuch\xE9 subir aqu\xED\u2026
+    El hijo de mil p* me est\xE1 buscando\u2026 Espero que este cuchillo de mierda
+    todav\xEDa sirva.\r\n\r\n"
+  - "Pase por el despacho y vi un agujero en la chimenea creo que es otra bajada
+    al s\xF3tano\u2026 no pienso entrar ah\xED otra vez.\r\n"

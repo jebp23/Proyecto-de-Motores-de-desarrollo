@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0c2f79e317bcf4ab32d1781947b50d, type: 3}
+  m_Name: NotesPhase1
+  m_EditorClassIdentifier: 
+  notes:
+  - "No s\xE9 qu\xE9 d\xEDa es hoy. Hac\xEDa mucho fr\xEDo ah\xED abajo. No s\xE9
+    c\xF3mo lo logr\xE9\u2026 pero escap\xE9 de la celda\u2026 si alguien est\xE1
+    en la misma situaci\xF3n que yo espero que estas notas le sirvan para escapar
+    de este\u2026 hdp\u2026 Sorete\r\n"
+  - "Este tipo est\xE1 loco. Jurar\xEDa que lo escuch\xE9 hablando solo.\r\n Est\xE1
+    todo oscuro ah\xED abajo pero logr\xE9 encontrar una escalera que me ayud\xF3
+    a subir\u2026 Debo tener cuidado con este mani\xE1tico. \r\nHab\xEDa frascos
+    y cosas raras de laboratorio en el s\xF3tano\u2026 Da miedo."
+  - "La casa se cae a pedazos\u2026 Al parecer se robaron varias cosas, pero  logr\xE9
+    encontrar un tramontina\u2026 Est\xE1 muy desafilado y oxidado pero juro que
+    si me llego a cruzar a este tipo y lo acuchillo.\r\n\u2026.\r\nEst\xE1 cerca,
+    lo escucho hablar de plantas. \xBFAhora qu\xE9? \xBFEs un bot\xE1nico loco que
+    en sus tiempos libres secuestra gente? \r\nBicho raro\u2026\r\n"
+  - "La puerta principal y trasera est\xE1n cerradas.\r\nS\xED fuera vos no intentar\xEDa
+    escapar por ah\xED, es una p\xE9rdida de tiempo, estar\xE1n cerradas desde afuera.\r\n
+    Voy a intentar ver si hay salidas en el piso de arriba. Vi que algunas puertas
+    tienen cadenas, pero me pareci\xF3 ver un corta cadenas en el ba\xF1o al lado
+    del comedor.\r\n\r\n\xBFquien guarda un corta cadenas en un ba\xF1o? en fin\u2026
+    locos\u2026\r\n"
