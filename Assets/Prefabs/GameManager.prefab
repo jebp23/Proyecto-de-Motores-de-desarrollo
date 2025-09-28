@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6605267640759649329}
   - component: {fileID: 8822491462829096807}
   - component: {fileID: 7206471955197097394}
+  - component: {fileID: 8658621790668331188}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55,7 +56,7 @@ MonoBehaviour:
   respawnGraceSeconds: 2
   spawnClearRadius: 5
   restartFadeOut: 0
-  restartBlackHold: 1.2
+  restartBlackHold: 1
 --- !u!114 &7206471955197097394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,3 +73,17 @@ MonoBehaviour:
   defaultFadeOut: 0.1
   defaultBlackHold: 2
   defaultFadeIn: 0.4
+--- !u!114 &8658621790668331188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884808305738293192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b828c028e18f448a810851f7f1cb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugId: IAProbe
+  playerInput: {fileID: 0}

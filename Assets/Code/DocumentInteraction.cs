@@ -39,7 +39,6 @@ public class DocumentInteraction : MonoBehaviour
         if (interactAction != null)
         {
             if (interactAction.actionMap != null && !interactAction.actionMap.enabled) interactAction.actionMap.Enable();
-            interactAction.started += OnInteract;
             interactAction.performed += OnInteract;
             if (!interactAction.enabled) interactAction.Enable();
         }
@@ -49,7 +48,6 @@ public class DocumentInteraction : MonoBehaviour
     {
         if (interactAction != null)
         {
-            interactAction.started -= OnInteract;
             interactAction.performed -= OnInteract;
             interactAction.Disable();
         }

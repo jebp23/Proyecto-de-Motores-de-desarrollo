@@ -352,15 +352,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e353f2b2c1434e42ac79e9d6e578252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 8041492084142572510}
+  debugId: DocInt
   player: {fileID: 5438755900613432287}
-  flashlightController: {fileID: 0}
+  flashlightBehaviour: {fileID: 8103316607770379000}
   openPrompt: {fileID: 0}
   closePrompt: {fileID: 0}
   documentPanel: {fileID: 0}
-  documentTextUI: {fileID: 0}
   docReadingPanel: {fileID: 0}
+  documentTextUI: {fileID: 0}
   toggleCooldown: 0.15
+  interactActionRef: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  playerInput: {fileID: 8041492084142572510}
 --- !u!136 &5349312246933799438
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -488,7 +490,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   stunDuration: 2
-  cooldown: 3.5
+  cooldown: 1
   vfxBoostIntensity: 950
   vfxBoostAngle: 10
   vfxBoostTime: 0.2
@@ -584,8 +586,12 @@ PrefabInstance:
       value: TestModel
       objectReference: {fileID: 0}
     - target: {fileID: 2484128538761520324, guid: 77cf697b482e9034191e12319af11197, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484128538761520324, guid: 77cf697b482e9034191e12319af11197, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 2484128538761520324, guid: 77cf697b482e9034191e12319af11197, type: 3}
       propertyPath: m_LocalPosition.z
