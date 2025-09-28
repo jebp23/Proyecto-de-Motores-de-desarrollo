@@ -9,26 +9,23 @@ EditorBuildSettings:
     path: Assets/Level/Scenes/MainMenu.unity
     guid: 18eb1aade5a203d479a79d9985c61749
   - enabled: 1
-    path: Assets/Level/Scenes/AnotherTestRoom.unity
-    guid: 7cff915b9dd7f364e85081b4a5ec7cb5
+    path: Assets/Level/Scenes/L0_Maze.unity
+    guid: 8a68c96b2a5dabc4c9d8928d0f46f717
   - enabled: 1
-    path: Assets/Level/Scenes/L0_MainRoom.unity
+    path: Assets/Level/Scenes/L1_MainRoom.unity
     guid: 9de7f6bc20cb3e94ebc9bda3c79ff439
   - enabled: 1
-    path: Assets/Level/Scenes/L1_Maze.unity
-    guid: 38bd7f98ffe285c498175bd01ff17888
+    path: Assets/Level/Scenes/AnotherTestRoom.unity
+    guid: 7cff915b9dd7f364e85081b4a5ec7cb5
   - enabled: 1
     path: Assets/Level/Scenes/RigidBodyTest.unity
     guid: 672d2d74c00e11c438fbeccc5a5ec775
   - enabled: 1
+    path: Assets/Level/Scenes/Whatever.unity
+    guid: 38bd7f98ffe285c498175bd01ff17888
+  - enabled: 1
     path: Assets/Level/Scenes/FirstLevel.unity
     guid: 98c927ce0626b4d4e9e12aa76ee9a187
-  - enabled: 0
-    path: Assets/Level/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Level/Scenes/Testing Grounds.unity
-    guid: f7c6f4dbf3aea884bb887d388956a9f9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 478c5303c5082c7499faf227355eb933, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

@@ -3,7 +3,83 @@
   "WorkspaceRootPath": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\enemymonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PanelUIMode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:Assets\\Code\\PanelUIMode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\utn\\proyecto-de-motores-de-desarrollo\\assets\\code\\levelexittrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\levelexittrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\victoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\victoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\notesequencer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\notesequencer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\toolpickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\toolpickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\notesquestmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\notesquestmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\boardeddoors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\boardeddoors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\exitgoealtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\exitgoealtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\inputactionsprobe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\inputactionsprobe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\noisebarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\noisebarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\deathfadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\deathfadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\spawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\spawnpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\logicaopciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\logicaopciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\enemymonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\enemymonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,20 +90,250 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LevelExitTrigger.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LevelExitTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\LevelExitTrigger.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LevelExitTrigger.cs",
+              "RelativeToolTip": "Assets\\Code\\LevelExitTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:49:43.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\MainMenu.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
+              "RelativeToolTip": "Assets\\Code\\MainMenu.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAIwKQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:09:01.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VictoryUI.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\VictoryUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\VictoryUI.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\VictoryUI.cs",
+              "RelativeToolTip": "Assets\\Code\\VictoryUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T02:19:43.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PanelUIMode.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PanelUIMode.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\PanelUIMode.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PanelUIMode.cs",
+              "RelativeToolTip": "Assets\\Code\\PanelUIMode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T01:53:52.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameOverUI.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameOverUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\GameOverUI.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameOverUI.cs",
+              "RelativeToolTip": "Assets\\Code\\GameOverUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T01:50:17.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Document.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\Document.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Document.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\Document.cs",
+              "RelativeToolTip": "Assets\\Code\\Document.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T01:11:50.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "InputActionsProbe.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\InputActionsProbe.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\InputActionsProbe.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\InputActionsProbe.cs",
+              "RelativeToolTip": "Assets\\Code\\InputActionsProbe.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwAcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T00:34:35.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "NoiseBarUI.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseBarUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\NoiseBarUI.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoiseBarUI.cs",
+              "RelativeToolTip": "Assets\\Code\\NoiseBarUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T00:25:21.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DocumentInteraction.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DocumentInteraction.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\DocumentInteraction.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DocumentInteraction.cs",
+              "RelativeToolTip": "Assets\\Code\\DocumentInteraction.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAYwJEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T22:53:35.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ToolPickup.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ToolPickup.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ToolPickup.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ToolPickup.cs",
+              "RelativeToolTip": "Assets\\Code\\ToolPickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T21:29:57.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ExitGoealTrigger.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ExitGoealTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ExitGoealTrigger.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ExitGoealTrigger.cs",
+              "RelativeToolTip": "Assets\\Code\\ExitGoealTrigger.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T21:29:26.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BoardedDoors.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\BoardedDoors.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\BoardedDoors.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\BoardedDoors.cs",
+              "RelativeToolTip": "Assets\\Code\\BoardedDoors.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAYwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T21:28:31.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NoteSequencer.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoteSequencer.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\NoteSequencer.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NoteSequencer.cs",
+              "RelativeToolTip": "Assets\\Code\\NoteSequencer.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T21:27:49.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NotesQuestManager.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NotesQuestManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\NotesQuestManager.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\NotesQuestManager.cs",
+              "RelativeToolTip": "Assets\\Code\\NotesQuestManager.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwCEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T20:59:06.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PlayerRigidBodyController.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
+              "RelativeToolTip": "Assets\\Code\\PlayerRigidBodyController.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAswP0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T19:22:20.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SpawnPoint.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\SpawnPoint.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\SpawnPoint.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\SpawnPoint.cs",
+              "RelativeToolTip": "Assets\\Code\\SpawnPoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T19:14:06.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LogicaOpciones.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LogicaOpciones.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\LogicaOpciones.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LogicaOpciones.cs",
+              "RelativeToolTip": "Assets\\Code\\LogicaOpciones.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAkwEkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T18:41:57.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\GameManager.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Code\\GameManager.cs",
+              "ViewState": "AgIAANIAAAAAAAAAAADwv+QAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T16:24:53.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DeathFadeController.cs",
+              "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DeathFadeController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\DeathFadeController.cs",
+              "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DeathFadeController.cs",
+              "RelativeToolTip": "Assets\\Code\\DeathFadeController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAswFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-27T15:59:57.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "EnemyMonster.cs",
               "DocumentMoniker": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\EnemyMonster.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\EnemyMonster.cs",
               "ToolTip": "F:\\UTN\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\EnemyMonster.cs",
               "RelativeToolTip": "Assets\\Code\\EnemyMonster.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8BAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIMBAAAAAAAAAAAUwI8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T13:41:42.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T13:41:42.464Z"
             }
           ]
         }
