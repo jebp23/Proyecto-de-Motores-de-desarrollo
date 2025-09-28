@@ -13232,7 +13232,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -13508,7 +13508,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 70, y: 0, z: 70}
   m_Center: {x: 0, y: 0, z: 3.0245438}
@@ -41716,15 +41716,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3393859417840851241, guid: 2c3c96356684ee4438f089e6146cf241, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.58
+      value: 10.714619
       objectReference: {fileID: 0}
     - target: {fileID: 3393859417840851241, guid: 2c3c96356684ee4438f089e6146cf241, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.65
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 3393859417840851241, guid: 2c3c96356684ee4438f089e6146cf241, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.385212
+      value: -4.95
       objectReference: {fileID: 0}
     - target: {fileID: 3393859417840851241, guid: 2c3c96356684ee4438f089e6146cf241, type: 3}
       propertyPath: m_LocalRotation.w
