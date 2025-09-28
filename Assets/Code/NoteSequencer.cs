@@ -38,11 +38,6 @@ public class NoteSequencer : MonoBehaviour
             if (spawnToolWhenComplete && !_toolSpawned && requiredNotesForTool > 0 && _assignedCount >= requiredNotesForTool)
                 SpawnTool();
         }
-        else
-        {
-            int idx = Mathf.Clamp(doc.assignedIndex, 0, content.notes.Count - 1);
-            doc.documentText = content.notes[idx];
-        }
     }
 
     void SpawnTool()

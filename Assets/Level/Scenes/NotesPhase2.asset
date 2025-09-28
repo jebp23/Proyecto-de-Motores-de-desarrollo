@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NotesPhase2
   m_EditorClassIdentifier: 
   notes:
-  - khe onda
-  - qlq
-  - abrete
-  - sesamo
+  - fase2-1
+  - fase2-2
+  - fase2-3
+  - fase2-4

@@ -9,6 +9,7 @@ public class ToolPickup : MonoBehaviour
         if (!other.CompareTag(playerTag)) return;
         NotesQuestManager.I?.SetHasTool(true);
         NoteSequencer.I?.SetHasTool(true);
+        ToolNotificationUI.I?.Show();
         gameObject.SetActive(false);
     }
 }
