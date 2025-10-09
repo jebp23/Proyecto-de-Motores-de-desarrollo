@@ -1,3 +1,4 @@
+// CAMBIOS EN SoundDetectionStrategy.cs
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,9 @@ public class SoundDetectionStrategy : MonoBehaviour, IDetectionStrategy
     [SerializeField] float noiseThresholdOff = 0.10f;
     [SerializeField] float memorySeconds = 1.5f;
 
-    SphereCollider sphere;
+    // BEFORE: SphereCollider sphere;
+    // AFTER:
+    Collider volume;         // BoxCollider, CapsuleCollider o SphereCollider (lo que tenga el GO)
     float currentNoise01;
     bool playerInRange;
     Transform cachedTarget;
@@ -16,16 +19,22 @@ public class SoundDetectionStrategy : MonoBehaviour, IDetectionStrategy
 
     public void Initialize(EnemyMonster o)
     {
-        sphere = GetComponent<SphereCollider>();
-        if (sphere == null) sphere = gameObject.AddComponent<SphereCollider>();
-        sphere.isTrigger = true;
+        // Usar el collider que YA tiene el monstruo
+        volume = GetComponent<Collider>();
+        if (volume == null)
+        {
+            // Fallback si no tiene ninguno (mejor Box por pisos)
+            volume = gameObject.AddComponent<BoxCollider>();
+        }
+        volume.isTrigger = true; // aseguramos trigger para OnTriggerEnter/Exit
         enabled = true;
     }
 
     void OnEnable() { GameEvents.OnNoiseChanged += OnNoiseChanged; }
     void OnDisable() { GameEvents.OnNoiseChanged -= OnNoiseChanged; }
 
-    void OnNoiseChanged(float n) { currentNoise01 = n; }
+    void OnNoiseChanged(float n) { currentNoise01 = n; } // se alimenta desde NoiseMeter/RaiseNoiseChanged
+                                                         // 
 
     void OnTriggerEnter(Collider other)
     {
@@ -41,13 +50,17 @@ public class SoundDetectionStrategy : MonoBehaviour, IDetectionStrategy
     {
         if (cachedTarget == null) cachedTarget = target;
 
-        bool inRange = playerInRange || IsInsideSphere(target);
+        // BEFORE: bool inRange = playerInRange || IsInsideSphere(target);
+        // AFTER:
+        bool inRange = playerInRange || IsInsideVolume(target);
+
         bool loud;
         if (currentNoise01 >= noiseThresholdOn) loud = true;
         else if (currentNoise01 <= noiseThresholdOff) loud = false;
         else loud = (Time.time - lastHeardTime) <= memorySeconds;
 
-        bool detected = inRange && loud;
+        bool detected = inRange && loud; // mismo criterio de "ruido suficiente" + "en volumen"
+                                         // (umbral On/Off + memoria) :contentReference[oaicite:2]{index=2}
 
         if (detected && cachedTarget != null)
         {
@@ -67,29 +80,14 @@ public class SoundDetectionStrategy : MonoBehaviour, IDetectionStrategy
         return false;
     }
 
-    bool IsInsideSphere(Transform t)
+    // NUEVO en lugar de IsInsideSphere
+    bool IsInsideVolume(Transform t)
     {
-        if (sphere == null || t == null) return false;
-        float r = sphere.radius * Mathf.Max(transform.lossyScale.x, Mathf.Max(transform.lossyScale.y, transform.lossyScale.z));
-        return Vector3.Distance(transform.position + sphere.center, t.position) <= r;
+        if (volume == null || t == null) return false;
+        Vector3 p = t.position;
+        Vector3 cp = volume.ClosestPoint(p);    // si está adentro, ClosestPoint = punto mismo
+        return (cp - p).sqrMagnitude <= 1e-6f;
     }
 
-    static bool sub;
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    static void BootOnce()
-    {
-        EnableAll();
-        if (!sub) { SceneManager.sceneLoaded += OnSceneLoaded; sub = true; }
-    }
-
-    static void OnSceneLoaded(Scene s, LoadSceneMode m) { EnableAll(); }
-
-    static void EnableAll()
-    {
-        var arr = Object.FindObjectsOfType<SoundDetectionStrategy>(true);
-        for (int i = 0; i < arr.Length; i++)
-        {
-            if (!arr[i].enabled) arr[i].enabled = true;
-        }
-    }
+    // (boot/enable helpers se quedan como estaban)
 }
