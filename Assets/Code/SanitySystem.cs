@@ -8,12 +8,11 @@ public class SanitySystem : MonoBehaviour
     [SerializeField] private AudioSource deathSfxSource;
     [SerializeField] private AudioClip deathClip;
 
-    // --- NUEVO: suavizado de UI ---
     [Header("UI Smoothing")]
     [SerializeField] private bool smoothUI = true;
     [SerializeField, Range(0.05f, 0.35f)] private float uiSmoothTime = 0.15f;
-    float displaySanity;         // valor mostrado
-    float displayVel;            // vel. interna de SmoothDamp
+    float displaySanity;         
+    float displayVel;          
 
     private float currentSanity;
     private bool hasDepleted;
@@ -25,7 +24,7 @@ public class SanitySystem : MonoBehaviour
 
         if (sanitySlider)
         {
-            sanitySlider.wholeNumbers = false;                    // evita “saltos”
+            sanitySlider.wholeNumbers = false;                    
             sanitySlider.maxValue = maxSanity;
             sanitySlider.value = displaySanity;
         }
@@ -39,7 +38,6 @@ public class SanitySystem : MonoBehaviour
 
     private void Update()
     {
-        // --- NUEVO: mover suavemente el valor mostrado hacia el real ---
         if (!sanitySlider) return;
 
         if (smoothUI)
@@ -61,7 +59,6 @@ public class SanitySystem : MonoBehaviour
         if (hasDepleted) return;
         currentSanity = Mathf.Clamp(currentSanity - amount, 0f, maxSanity);
 
-        // si NO suavizas, refleja directo; si sí suavizas, Update() se encarga
         if (!smoothUI && sanitySlider) sanitySlider.value = currentSanity;
 
         if (currentSanity <= 0f)
@@ -81,7 +78,6 @@ public class SanitySystem : MonoBehaviour
         currentSanity = maxSanity;
         if (!smoothUI && sanitySlider) sanitySlider.value = currentSanity;
         hasDepleted = false;
-        // También sincronizamos el mostrado para evitar “saltos” al entrar a escena:
         displaySanity = currentSanity;
         displayVel = 0f;
     }
