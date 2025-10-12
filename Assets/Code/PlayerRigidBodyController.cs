@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(Animator))]
 public class PlayerRigidBodyController : MonoBehaviour
 {
     [Header("References")]

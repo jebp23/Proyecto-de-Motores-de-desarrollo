@@ -8,27 +8,17 @@ public class SanitySystem : MonoBehaviour
     [SerializeField] private AudioSource deathSfxSource;
     [SerializeField] private AudioClip deathClip;
 
-    [Header("UI Smoothing")]
-    [SerializeField] private bool smoothUI = true;
-    [SerializeField, Range(0.05f, 0.35f)] private float uiSmoothTime = 0.15f;
-    float displaySanity;         
-    float displayVel;          
-
     private float currentSanity;
     private bool hasDepleted;
 
     private void Awake()
     {
         currentSanity = maxSanity;
-        displaySanity = currentSanity;
-
         if (sanitySlider)
         {
-            sanitySlider.wholeNumbers = false;                    
             sanitySlider.maxValue = maxSanity;
-            sanitySlider.value = displaySanity;
+            sanitySlider.value = currentSanity;
         }
-
         if (deathSfxSource)
         {
             deathSfxSource.playOnAwake = false;
@@ -36,31 +26,11 @@ public class SanitySystem : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (!sanitySlider) return;
-
-        if (smoothUI)
-        {
-            displaySanity = Mathf.SmoothDamp(
-                displaySanity, currentSanity, ref displayVel,
-                Mathf.Max(0.01f, uiSmoothTime)
-            );
-            sanitySlider.value = displaySanity;
-        }
-        else
-        {
-            sanitySlider.value = currentSanity;
-        }
-    }
-
     public void TakeDamage(float amount)
     {
         if (hasDepleted) return;
         currentSanity = Mathf.Clamp(currentSanity - amount, 0f, maxSanity);
-
-        if (!smoothUI && sanitySlider) sanitySlider.value = currentSanity;
-
+        if (sanitySlider) sanitySlider.value = currentSanity;
         if (currentSanity <= 0f)
         {
             hasDepleted = true;
@@ -76,9 +46,7 @@ public class SanitySystem : MonoBehaviour
     public void RestoreFull()
     {
         currentSanity = maxSanity;
-        if (!smoothUI && sanitySlider) sanitySlider.value = currentSanity;
+        if (sanitySlider) sanitySlider.value = currentSanity;
         hasDepleted = false;
-        displaySanity = currentSanity;
-        displayVel = 0f;
     }
 }
