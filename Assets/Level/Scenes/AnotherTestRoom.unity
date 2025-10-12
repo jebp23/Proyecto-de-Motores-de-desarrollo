@@ -4012,7 +4012,7 @@ Transform:
   m_GameObject: {fileID: 184183081}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0069905403, y: -0.000000029612982, z: 2.0701581e-10, w: 0.99997556}
-  m_LocalPosition: {x: 5.32, y: 2.29, z: 16.59}
+  m_LocalPosition: {x: 13.75, y: 2.29, z: 16.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7591,7 +7591,7 @@ Transform:
   m_GameObject: {fileID: 546201732}
   serializedVersion: 2
   m_LocalRotation: {x: 0.006990541, y: -0.000000029612982, z: 2.0701584e-10, w: 0.99997556}
-  m_LocalPosition: {x: 5.86, y: 2.5299766, z: 16.593355}
+  m_LocalPosition: {x: 14.29, y: 2.5299766, z: 16.593355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17937,6 +17937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'FliyingMonster '
       objectReference: {fileID: 0}
+    - target: {fileID: 3317688457630325643, guid: 83b546f96840f474ba8ca6b9a289f315, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19069,7 +19073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1532696071
 Transform:
   m_ObjectHideFlags: 0
@@ -23256,6 +23260,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3758992338714495690, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6211967454766835864, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -23346,13 +23354,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 563455998448124904, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
+      propertyPath: followCamera
+      value: 
+      objectReference: {fileID: 184183087}
     - target: {fileID: 1011347274692632860, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: sanitySlider
       value: 
       objectReference: {fileID: 527249162}
     - target: {fileID: 3236526961656506347, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.32
+      value: 13.75
       objectReference: {fileID: 0}
     - target: {fileID: 3236526961656506347, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23426,10 +23438,6 @@ PrefabInstance:
       propertyPath: sfxSource
       value: 
       objectReference: {fileID: 1723553672}
-    - target: {fileID: 8103316607770379000, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-      propertyPath: flashlight
-      value: 
-      objectReference: {fileID: 3779678457217311065}
     - target: {fileID: 8325095178171942151, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: m_Name
       value: PlayerPlaceholder

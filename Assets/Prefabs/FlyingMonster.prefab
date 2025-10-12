@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 9027708434433072949}
   - component: {fileID: 9005427672344235865}
   - component: {fileID: 790399812186490905}
+  - component: {fileID: 2674066116522361302}
+  - component: {fileID: 7157396771758444368}
   m_Layer: 0
   m_Name: FlyingMonster
   m_TagString: Untagged
@@ -129,28 +131,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   playerTag: Player
-  stoppingDistance: 2
+  stoppingDistance: 3
   rotationSpeed: 5
   idleSpeed: 1.5
-  chaseSpeed: 4.5
+  chaseSpeed: 10
   animator: {fileID: 0}
   walkBool: isWalking
   stunnedBool: isStunned
   detectionStrategyComponent: {fileID: 2146650608103728970}
-  sanityDamagePerSecond: 30
+  sanityDamagePerSecond: 7
   patrolEnabled: 1
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  patrolSpeed: 4
-  patrolWaitSeconds: 0
-  patrolPingPong: 0
+  patrolSpeed: 3
+  patrolWaitSeconds: 4
+  patrolPingPong: 1
   patrolRandom: 1
   forceEnableStrategyOnStart: 1
   enableGuardFrames: 20
-  canBeStunnedByLight: 1
+  canBeStunnedByLight: 0
   stunSeconds: 2.5
   freezeAgentOnStun: 1
   stunSfx: {fileID: 0}
@@ -180,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noiseThresholdOn: 0.15
   noiseThresholdOff: 0.1
-  memorySeconds: 1.5
+  memorySeconds: 5
 --- !u!136 &9027708434433072949
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -223,7 +225,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7, y: 7, z: 7}
+  m_Size: {x: 12, y: 6, z: 12}
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &790399812186490905
 MonoBehaviour:
@@ -240,6 +242,69 @@ MonoBehaviour:
   patrolPoints: []
   pingPong: 0
   random: 1
+  checkEvery: 0.25
+  stuckSpeedThreshold: 0.05
+  stuckSecondsToSkip: 2
+  arriveDistance: 0.5
+--- !u!114 &2674066116522361302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317688457630325643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939e68b341f45f643a56e339282a09f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  maxRadius: 18
+  innerRadius: 4.5
+  falloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  sendEvery: 0.05
+--- !u!114 &7157396771758444368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317688457630325643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10bfe262270c3ac43afa2211f37b2521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pingPong: 0
+  random: 0
   checkEvery: 0.25
   stuckSpeedThreshold: 0.05
   stuckSecondsToSkip: 2
