@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Monster
+  - opciones
+  - LivesText
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - Player
   - Monster
-  - 
+  - LevelObstacles
   - 
   - 
   - 

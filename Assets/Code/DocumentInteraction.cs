@@ -1,128 +1,145 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class DocumentInteraction : MonoBehaviour
 {
-    [Header("Refs")]
-    [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private FlashlightController flashlightController;
-    [SerializeField] private GameObject openPrompt;
-    [SerializeField] private GameObject closePrompt;
-    [SerializeField] private GameObject documentPanel;
-    [SerializeField] private TMP_Text documentTextUI;
-    [SerializeField] private GameObject docReadingPanel;
+    [SerializeField] string debugId = "DocInt";
+    [SerializeField] PlayerRigidBodyController player;
+    [SerializeField] Behaviour flashlightBehaviour;
+    [SerializeField] GameObject openPrompt;
+    [SerializeField] GameObject closePrompt;
+    [SerializeField] GameObject documentPanel;
+    [SerializeField] GameObject docReadingPanel;
+    [SerializeField] TMP_Text documentTextUI;
+    [SerializeField] float toggleCooldown = 0.12f;
+    [SerializeField] InputActionReference interactActionRef;
+    [SerializeField] PlayerInput playerInput;
 
-    private InputAction interactAction;
-    private Document currentDocument;
-    private bool isReading;
+    readonly HashSet<Document> inRangeDocs = new HashSet<Document>();
+    Document currentDocument;
+    bool isReading;
+    float lastToggleTime;
+    InputAction interactAction;
 
-    private void Awake()
+    void OnEnable()
     {
-        if (!playerInput) playerInput = FindObjectOfType<PlayerInput>();
-        if (!playerController) playerController = FindObjectOfType<PlayerController>();
-        if (!flashlightController) flashlightController = FindObjectOfType<FlashlightController>();
-
+        if (!player) player = FindFirstObjectByType<PlayerRigidBodyController>();
+        if (!playerInput) playerInput = FindFirstObjectByType<PlayerInput>();
         if (openPrompt) openPrompt.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
         if (documentPanel) documentPanel.SetActive(false);
         if (docReadingPanel) docReadingPanel.SetActive(false);
-    }
 
-    private void OnEnable()
-    {
-        if (playerInput != null)
+        interactAction = interactActionRef != null ? interactActionRef.action : null;
+        if (interactAction == null && playerInput != null && playerInput.actions != null)
+            interactAction = playerInput.actions.FindAction("Player/Interact", false) ?? playerInput.actions.FindAction("Interact", false);
+
+        if (interactAction != null)
         {
-            // Suscribirse a la acción "Interact" que siempre está activa
-            interactAction = playerInput.actions.FindAction("Interact");
-            if (interactAction != null)
-            {
-                interactAction.started += OnInteract;
-                interactAction.Enable();
-            }
-            else
-            {
-                Debug.LogError("[DocumentInteraction] No se encontró la acción 'Interact'.");
-            }
+            if (interactAction.actionMap != null && !interactAction.actionMap.enabled) interactAction.actionMap.Enable();
+            interactAction.performed += OnInteract;
+            if (!interactAction.enabled) interactAction.Enable();
         }
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         if (interactAction != null)
         {
-            interactAction.started -= OnInteract;
+            interactAction.performed -= OnInteract;
+            interactAction.Disable();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnInteract(InputAction.CallbackContext ctx)
     {
-        var doc = other.GetComponent<Document>();
-        if (doc)
-        {
-            currentDocument = doc;
-            if (openPrompt) openPrompt.SetActive(true);
-        }
+        if (Time.unscaledTime - lastToggleTime < toggleCooldown) return;
+        if (!isReading) TryOpen(); else CloseDocument();
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        var doc = other.GetComponent<Document>();
-        if (doc && doc == currentDocument)
-        {
-            currentDocument = null;
-            if (openPrompt) openPrompt.SetActive(false);
-        }
+        var doc = FindDocument(other);
+        if (doc == null) return;
+        inRangeDocs.Add(doc);
+        PickClosest();
+        if (!isReading && currentDocument != null && openPrompt) openPrompt.SetActive(true);
     }
 
-    private void OnInteract(InputAction.CallbackContext ctx)
+    void OnTriggerExit(Collider other)
     {
-        if (isReading)
+        var doc = FindDocument(other);
+        if (doc == null) return;
+        inRangeDocs.Remove(doc);
+        if (currentDocument == doc) currentDocument = null;
+        PickClosest();
+        if (!isReading && openPrompt) openPrompt.SetActive(currentDocument != null);
+    }
+
+    void TryOpen()
+    {
+        if (currentDocument == null) return;
+        NoteSequencer.I?.EnsureAssignment(currentDocument);
+        if (documentTextUI) documentTextUI.text = currentDocument.documentText;
+        if (openPrompt) openPrompt.SetActive(false);
+        if (documentPanel) documentPanel.SetActive(true);
+        if (docReadingPanel) docReadingPanel.SetActive(true);
+        if (closePrompt) closePrompt.SetActive(true);
+        if (player) player.SetInputEnabled(false);
+        if (flashlightBehaviour) flashlightBehaviour.enabled = false;
+        Time.timeScale = 0f;
+        if (!currentDocument.collected)
         {
-            // Cerrar documento
-            if (documentPanel) documentPanel.SetActive(false);
-            if (closePrompt) closePrompt.SetActive(false);
-            if (docReadingPanel) docReadingPanel.SetActive(false);
-
-            Time.timeScale = 1f;
-            if (playerController) playerController.enabled = true;
-            if (flashlightController) flashlightController.enabled = true;
-
-            // Lógica para resetear el estado del prompt
-            if (currentDocument == null)
-            {
-                openPrompt.SetActive(false);
-            }
-            else
-            {
-                openPrompt.SetActive(true);
-            }
-
-            isReading = false;
+            currentDocument.collected = true;
+            GameManager.I?.DocumentCollected(currentDocument);
         }
-        else
+        isReading = true;
+        lastToggleTime = Time.unscaledTime;
+    }
+
+    void CloseDocument()
+    {
+        if (documentPanel) documentPanel.SetActive(false);
+        if (docReadingPanel) docReadingPanel.SetActive(false);
+        if (closePrompt) closePrompt.SetActive(false);
+        Time.timeScale = 1f;
+        if (player) player.SetInputEnabled(true);
+        if (flashlightBehaviour) flashlightBehaviour.enabled = true;
+        isReading = false;
+        lastToggleTime = Time.unscaledTime;
+        PickClosest();
+        if (openPrompt) openPrompt.SetActive(currentDocument != null);
+    }
+
+    Document FindDocument(Collider c)
+    {
+        if (c == null) return null;
+        var d = c.GetComponent<Document>();
+        if (d != null) return d;
+        d = c.GetComponentInParent<Document>();
+        if (d != null) return d;
+        var t = c.transform;
+        for (int i = 0; i < t.childCount; i++)
         {
-            // Abrir documento
-            if (currentDocument != null)
-            {
-                if (documentTextUI) documentTextUI.text = currentDocument.documentText;
-                if (documentPanel) documentPanel.SetActive(true);
-                if (docReadingPanel) docReadingPanel.SetActive(true);
-                if (openPrompt) openPrompt.SetActive(false);
-                if (closePrompt) closePrompt.SetActive(true);
-
-                Time.timeScale = 0f;
-                if (playerController) playerController.enabled = false;
-                if (flashlightController) flashlightController.enabled = false;
-
-                currentDocument.collected = true;
-                isReading = true;
-            }
-            else
-            {
-                Debug.LogWarning("[DocumentInteraction] No hay documento en rango para abrir.");
-            }
+            var cd = t.GetChild(i).GetComponent<Document>();
+            if (cd != null) return cd;
         }
+        return null;
+    }
+
+    void PickClosest()
+    {
+        Document best = null;
+        float bestDist = float.MaxValue;
+        Vector3 p = transform.position;
+        foreach (var d in inRangeDocs)
+        {
+            if (d == null) continue;
+            float dist = Vector3.SqrMagnitude(d.transform.position - p);
+            if (dist < bestDist) { bestDist = dist; best = d; }
+        }
+        currentDocument = best;
     }
 }
