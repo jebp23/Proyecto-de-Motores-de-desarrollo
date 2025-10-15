@@ -300371,7 +300371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9001220752164723229, guid: 2f35db0e3892d85478e68278794ec7ff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -396625,11 +396625,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!108 &1999903066 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 794854310039528091, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
-  m_PrefabInstance: {fileID: 5635793328537963972}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011164886
 GameObject:
   m_ObjectHideFlags: 0
@@ -431757,7 +431752,7 @@ PrefabInstance:
     - target: {fileID: 8103316607770379000, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: flashlight
       value: 
-      objectReference: {fileID: 1999903066}
+      objectReference: {fileID: 0}
     - target: {fileID: 8103316607770379000, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: stunDuration
       value: 4
