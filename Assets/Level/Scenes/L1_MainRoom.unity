@@ -24381,6 +24381,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: 'footstepRunClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1bec1f8bf2ae6dd468d6d80b53904813, type: 3}
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: 'footstepWalkClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1bec1f8bf2ae6dd468d6d80b53904813, type: 3}
     - target: {fileID: 7352558604490243539, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1820.1299
@@ -431726,6 +431734,10 @@ PrefabInstance:
       propertyPath: runStepVolume
       value: 0.52
       objectReference: {fileID: 0}
+    - target: {fileID: 5438755900613432287, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
+      propertyPath: footstepSource
+      value: 
+      objectReference: {fileID: 61821232}
     - target: {fileID: 5438755900613432287, guid: 0a5a2a59383e5bc409cdd1ae4d75c08a, type: 3}
       propertyPath: walkStepVolume
       value: 0.18
