@@ -1,13 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\",
+  "WorkspaceRootPath": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\development projects\\unity\\proyecto-de-motores-de-desarrollo\\assets\\code\\torsoaimtocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\torsoaimtocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\torsoaimtocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -23,28 +31,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PlayerRigidBodyController.cs",
-              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
-              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
-              "RelativeToolTip": "Assets\\Code\\PlayerRigidBodyController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T17:05:36.144Z",
+              "Title": "Lit.shader",
+              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-10-30T01:49:09.949Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ComplexLit.shader",
+              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
+              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-10-29T13:08:47.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerRigidBodyController.cs",
+              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
+              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
+              "RelativeToolTip": "Assets\\Code\\PlayerRigidBodyController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T17:05:36.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TorsoAimToCamera.cs",
-              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
+              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\TorsoAimToCamera.cs",
-              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
+              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
               "RelativeToolTip": "Assets\\Code\\TorsoAimToCamera.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T23:21:39.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-10T23:21:39.058Z"
             }
           ]
         }
