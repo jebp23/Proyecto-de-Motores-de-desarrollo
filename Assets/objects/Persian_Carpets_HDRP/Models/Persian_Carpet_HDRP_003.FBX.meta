@@ -1,28 +1,11 @@
 fileFormatVersion: 2
 guid: cbf7d7f285556ef47a13870d45915edd
-AssetOrigin:
-  serializedVersion: 1
-  productId: 275153
-  packageName: Persiang Carpets - HDRP
-  packageVersion: 1.0
-  assetPath: Assets/Persian_Carpets_HDRP/Models/Persian_Carpet_HDRP_003.FBX
-  uploadId: 639315
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Persian_Carpet_06
-    second: {fileID: 2100000, guid: ae8d13bb95d3dd24cb9bc7dfcc564006, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Persian_Carpet_Fringe5
-    second: {fileID: 2100000, guid: ae8d13bb95d3dd24cb9bc7dfcc564006, type: 2}
+  externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -33,6 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -122,3 +107,10 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 275153
+  packageName: Persiang Carpets - HDRP
+  packageVersion: 1.0
+  assetPath: Assets/objects/Persian_Carpets_HDRP/Models/Persian_Carpet_HDRP_003.FBX
+  uploadId: 639315
