@@ -1,24 +1,24 @@
-using UnityEngine;
+// using UnityEngine;
 
-public class ExpandirBoxCollider : MonoBehaviour
-{
-    void Start()
-    {
-        BoxCollider[] colliders = Object.FindObjectsByType<BoxCollider>(FindObjectsSortMode.None);
+// public class ExpandirBoxCollider : MonoBehaviour
+// {
+//     void Start()
+//     {
+//         BoxCollider[] colliders = Object.FindObjectsByType<BoxCollider>(FindObjectsSortMode.None);
 
-        foreach (BoxCollider col in colliders)
-        {
-            Vector3 size = col.size;
-            size.x += 0.5f;
-            size.y += 0.5f;
-            size.z += 0.5f;
-            col.size = size;
-        }
+//         foreach (BoxCollider col in colliders)
+//         {
+//             Vector3 size = col.size;
+//             size.x += 0.5f;
+//             size.y += 0.5f;
+//             size.z += 0.5f;
+//             col.size = size;
+//         }
 
-    }
+//     }
 
-    void Update()
-    {
+//     void Update()
+//     {
 
-    }
-}
+//     }
+// }
