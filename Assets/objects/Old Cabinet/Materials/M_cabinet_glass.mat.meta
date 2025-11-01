@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 4995dd91264436a49863978e55f96784
-PrefabImporter:
+guid: cf22011104c400d4a97e6d3b2e92b558
+NativeFormatImporter:
   externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -10,5 +11,5 @@ AssetOrigin:
   productId: 106249
   packageName: Old Wooden Cabinet
   packageVersion: 1.3
-  assetPath: Assets/objects/Old Cabinet/Prefabs/SM_cabinet.prefab
+  assetPath: Assets/objects/Old Cabinet/Materials/M_cabinet_glass.mat
   uploadId: 522438
