@@ -46,3 +46,10 @@ crashlytics-build.properties
 
 # Others
 sysinfo.txt
+
+/.vs/
+*.vsidx
+*.suo
+*.user
+*.userosscache
+*.sln.iml
