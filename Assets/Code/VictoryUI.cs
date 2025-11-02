@@ -15,10 +15,8 @@ public class VictoryUI : MonoBehaviour
     {
         if (!playerInput) playerInput = FindFirstObjectByType<PlayerInput>();
         if (cursorLock) cursorLock.enabled = false;
-
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
         if (playerInput && !string.IsNullOrEmpty(uiMap))
         {
             var map = playerInput.actions != null ? playerInput.actions.FindActionMap(uiMap, false) : null;
@@ -26,7 +24,6 @@ public class VictoryUI : MonoBehaviour
             if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != uiMap)
                 playerInput.SwitchCurrentActionMap(uiMap);
         }
-
         if (root) root.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -40,10 +37,11 @@ public class VictoryUI : MonoBehaviour
             if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != playerMap)
                 playerInput.SwitchCurrentActionMap(playerMap);
         }
-
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (cursorLock) cursorLock.enabled = true;
+        var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
+        if (pause != null) pause.BlockPause(false);
     }
 
     public void OnClickRestart()

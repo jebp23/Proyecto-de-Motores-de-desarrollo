@@ -14,13 +14,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] TMP_Text progressText;
     [SerializeField] int totalNotes = 4;
-
     [SerializeField] DeathFadeController deathFader;
     [SerializeField] string deathSfxObjectName = "DeathSFXSource";
     [SerializeField] string deathSfxTag = "DeathSFXSource";
     [SerializeField] float respawnGraceSeconds = 2f;
     [SerializeField] float spawnClearRadius = 5f;
-
     [Header("Restart Transition")]
     [SerializeField] float restartFadeOut = -1f;
     [SerializeField] float restartBlackHold = -1f;
@@ -60,12 +58,18 @@ public class GameManager : MonoBehaviour
         if (!deathFader) deathFader = FindFirstObjectByType<DeathFadeController>(FindObjectsInactive.Include);
         if (victoryPanel) victoryPanel.SetActive(false);
         if (gameOverPanel) gameOverPanel.SetActive(false);
-        var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
-        if (pause != null) pause.BlockPause(false);
+        StartCoroutine(EnsurePauseUnblocked());
         if (deathFader) StartCoroutine(deathFader.FadeIn(null));
         AudioManager.I?.FadeInAll(deathFader ? deathFader.DefaultFadeIn : 0.35f);
         RecountCollected();
         UpdateProgressUI();
+    }
+
+    IEnumerator EnsurePauseUnblocked()
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+        var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
+        if (pause != null) pause.BlockPause(false);
     }
 
     public void RestartLevel() { StartCoroutine(RestartLevelCo()); }
@@ -118,19 +122,15 @@ public class GameManager : MonoBehaviour
     {
         respawning = true;
         Time.timeScale = 1f;
-
         var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
         if (pause != null) { pause.EsconderOpciones(); pause.BlockPause(true); }
-
         if (!deathFader) deathFader = FindFirstObjectByType<DeathFadeController>(FindObjectsInactive.Include);
         AudioSource except = ResolveDeathSfxSource();
         AudioManager.I?.FadeOutAll(0.25f, except);
         if (deathFader) yield return deathFader.FadeOut(null);
         AudioManager.I?.StopAll(except);
-
         var player = GameObject.FindWithTag("Player");
         PlayerRigidBodyController ctrl = null;
-
         if (player != null)
         {
             ctrl = player.GetComponent<PlayerRigidBodyController>();
@@ -139,18 +139,14 @@ public class GameManager : MonoBehaviour
             if (ctrl) ctrl.ResetMovementState(true);
             StartCoroutine(TempIgnoreCollisionsWithEnemies(player, respawnGraceSeconds));
         }
-
         Vector3 center = SpawnPoint.I ? SpawnPoint.I.SpawnPosition : (player ? player.transform.position : Vector3.zero);
         ClearAroundSpawn(center);
         SuppressAllEnemies(respawnGraceSeconds);
-
         if (deathFader) yield return deathFader.BlackHold(null);
         else yield return new WaitForSecondsRealtime(0.15f);
-
         if (deathFader) yield return deathFader.FadeIn(null);
         AudioManager.I?.ReplayStopped();
         AudioManager.I?.FadeInAll(deathFader ? deathFader.DefaultFadeIn : 0.35f);
-
         if (ctrl) { ctrl.ResetMovementState(true); ctrl.SetInputEnabled(true); }
         if (pause != null) pause.BlockPause(false);
         respawning = false;
@@ -231,7 +227,6 @@ public class GameManager : MonoBehaviour
         UpdateProgressUI();
         NotesQuestManager.I?.OnNoteCollected();
     }
-
 
     public GameState CurrentState => state;
 }
