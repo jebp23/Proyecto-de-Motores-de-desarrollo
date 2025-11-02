@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:Assets\\FlashlightFollowCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\FlashlightFollowCamera1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,11 +38,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FlashlightFollowCamera1.cs",
+              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera1.cs",
+              "RelativeDocumentMoniker": "Assets\\FlashlightFollowCamera1.cs",
+              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera1.cs",
+              "RelativeToolTip": "Assets\\FlashlightFollowCamera1.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T06:35:05.722Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FlashlightFollowCamera.cs",
+              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera.cs",
+              "RelativeDocumentMoniker": "Assets\\FlashlightFollowCamera.cs",
+              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera.cs",
+              "RelativeToolTip": "Assets\\FlashlightFollowCamera.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAwwD4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T06:31:29.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CinemachineDecollider.cs",
               "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
@@ -42,12 +74,11 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T22:18:04.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T22:18:04.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Lit.shader",
               "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
@@ -55,12 +86,11 @@
               "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "ViewState": "AgIAAG8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2025-10-30T01:49:09.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T01:49:09.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ComplexLit.shader",
               "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
@@ -72,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PlayerRigidBodyController.cs",
               "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
@@ -84,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "TorsoAimToCamera.cs",
               "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\TorsoAimToCamera.cs",
