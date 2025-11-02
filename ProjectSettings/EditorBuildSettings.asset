@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Level/Scenes/MainMenu.unity
     guid: 18eb1aade5a203d479a79d9985c61749
   - enabled: 1
-    path: Assets/Level/Scenes/L0_Maze.unity
-    guid: 8a68c96b2a5dabc4c9d8928d0f46f717
+    path: Assets/Level/Scenes/L0_Maze_NEW.unity
+    guid: e1c405e4f17843f498486a5d7f321113
   - enabled: 1
     path: Assets/Level/Scenes/L1_MainRoom.unity
     guid: 9de7f6bc20cb3e94ebc9bda3c79ff439
+  - enabled: 0
+    path: Assets/Level/Scenes/L0_Maze.unity
+    guid: 8a68c96b2a5dabc4c9d8928d0f46f717
   - enabled: 0
     path: Assets/Level/Scenes/AnotherTestRoom.unity
     guid: 7cff915b9dd7f364e85081b4a5ec7cb5
