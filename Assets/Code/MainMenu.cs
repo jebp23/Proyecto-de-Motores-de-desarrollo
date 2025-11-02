@@ -10,15 +10,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject btnHowToPlay;
     [SerializeField] GameObject btnOptions;
     [SerializeField] GameObject btnExit;
-
     [SerializeField] GameObject optionsCanvasRoot;
     [SerializeField] GameObject optionsPanel;
     [SerializeField] GameObject howToPlayPanel;
-
     [SerializeField] Canvas mainMenuCanvas;
     [SerializeField] Canvas optionsCanvas;
     [SerializeField] bool bringOptionsToFront = true;
-
     [SerializeField] PlayerInput playerInput;
     [SerializeField] string uiMap = "UI";
     [SerializeField] string playerMap = "Player";
@@ -29,11 +26,9 @@ public class MainMenu : MonoBehaviour
         if (!mainMenuCanvas) mainMenuCanvas = GetComponentInParent<Canvas>();
         if (!optionsCanvas && optionsCanvasRoot) optionsCanvas = optionsCanvasRoot.GetComponentInChildren<Canvas>(true);
         if (!optionsPanel && optionsCanvasRoot) optionsPanel = FindDeep(optionsCanvasRoot.transform, "OptionsMenu")?.gameObject;
-
         SafeSetActive(optionsPanel, false);
         SafeSetActive(optionsCanvasRoot, false);
         SafeSetActive(howToPlayPanel, false);
-
         if (bringOptionsToFront && optionsCanvas)
         {
             optionsCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -41,7 +36,6 @@ public class MainMenu : MonoBehaviour
             int baseOrder = mainMenuCanvas ? mainMenuCanvas.sortingOrder : 0;
             optionsCanvas.sortingOrder = baseOrder + 10;
         }
-
         ApplyMenuInputState(true);
         ShowMainMenu(true);
     }
@@ -160,5 +154,32 @@ public class MainMenu : MonoBehaviour
             if (r) return r;
         }
         return null;
+    }
+
+    [Header("Audio Settings")]
+    [SerializeField] AudioSource mainMenuMusic;
+    [SerializeField] AudioSource newGameVO;
+    [SerializeField] float sceneLoadDelay = 2f;
+    [SerializeField] string firstLevelName = "Level1";
+
+    void Start()
+    {
+        if (mainMenuMusic)
+        {
+            mainMenuMusic.loop = true;
+            if (!mainMenuMusic.isPlaying) mainMenuMusic.Play();
+        }
+    }
+
+    public void PlayNewGame()
+    {
+        StartCoroutine(PlayNewGameSequence());
+    }
+
+    System.Collections.IEnumerator PlayNewGameSequence()
+    {
+        if (newGameVO) newGameVO.Play();
+        yield return new WaitForSeconds(sceneLoadDelay);
+        StartLevel(firstLevelName);
     }
 }
