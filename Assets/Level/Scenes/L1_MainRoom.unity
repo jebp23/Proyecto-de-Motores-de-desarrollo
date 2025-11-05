@@ -2238,13 +2238,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: runFootstepVolume
+      value: 0.947
+      objectReference: {fileID: 0}
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: walkFootstepVolume
+      value: 0.778
+      objectReference: {fileID: 0}
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: 'footstepRunClips.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: 141a889555578ec4bb8809f19b80518e, type: 3}
+      objectReference: {fileID: 8300000, guid: 92316b1cd95f22a4c9ae7eff80c9b930, type: 3}
     - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: 'footstepWalkClips.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: 141a889555578ec4bb8809f19b80518e, type: 3}
+      objectReference: {fileID: 8300000, guid: 92316b1cd95f22a4c9ae7eff80c9b930, type: 3}
     - target: {fileID: 7352558604490243539, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1820.1299
@@ -75509,7 +75517,8 @@ PrefabInstance:
       value: -11.569
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2476620095476199364, guid: e44e3122cb7192042b96792e967c285b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 721045016804959642, guid: e44e3122cb7192042b96792e967c285b, type: 3}
@@ -152348,7 +152357,8 @@ PrefabInstance:
       value: -0.92
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2476620095476199364, guid: e44e3122cb7192042b96792e967c285b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 721045016804959642, guid: e44e3122cb7192042b96792e967c285b, type: 3}
@@ -156522,7 +156532,8 @@ PrefabInstance:
       value: -11.569
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2476620095476199364, guid: e44e3122cb7192042b96792e967c285b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 721045016804959642, guid: e44e3122cb7192042b96792e967c285b, type: 3}
