@@ -1,30 +1,45 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using System.Collections;
 
 public class GameOverUI : MonoBehaviour
 {
-    [SerializeField] GameObject root;
+    public static GameOverUI Instance;
+    public GameObject gameOverPanel;
+    public Button retryButton;
+    public Button quitButton;
+    [SerializeField] private float voBlockTime = 3f;
 
-    void Update()
+    void Awake()
     {
-        if (root && !root.activeInHierarchy) return;
-        if (Keyboard.current == null) return;
-        if (Keyboard.current.rKey.wasPressedThisFrame) OnClickRestart();
-        if (Keyboard.current.mKey.wasPressedThisFrame) OnClickMainMenu("MainMenu");
+        Instance = this;
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
     }
 
-    public void OnClickRestart()
+    public void TriggerGameOver()
     {
-        FindFirstObjectByType<LivesSystem>()?.ResetLives();
-        Time.timeScale = 1f;
-        GameManager.I?.RestartLevel();
+        gameOverPanel.SetActive(true);
+        retryButton.interactable = false;
+        quitButton.interactable = false;
+        AudioManager.I?.PlayVO_GameOver();
+        StartCoroutine(UnlockInputAfterDelay());
     }
 
-    public void OnClickMainMenu(string menuSceneName)
+    private IEnumerator UnlockInputAfterDelay()
     {
-        FindFirstObjectByType<LivesSystem>()?.ResetLives();
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(menuSceneName);
+        yield return new WaitForSeconds(voBlockTime);
+        retryButton.interactable = true;
+        quitButton.interactable = true;
+    }
+
+    public void OnRetry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnQuit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

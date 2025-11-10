@@ -184,6 +184,16 @@ public class EnemyMonster : MonoBehaviour
         return false;
     }
 
+    public void PlayDetectionSfx()
+    {
+        AudioManager.I?.PlayDetectionSfx();
+    }
+
+    public void PlayStunSfx()
+    {
+        AudioManager.I?.PlayStunSfx();
+    }
+
     void PatrolUpdate(bool justLostTarget)
     {
         if (!patrolEnabled || patrolPoints == null || patrolPoints.Length == 0)
@@ -339,8 +349,7 @@ public class EnemyMonster : MonoBehaviour
         if (animator && !string.IsNullOrEmpty(stunnedBool)) animator.SetBool(stunnedBool, true);
         if (stunSfx)
         {
-            if (sfxSource) sfxSource.PlayOneShot(stunSfx, stunSfxVolume);
-            else AudioSource.PlayClipAtPoint(stunSfx, transform.position, stunSfxVolume);
+            AudioManager.I?.PlayStunSfx();
         }
     }
 

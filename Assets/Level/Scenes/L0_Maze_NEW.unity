@@ -14951,6 +14951,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 352912247816070003, guid: 3c9b0dcf487be55409c229588ee1ebf2, type: 3}
+      propertyPath: m_TagString
+      value: ImportantNote
+      objectReference: {fileID: 0}
     - target: {fileID: 1563609628732474718, guid: 3c9b0dcf487be55409c229588ee1ebf2, type: 3}
       propertyPath: m_Radius
       value: 1
@@ -53156,16 +53160,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987a0e76e97e9e3468a87f1258e788c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxSource: {fileID: 1723553672}
-  footstepWalkClips:
-  - {fileID: 8300000, guid: 8149e767670f8fb4daf55385566bc849, type: 3}
-  footstepRunClips:
-  - {fileID: 8300000, guid: 8149e767670f8fb4daf55385566bc849, type: 3}
-  walkFootstepVolume: 0.6
-  runFootstepVolume: 1
-  footstepPitchRange: {x: 0.95, y: 1.05}
-  growlClip: {fileID: 8300000, guid: d56efedb39a182d4f9ac57c7a370e899, type: 3}
-  growlCooldown: 2
+  mixer: {fileID: 0}
+  snapshotMenu: {fileID: 0}
+  snapshotExploration: {fileID: 0}
+  snapshotChase: {fileID: 0}
+  snapshotChaseFast: {fileID: 0}
+  snapshotTransition: 0.5
+  musicGroup: {fileID: 0}
+  voiceGroup: {fileID: 0}
+  sfxGroup: {fileID: 0}
+  ambienceGroup: {fileID: 0}
+  musicMainMenu: {fileID: 0}
+  musicChase: {fileID: 0}
+  musicChaseFast: {fileID: 0}
+  musicNoteStinger: {fileID: 0}
+  voNewGame: {fileID: 0}
+  voToolFound: {fileID: 0}
+  voGameOver: {fileID: 0}
+  voVictory: {fileID: 0}
+  footstepSource: {fileID: 0}
+  deathGroanSource: {fileID: 0}
+  detectionSfxSource: {fileID: 0}
+  stunSfxSource: {fileID: 0}
+  coldExhaleSource: {fileID: 0}
+  coldSneezeSource: {fileID: 0}
+  growlSource: {fileID: 0}
+  footstepGrass: {fileID: 0}
+  footstepWood: {fileID: 0}
 --- !u!4 &1723553671
 Transform:
   m_ObjectHideFlags: 0

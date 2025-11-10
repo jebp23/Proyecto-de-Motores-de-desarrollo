@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class VictoryUI : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class VictoryUI : MonoBehaviour
     [SerializeField] string uiMap = "UI";
     [SerializeField] string playerMap = "Player";
     [SerializeField] CursorLock cursorLock;
+    [SerializeField] private float voBlockTime = 4f;
 
     void OnEnable()
     {
@@ -26,6 +28,13 @@ public class VictoryUI : MonoBehaviour
         }
         if (root) root.SetActive(true);
         Time.timeScale = 0f;
+        AudioManager.I?.PlayVO_Victory();
+        StartCoroutine(UnlockInputAfterDelay(voBlockTime));
+    }
+
+    private IEnumerator UnlockInputAfterDelay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 
     void OnDisable()

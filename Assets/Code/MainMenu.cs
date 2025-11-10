@@ -21,6 +21,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] string playerMap = "Player";
     [SerializeField] Behaviour cursorLockBehaviour;
 
+    [Header("Audio Settings")]
+    [SerializeField] float sceneLoadDelay = 2f;
+    [SerializeField] string firstLevelName = "Level1";
+
     void Awake()
     {
         if (!mainMenuCanvas) mainMenuCanvas = GetComponentInParent<Canvas>();
@@ -40,6 +44,11 @@ public class MainMenu : MonoBehaviour
         ShowMainMenu(true);
     }
 
+    private void Start()
+    {
+        AudioManager.I?.EnterMainMenu();
+    }
+
     void OnEnable()
     {
         ApplyMenuInputState(true);
@@ -54,6 +63,7 @@ public class MainMenu : MonoBehaviour
     {
         ApplyMenuInputState(false);
         SceneManager.LoadScene(levelName);
+        AudioManager.I?.EnterGame();
     }
 
     public void QuitGame()
@@ -121,7 +131,7 @@ public class MainMenu : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             if (playerInput && !string.IsNullOrEmpty(uiMap))
             {
-                var map = playerInput.actions != null ? playerInput.actions.FindActionMap(uiMap, false) : null;
+                var map = playerInput.actions?.FindActionMap(uiMap, false);
                 if (map != null) map.Enable();
                 if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != uiMap) playerInput.SwitchCurrentActionMap(uiMap);
             }
@@ -133,7 +143,7 @@ public class MainMenu : MonoBehaviour
             if (cursorLockBehaviour) cursorLockBehaviour.enabled = true;
             if (playerInput && !string.IsNullOrEmpty(playerMap))
             {
-                var map = playerInput.actions != null ? playerInput.actions.FindActionMap(playerMap, false) : null;
+                var map = playerInput.actions?.FindActionMap(playerMap, false);
                 if (map != null) map.Enable();
                 if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != playerMap) playerInput.SwitchCurrentActionMap(playerMap);
             }
@@ -156,21 +166,6 @@ public class MainMenu : MonoBehaviour
         return null;
     }
 
-    [Header("Audio Settings")]
-    [SerializeField] AudioSource mainMenuMusic;
-    [SerializeField] AudioSource newGameVO;
-    [SerializeField] float sceneLoadDelay = 2f;
-    [SerializeField] string firstLevelName = "Level1";
-
-    void Start()
-    {
-        if (mainMenuMusic)
-        {
-            mainMenuMusic.loop = true;
-            if (!mainMenuMusic.isPlaying) mainMenuMusic.Play();
-        }
-    }
-
     public void PlayNewGame()
     {
         StartCoroutine(PlayNewGameSequence());
@@ -178,7 +173,7 @@ public class MainMenu : MonoBehaviour
 
     System.Collections.IEnumerator PlayNewGameSequence()
     {
-        if (newGameVO) newGameVO.Play();
+        AudioManager.I?.PlayVO_NewGame();
         yield return new WaitForSeconds(sceneLoadDelay);
         StartLevel(firstLevelName);
     }

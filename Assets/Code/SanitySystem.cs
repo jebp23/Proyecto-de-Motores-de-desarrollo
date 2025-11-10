@@ -11,11 +11,14 @@ public class SanitySystem : MonoBehaviour
     [Header("UI Smoothing")]
     [SerializeField] private bool smoothUI = true;
     [SerializeField, Range(0.05f, 0.35f)] private float uiSmoothTime = 0.15f;
-    float displaySanity;         
-    float displayVel;          
+    float displaySanity;
+    float displayVel;
 
     private float currentSanity;
     private bool hasDepleted;
+
+    public float CurrentSanity => currentSanity;
+    public float MaxSanity => maxSanity;
 
     private void Awake()
     {
@@ -24,7 +27,7 @@ public class SanitySystem : MonoBehaviour
 
         if (sanitySlider)
         {
-            sanitySlider.wholeNumbers = false;                    
+            sanitySlider.wholeNumbers = false;
             sanitySlider.maxValue = maxSanity;
             sanitySlider.value = displaySanity;
         }
@@ -42,10 +45,7 @@ public class SanitySystem : MonoBehaviour
 
         if (smoothUI)
         {
-            displaySanity = Mathf.SmoothDamp(
-                displaySanity, currentSanity, ref displayVel,
-                Mathf.Max(0.01f, uiSmoothTime)
-            );
+            displaySanity = Mathf.SmoothDamp(displaySanity, currentSanity, ref displayVel, Mathf.Max(0.01f, uiSmoothTime));
             sanitySlider.value = displaySanity;
         }
         else
@@ -67,7 +67,7 @@ public class SanitySystem : MonoBehaviour
             if (deathClip)
             {
                 if (deathSfxSource) deathSfxSource.PlayOneShot(deathClip);
-                else AudioManager.I?.PlayOneShot(deathClip, 1f);
+                else AudioManager.I?.PlayVO_GameOver();
             }
             LivesSystem.I?.LoseLife();
         }

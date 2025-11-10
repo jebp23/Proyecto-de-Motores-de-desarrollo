@@ -119,9 +119,8 @@ public class ColdOverlayTrigger : MonoBehaviour
 
     void Play(AudioClip clip)
     {
-        if (!clip) return;
-        if (sfxSource) sfxSource.PlayOneShot(clip);
-        else AudioManager.I?.PlayOneShot(clip, 1f);
+        if (clip == exhaleClip) AudioManager.I?.PlayColdExhale();
+        else if (clip == sneezeClip) AudioManager.I?.PlayColdSneeze();
     }
 
     void OnTriggerEnter(Collider other)

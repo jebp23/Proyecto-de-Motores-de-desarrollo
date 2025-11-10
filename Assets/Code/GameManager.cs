@@ -121,14 +121,13 @@ public class GameManager : MonoBehaviour
     IEnumerator RespawnSequence()
     {
         respawning = true;
-        Time.timeScale = 1f;
         var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
-        if (pause != null) { pause.EsconderOpciones(); pause.BlockPause(true); }
+        if (pause != null) pause.BlockPause(true);
+        Time.timeScale = 1f;
         if (!deathFader) deathFader = FindFirstObjectByType<DeathFadeController>(FindObjectsInactive.Include);
         AudioSource except = ResolveDeathSfxSource();
         AudioManager.I?.FadeOutAll(0.25f, except);
         if (deathFader) yield return deathFader.FadeOut(null);
-        AudioManager.I?.StopAll(except);
         var player = GameObject.FindWithTag("Player");
         PlayerRigidBodyController ctrl = null;
         if (player != null)
@@ -145,7 +144,6 @@ public class GameManager : MonoBehaviour
         if (deathFader) yield return deathFader.BlackHold(null);
         else yield return new WaitForSecondsRealtime(0.15f);
         if (deathFader) yield return deathFader.FadeIn(null);
-        AudioManager.I?.ReplayStopped();
         AudioManager.I?.FadeInAll(deathFader ? deathFader.DefaultFadeIn : 0.35f);
         if (ctrl) { ctrl.ResetMovementState(true); ctrl.SetInputEnabled(true); }
         if (pause != null) pause.BlockPause(false);
@@ -229,4 +227,20 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState CurrentState => state;
+
+    private void Update()
+    {
+        if (state != GameState.Playing) return;
+
+        bool anyDetecting = false;
+        float sanityPercent = 1f;
+        var sanitySys = FindObjectOfType<SanitySystem>();
+        if (sanitySys) sanityPercent = sanitySys.CurrentSanity / sanitySys.MaxSanity;
+
+        var monsters = FindObjectsByType<EnemyMonster>(FindObjectsSortMode.None);
+        foreach (var m in monsters)
+            if (m.CurrentlyDetecting) { anyDetecting = true; break; }
+
+        AudioManager.I?.UpdateChaseState(anyDetecting, sanityPercent);
+    }
 }

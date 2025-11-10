@@ -191,7 +191,7 @@ public class PlayerRigidBodyController : MonoBehaviour
     private void PlayFootstepAndAddNoise()
     {
         if (isCrouching) return;
-        if (AudioManager.I != null) AudioManager.I.PlayFootstep(isSprinting);
+        AudioManager.I?.PlayFootstep(isSprinting);
         if (noiseMeter != null)
         {
             float noiseAmount = isSprinting ? noisePerSprintStep : noisePerWalkStep;

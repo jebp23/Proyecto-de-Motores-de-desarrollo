@@ -47,15 +47,17 @@ public class LivesSystem : MonoBehaviour
         lives = Mathf.Max(0, lives - 1);
         UpdateUI();
 
+        if (lives == 2 || lives == 1) AudioManager.I?.PlayDeathGroan();
+
         if (lives <= 0)
         {
+            AudioManager.I?.PlayVO_GameOver();
             GameManager.I?.TriggerGameOver();
             return;
         }
 
-
         if (restartSceneOnLoseLife) GameManager.I?.RestartLevel();
-        else GameEvents.RaiseLevelRestart(); 
+        else GameEvents.RaiseLevelRestart();
     }
 
     public void ResetLives()

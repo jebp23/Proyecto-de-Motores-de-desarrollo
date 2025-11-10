@@ -10,7 +10,7 @@ public class ToolPickup : MonoBehaviour
     {
         if (!other.CompareTag(playerTag)) return;
         if (pickupSource != null) pickupSource.Play();
-        if (voiceClip != null) PersistentAudioManager.I?.PlayVoice(voiceClip);
+        AudioManager.I?.PlayVO_ToolFound();
         NotesQuestManager.I?.SetHasTool(true);
         NoteSequencer.I?.SetHasTool(true);
         ToolNotificationUI.I?.Show();
