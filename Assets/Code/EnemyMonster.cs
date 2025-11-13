@@ -269,4 +269,26 @@ public class EnemyMonster : MonoBehaviour
         else
             agent.Warp(targetPos);
     }
+
+    public void ResetStateAfterRespawn(Vector3 playerPosition, float minDistance)
+    {
+        isChasing = false;
+        CurrentlyDetecting = false;
+        isStunned = false;
+        detectionArmed = true;
+        lastNotDetectTime = Time.time;
+        if (agent)
+        {
+            agent.ResetPath();
+            agent.isStopped = true;
+        }
+
+        float dist = Vector3.Distance(transform.position, playerPosition);
+        if (dist < minDistance)
+            WarpAwayFrom(playerPosition, minDistance);
+
+        if (animator && !string.IsNullOrEmpty(walkBool))
+            animator.SetBool(walkBool, false);
+    }
+
 }

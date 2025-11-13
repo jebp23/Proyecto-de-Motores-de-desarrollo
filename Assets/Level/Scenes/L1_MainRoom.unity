@@ -2203,6 +2203,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: fadeDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: runFootstepVolume
       value: 0.947
       objectReference: {fileID: 0}
@@ -79600,6 +79604,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672581080}
   m_Mesh: {fileID: -5798157943916587367, guid: 685daeda526477d43bea75a0597c4824, type: 3}
+--- !u!114 &673714186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8594268524193227865, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+  m_PrefabInstance: {fileID: 1901263809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &673714187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1389132331596379843, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+  m_PrefabInstance: {fileID: 1901263809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &673714188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2781070016150938686, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+  m_PrefabInstance: {fileID: 1901263809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44ce8db331fd9d40b0f327fc0148231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &675704081
 GameObject:
   m_ObjectHideFlags: 0
@@ -162948,6 +162985,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1389132331596379843, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 673714188}
+    - target: {fileID: 1389132331596379843, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRetry
+      objectReference: {fileID: 0}
     - target: {fileID: 2421376496387606954, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
       propertyPath: m_Alpha
       value: 0.4
@@ -162956,6 +163001,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2781070016150938686, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: quitButton
+      value: 
+      objectReference: {fileID: 673714186}
+    - target: {fileID: 2781070016150938686, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: retryButton
+      value: 
+      objectReference: {fileID: 673714187}
     - target: {fileID: 2896143065490580726, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -163255,6 +163308,18 @@ PrefabInstance:
     - target: {fileID: 7426671146159335141, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
       propertyPath: m_FillOrigin
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594268524193227865, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594268524193227865, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 673714188}
+    - target: {fileID: 8594268524193227865, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuit
       objectReference: {fileID: 0}
     - target: {fileID: 8622079342476589541, guid: 12aa482ac06e14f409a354cfa3d27cce, type: 3}
       propertyPath: attack

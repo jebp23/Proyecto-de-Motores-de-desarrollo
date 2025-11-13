@@ -269,4 +269,36 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    public void ForceStopChaseMusic()
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+            fadeCoroutine = null;
+        }
+
+        if (musicChase != null && musicChase.isPlaying)
+        {
+            musicChase.Stop();
+            musicChase.volume = 1f;
+        }
+
+        if (musicChaseFast != null && musicChaseFast.isPlaying)
+        {
+            musicChaseFast.Stop();
+            musicChaseFast.volume = 1f;
+        }
+
+        isChasingMusicActive = false;
+        lastChaseState = false;
+        lastFastState = false;
+    }
+
+
+    public UnityEngine.Audio.AudioMixerGroup GetAmbienceGroup()
+    {
+        return ambienceGroup;
+    }
+
 }

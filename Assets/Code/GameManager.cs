@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
     IEnumerator RespawnSequence()
     {
         respawning = true;
+        AudioManager.I?.ForceStopChaseMusic();
         var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
         if (pause != null) pause.BlockPause(true);
         Time.timeScale = 1f;
@@ -141,13 +142,14 @@ public class GameManager : MonoBehaviour
         Vector3 center = SpawnPoint.I ? SpawnPoint.I.SpawnPosition : (player ? player.transform.position : Vector3.zero);
         ClearAroundSpawn(center);
         SuppressAllEnemies(respawnGraceSeconds);
+        ResetAllEnemiesAfterRespawn(center, spawnClearRadius + 2f);
         if (deathFader) yield return deathFader.BlackHold(null);
         else yield return new WaitForSecondsRealtime(0.15f);
         if (deathFader) yield return deathFader.FadeIn(null);
         AudioManager.I?.FadeInAll(deathFader ? deathFader.DefaultFadeIn : 0.35f);
         if (ctrl) { ctrl.ResetMovementState(true); ctrl.SetInputEnabled(true); }
         if (pause != null) pause.BlockPause(false);
-        respawning = false;
+        respawning = false;               
     }
 
     IEnumerator TempIgnoreCollisionsWithEnemies(GameObject player, float seconds)
@@ -243,4 +245,12 @@ public class GameManager : MonoBehaviour
 
         AudioManager.I?.UpdateChaseState(anyDetecting, sanityPercent);
     }
+
+    void ResetAllEnemiesAfterRespawn(Vector3 playerPos, float minDistance)
+    {
+        var enemies = FindObjectsByType<EnemyMonster>(FindObjectsSortMode.None);
+        for (int i = 0; i < enemies.Length; i++)
+            enemies[i]?.ResetStateAfterRespawn(playerPos, minDistance);
+    }
+
 }

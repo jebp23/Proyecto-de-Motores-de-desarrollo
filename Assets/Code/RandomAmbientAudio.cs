@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RandomAmbientAudio : MonoBehaviour
-{ 
+{
     [SerializeField] AudioClip[] ambientClips;
     [SerializeField] float minDelay = 5f;
     [SerializeField] float maxDelay = 15f;
@@ -18,7 +18,12 @@ public class RandomAmbientAudio : MonoBehaviour
         source = GetComponent<AudioSource>();
         if (!source) source = gameObject.AddComponent<AudioSource>();
         source.playOnAwake = false;
-        source.spatialBlend = 0f; // 0 = 2D, 1 = 3D
+        source.spatialBlend = 0f;
+
+        if (AudioManager.I != null && AudioManager.I.GetAmbienceGroup() != null)
+        {
+            source.outputAudioMixerGroup = AudioManager.I.GetAmbienceGroup();
+        }
     }
 
     void Start()
