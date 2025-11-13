@@ -264,6 +264,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: chaseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3626a53f12612554396945a1ca788172, type: 3}
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: level1Name
+      value: L0_Maze_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: level2Name
+      value: L1_MainRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 660286109274665083, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: chaseFastClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 57d817e4190dfd945a98a7b6ed17a7cc, type: 3}
     - target: {fileID: 7352558604490243539, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1820.1299

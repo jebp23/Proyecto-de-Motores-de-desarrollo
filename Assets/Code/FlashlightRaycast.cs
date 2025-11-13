@@ -3,18 +3,13 @@
 public class FlashlightRaycast : MonoBehaviour
 {
     [Header("Flashlight Settings")]
-    [SerializeField] private Light flashlight;    
-    [SerializeField] private float range = 15f;    
-    [SerializeField] private LayerMask monsterMask; 
-
-    [Header("Audio Settings")]
-    [SerializeField] private float cooldown = 2f; 
-    private float _lastGrowlTime;
+    [SerializeField] private Light flashlight;
+    [SerializeField] private float range = 15f;
+    [SerializeField] private LayerMask monsterMask;
 
     private void Update()
     {
         if (flashlight == null || !flashlight.enabled) return;
-
         DetectMonster();
     }
 
@@ -24,11 +19,8 @@ public class FlashlightRaycast : MonoBehaviour
         {
             if (hit.collider.CompareTag("Monster"))
             {
-                if (Time.time >= _lastGrowlTime + cooldown)
-                {
-                    _lastGrowlTime = Time.time;
-                    AudioManager.I?.PlayGrowl(); 
-                }
+                // Aquí podría ir lógica futura (por ejemplo, aplicar stun o trigger visual),
+                // pero ya no se reproducen sonidos.
             }
         }
     }
@@ -41,11 +33,9 @@ public class FlashlightRaycast : MonoBehaviour
         int segments = 20;
         float step = (angle * 2) / segments;
 
-
         Gizmos.color = Color.red;
         Gizmos.DrawRay(flashlight.transform.position, flashlight.transform.forward * range);
 
-  
         Gizmos.color = Color.yellow;
         for (int i = 0; i <= segments; i++)
         {

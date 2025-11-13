@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMonster : MonoBehaviour
@@ -25,6 +26,12 @@ public class EnemyMonster : MonoBehaviour
     [Header("Sanity Damage")]
     [SerializeField] float sanityDamagePerSecond = 0f;
 
+    [Header("SFX Sources (3D)")]
+    [SerializeField] private AudioSource detectionSource;
+    [SerializeField] private AudioSource stunSource;
+    [SerializeField, Range(0f, 1f)] private float detectionVolume = 1f;
+    [SerializeField, Range(0f, 1f)] private float stunVolume = 1f;
+
     [Header("Patrol")]
     [SerializeField] bool patrolEnabled = false;
     [SerializeField] Transform[] patrolPoints;
@@ -33,71 +40,32 @@ public class EnemyMonster : MonoBehaviour
     [SerializeField] bool patrolPingPong = false;
     [SerializeField] bool patrolRandom = false;
 
-    [Header("Strategy Guard")]
-    [SerializeField] bool forceEnableStrategyOnStart = true;
-    [SerializeField] int enableGuardFrames = 20;
-
-    [Header("Light Stun")]
-    [SerializeField] bool canBeStunnedByLight = true;
-    [SerializeField] float stunSeconds = 2.5f;
-    [SerializeField] bool freezeAgentOnStun = true;
-    [SerializeField] AudioClip stunSfx;
-    [SerializeField, Range(0f, 1f)] float stunSfxVolume = 1f;
-
-    [Header("SFX")]
-    [SerializeField] AudioSource sfxSource;
-    [SerializeField] AudioClip detectionSfx;
-    [SerializeField, Range(0f, 1f)] float detectionSfxVolume = 1f;
-    [SerializeField] float detectionSfxRearmSeconds = 1.0f;
-
-    [Header("Pinning Control")]
-    [SerializeField] float pinStopDistance = 1.1f;
-    [SerializeField] float pinResumeDistance = 1.6f;
-    [SerializeField] float pinBackWallCheck = 0.6f;
-    [SerializeField] float pinCheckHeight = 1.2f;
-    [SerializeField] LayerMask environmentMask = ~0;
-
-    IDetectionStrategy detection;
     NavMeshAgent agent;
+    IDetectionStrategy detection;
     bool isChasing;
-    Vector3 lastPerceivedTargetPos;
+    bool isStunned;
+    float stunEndTime;
+    bool detectionArmed = true;
+    float lastNotDetectTime;
+    const float detectionRearmDelay = 1.0f;
+    public bool CurrentlyDetecting { get; private set; }
+    bool prevDetect;
     int patrolIndex;
     int patrolDir = 1;
     float patrolWaitTimer;
-    int guardCounter;
-    bool isStunned;
-    float stunEndTime;
-    float suppressUntilTime;
-    bool isPinning;
-    bool detectionArmed = true;
-    float lastNotDetectTime;
-    GameObject playerGO;
-
-    public bool CurrentlyDetecting { get; private set; }
-    public bool IsStunned => isStunned;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         if (!animator) animator = GetComponent<Animator>();
-        playerGO = GameObject.FindWithTag(playerTag);
-        if (!target && playerGO) target = playerGO.transform;
+        var player = GameObject.FindWithTag(playerTag);
+        if (player) target = player.transform;
         BindDetection();
         if (agent)
         {
             agent.speed = idleSpeed;
             agent.stoppingDistance = stoppingDistance;
-            agent.autoBraking = true;
         }
-        guardCounter = enableGuardFrames;
-        detectionArmed = true;
-        lastNotDetectTime = Time.time;
-    }
-
-    void OnEnable()
-    {
-        if (forceEnableStrategyOnStart) EnableStrategy();
-        guardCounter = enableGuardFrames;
     }
 
     void Update()
@@ -105,96 +73,62 @@ public class EnemyMonster : MonoBehaviour
         if (isStunned)
         {
             if (Time.time >= stunEndTime) EndStun();
-            else { HoldPosition(); return; }
+            else return;
         }
 
-        if (Time.time < suppressUntilTime)
+        if (!target || detection == null || agent == null) return;
+        prevDetect = CurrentlyDetecting;
+        Vector3 pos;
+        CurrentlyDetecting = detection.Detect(target, out pos);
+
+        if (CurrentlyDetecting && !prevDetect && detectionArmed && detectionSource)
         {
-            PatrolUpdate(false);
-            return;
-        }
-
-        if (!target || agent == null || detection == null) { PatrolUpdate(false); return; }
-        if (!agent.isOnNavMesh) { PatrolUpdate(false); return; }
-
-        if (forceEnableStrategyOnStart && guardCounter > 0) { EnableStrategy(); guardCounter--; }
-
-        bool prevDetect = CurrentlyDetecting;
-        Vector3 perceivedPos;
-        CurrentlyDetecting = detection.Detect(target, out perceivedPos);
-
-        float dist = Vector3.Distance(transform.position, target.position);
-        bool pinNow = CheckPinning(dist);
-        if (pinNow)
-        {
-            isPinning = true;
-            HoldPosition();
-            Face(target.position);
-            return;
-        }
-        else if (isPinning && dist > pinResumeDistance)
-        {
-            isPinning = false;
-        }
-
-        if (CurrentlyDetecting && !prevDetect && detectionArmed)
-        {
-            if (detectionSfx)
-            {
-                if (sfxSource) sfxSource.PlayOneShot(detectionSfx, detectionSfxVolume);
-                else AudioSource.PlayClipAtPoint(detectionSfx, transform.position, detectionSfxVolume);
-            }
+            detectionSource.PlayOneShot(detectionSource.clip, detectionVolume);
             detectionArmed = false;
+        }
+
+        if (!CurrentlyDetecting)
+        {
+            if (Time.time - lastNotDetectTime >= detectionRearmDelay)
+                detectionArmed = true;
+            lastNotDetectTime = Time.time;
         }
 
         if (CurrentlyDetecting)
         {
             isChasing = true;
-            lastPerceivedTargetPos = perceivedPos;
-            Chase(perceivedPos);
+            Chase(pos);
         }
         else
         {
-            if (!detectionArmed && Time.time - lastNotDetectTime >= detectionSfxRearmSeconds) detectionArmed = true;
-            lastNotDetectTime = Time.time;
-
             if (isChasing)
             {
-                float d = Vector3.Distance(transform.position, lastPerceivedTargetPos);
-                if (d > stoppingDistance * 1.1f) Chase(lastPerceivedTargetPos);
-                else { isChasing = false; PatrolUpdate(true); }
+                float d = Vector3.Distance(transform.position, pos);
+                if (d > stoppingDistance * 1.1f) Chase(pos);
+                else isChasing = false;
             }
-            else
-            {
-                PatrolUpdate(false);
-            }
+            PatrolUpdate();
         }
     }
 
-    bool CheckPinning(float distToPlayer)
+    void Chase(Vector3 pos)
     {
-        if (distToPlayer > pinStopDistance) return false;
-        Vector3 center = target.position + Vector3.up * pinCheckHeight;
-        Vector3 toEnemy = (transform.position - target.position);
-        toEnemy.y = 0f;
-        if (toEnemy.sqrMagnitude < 0.0001f) return false;
-        Vector3 backDir = -toEnemy.normalized;
-        if (Physics.SphereCast(center, 0.3f, backDir, out var hit, pinBackWallCheck, environmentMask, QueryTriggerInteraction.Ignore))
-            return true;
-        return false;
+        if (!agent.isOnNavMesh) return;
+        agent.speed = chaseSpeed;
+        agent.isStopped = false;
+        agent.SetDestination(pos);
+        if (animator && !string.IsNullOrEmpty(walkBool)) animator.SetBool(walkBool, true);
     }
 
-    public void PlayDetectionSfx()
+    void HoldPosition()
     {
-        AudioManager.I?.PlayDetectionSfx();
+        if (!agent.isOnNavMesh) return;
+        agent.ResetPath();
+        agent.isStopped = true;
+        if (animator && !string.IsNullOrEmpty(walkBool)) animator.SetBool(walkBool, false);
     }
 
-    public void PlayStunSfx()
-    {
-        AudioManager.I?.PlayStunSfx();
-    }
-
-    void PatrolUpdate(bool justLostTarget)
+    void PatrolUpdate()
     {
         if (!patrolEnabled || patrolPoints == null || patrolPoints.Length == 0)
         {
@@ -243,10 +177,7 @@ public class EnemyMonster : MonoBehaviour
                 do { next = Random.Range(0, patrolPoints.Length); } while (next == patrolIndex);
                 patrolIndex = next;
             }
-            else
-            {
-                patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
-            }
+            else patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
             return;
         }
 
@@ -255,102 +186,15 @@ public class EnemyMonster : MonoBehaviour
         else if (patrolIndex < 0) { patrolIndex = 1; patrolDir = 1; }
     }
 
-    void Chase(Vector3 pos)
+    public void ApplyLightStun(float duration)
     {
-        if (agent.isOnNavMesh)
-        {
-            agent.speed = chaseSpeed;
-            agent.isStopped = false;
-            agent.SetDestination(pos);
-        }
-        if (animator && !string.IsNullOrEmpty(walkBool)) animator.SetBool(walkBool, true);
-        Face(pos);
-    }
-
-    void HoldPosition()
-    {
-        if (agent.isOnNavMesh)
-        {
-            agent.ResetPath();
-            agent.isStopped = true;
-        }
-        if (animator && !string.IsNullOrEmpty(walkBool)) animator.SetBool(walkBool, false);
-    }
-
-    void Face(Vector3 pos)
-    {
-        Vector3 p = pos; p.y = transform.position.y;
-        Vector3 dir = p - transform.position;
-        if (dir.sqrMagnitude < 0.0001f) return;
-        Quaternion look = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Slerp(transform.rotation, look, Time.deltaTime * rotationSpeed);
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (sanityDamagePerSecond <= 0f) return;
-        if (!other.CompareTag(playerTag)) return;
-        if (!CurrentlyDetecting) return;
-        var s = other.GetComponent<SanitySystem>();
-        if (s != null) s.TakeDamage(sanityDamagePerSecond * Time.deltaTime);
-    }
-
-    void BindDetection()
-    {
-        detection = null;
-        if (detectionStrategyComponent is IDetectionStrategy ds)
-        {
-            detection = ds;
-            EnableStrategy();
-            detection.Initialize(this);
-            return;
-        }
-        var comps = GetComponents<MonoBehaviour>();
-        for (int i = 0; i < comps.Length; i++)
-        {
-            if (comps[i] is IDetectionStrategy s)
-            {
-                detection = s;
-                detectionStrategyComponent = (MonoBehaviour)s;
-                EnableStrategy();
-                detection.Initialize(this);
-                return;
-            }
-        }
-        var children = GetComponentsInChildren<MonoBehaviour>(true);
-        for (int i = 0; i < children.Length; i++)
-        {
-            if (children[i] is IDetectionStrategy s2)
-            {
-                detection = s2;
-                detectionStrategyComponent = (MonoBehaviour)s2;
-                EnableStrategy();
-                detection.Initialize(this);
-                return;
-            }
-        }
-    }
-
-    void EnableStrategy()
-    {
-        var beh = detectionStrategyComponent as Behaviour;
-        if (beh && !beh.enabled) beh.enabled = true;
-    }
-
-    public void ApplyLightStun(float customDuration)
-    {
-        if (!canBeStunnedByLight) return;
-        float d = customDuration > 0f ? customDuration : stunSeconds;
+        if (isStunned) return;
         isStunned = true;
-        stunEndTime = Time.time + d;
-        if (agent) { agent.ResetPath(); if (freezeAgentOnStun) agent.isStopped = true; }
-        CurrentlyDetecting = false;
-        isChasing = false;
+        stunEndTime = Time.time + duration;
+        agent.ResetPath();
+        agent.isStopped = true;
         if (animator && !string.IsNullOrEmpty(stunnedBool)) animator.SetBool(stunnedBool, true);
-        if (stunSfx)
-        {
-            AudioManager.I?.PlayStunSfx();
-        }
+        if (stunSource) stunSource.PlayOneShot(stunSource.clip, stunVolume);
     }
 
     void EndStun()
@@ -360,29 +204,55 @@ public class EnemyMonster : MonoBehaviour
         if (animator && !string.IsNullOrEmpty(stunnedBool)) animator.SetBool(stunnedBool, false);
     }
 
-    public void UsePatrolRoute(PatrolRoute route)
+    void BindDetection()
     {
-        if (route == null) { patrolEnabled = false; patrolPoints = null; return; }
-        patrolPoints = route.Points;
-        patrolEnabled = patrolPoints != null && patrolPoints.Length > 0;
-        patrolIndex = 0;
+        if (detectionStrategyComponent is IDetectionStrategy ds)
+        {
+            detection = ds;
+            detection.Initialize(this);
+        }
     }
 
-    public void SetPatrolPoints(Transform[] pts)
+    private void OnTriggerStay(Collider other)
     {
-        patrolPoints = pts;
-        patrolEnabled = patrolPoints != null && patrolPoints.Length > 0;
-        patrolIndex = 0;
+        if (sanityDamagePerSecond <= 0f) return;
+        if (!other.CompareTag(playerTag)) return;
+        if (!CurrentlyDetecting) return;
+
+        var s = other.GetComponent<SanitySystem>();
+        if (s != null)
+            s.TakeDamage(sanityDamagePerSecond * Time.deltaTime);
     }
+
 
     public void SuppressFor(float seconds)
     {
-        suppressUntilTime = Mathf.Max(suppressUntilTime, Time.time + Mathf.Max(0f, seconds));
+        StartCoroutine(SuppressCoroutine(seconds));
+    }
+
+    IEnumerator SuppressCoroutine(float seconds)
+    {
+        bool prevChasing = isChasing;
+        bool prevDetecting = CurrentlyDetecting;
         isChasing = false;
         CurrentlyDetecting = false;
-        if (agent) { agent.ResetPath(); agent.isStopped = false; }
-        detectionArmed = true;
-        lastNotDetectTime = Time.time;
+        if (agent)
+        {
+            agent.ResetPath();
+            agent.isStopped = true;
+        }
+        yield return new WaitForSecondsRealtime(seconds);
+        if (agent) agent.isStopped = false;
+        isChasing = prevChasing;
+        CurrentlyDetecting = prevDetecting;
+    }
+
+    public void UsePatrolRoute(PatrolRoute route)
+    {
+        if (route == null) return;
+        patrolPoints = route.Points;
+        patrolEnabled = patrolPoints != null && patrolPoints.Length > 0;
+        patrolIndex = 0;
     }
 
     public void WarpAwayFrom(Vector3 origin, float minDistance)
@@ -390,19 +260,13 @@ public class EnemyMonster : MonoBehaviour
         if (agent == null) return;
         Vector3 dir = transform.position - origin;
         dir.y = 0f;
-        if (dir.sqrMagnitude < 0.001f) dir = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+        if (dir.sqrMagnitude < 0.001f)
+            dir = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
         dir.Normalize();
         Vector3 targetPos = origin + dir * Mathf.Max(0.1f, minDistance);
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(targetPos, out hit, minDistance + 2f, NavMesh.AllAreas)) agent.Warp(hit.position);
-        else agent.Warp(targetPos);
-        isChasing = false;
-        CurrentlyDetecting = false;
-        agent.ResetPath();
-        detectionArmed = true;
-        lastNotDetectTime = Time.time;
+        if (NavMesh.SamplePosition(targetPos, out var hit, minDistance + 2f, NavMesh.AllAreas))
+            agent.Warp(hit.position);
+        else
+            agent.Warp(targetPos);
     }
-
-    public Transform Target => target;
-    public NavMeshAgent Agent => agent;
 }

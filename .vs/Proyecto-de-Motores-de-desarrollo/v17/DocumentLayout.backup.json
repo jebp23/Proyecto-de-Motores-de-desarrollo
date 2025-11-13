@@ -1,33 +1,73 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\",
+  "WorkspaceRootPath": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|c:\\users\\kariu\\desktop\\jueguito\\proyecto-de-motores-de-desarrollo\\assets\\flashlightfollowcamera1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\flashlightfollowcamera1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\enemymonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\enemymonster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\FlashlightFollowCamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\development projects\\unity\\proyecto-de-motores-de-desarrollo\\assets\\code\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\flashlightraycast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\flashlightraycast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\victoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\victoryui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\sanitysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\sanitysystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\livessystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\livessystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\toolpickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\toolpickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\coldoverlaytrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\coldoverlaytrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playerrigidbodycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\torsoaimtocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\flashlightcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\flashlightcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\torsoaimtocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\torsoaimtocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,39 +78,181 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FlashlightRaycast.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightRaycast.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\FlashlightRaycast.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightRaycast.cs",
+              "RelativeToolTip": "Assets\\Code\\FlashlightRaycast.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAowB0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T18:10:38.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\MainMenu.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
+              "RelativeToolTip": "Assets\\Code\\MainMenu.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAYwLMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T17:56:50.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SanitySystem.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\SanitySystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\SanitySystem.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\SanitySystem.cs",
+              "RelativeToolTip": "Assets\\Code\\SanitySystem.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAYwFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:53:28.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\GameManager.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Code\\GameManager.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAAYwPUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:46:39.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VictoryUI.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\VictoryUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\VictoryUI.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\VictoryUI.cs",
+              "RelativeToolTip": "Assets\\Code\\VictoryUI.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAYwEcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:45:41.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LivesSystem.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LivesSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\LivesSystem.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LivesSystem.cs",
+              "RelativeToolTip": "Assets\\Code\\LivesSystem.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAwDwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:45:24.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ToolPickup.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ToolPickup.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ToolPickup.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ToolPickup.cs",
+              "RelativeToolTip": "Assets\\Code\\ToolPickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:39:03.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ColdOverlayTrigger.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ColdOverlayTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ColdOverlayTrigger.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ColdOverlayTrigger.cs",
+              "RelativeToolTip": "Assets\\Code\\ColdOverlayTrigger.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAYwHgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:38:45.383Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FlashlightFollowCamera1.cs",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera1.cs",
-              "RelativeDocumentMoniker": "Assets\\FlashlightFollowCamera1.cs",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera1.cs",
-              "RelativeToolTip": "Assets\\FlashlightFollowCamera1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAJAAAAAAAAAA==",
+              "Title": "EnemyMonster.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\EnemyMonster.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\EnemyMonster.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\EnemyMonster.cs",
+              "RelativeToolTip": "Assets\\Code\\EnemyMonster.cs",
+              "ViewState": "AgIAAGQBAAAAAAAAAAAuwIkBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T06:35:05.722Z",
+              "WhenOpened": "2025-11-08T16:38:10.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FlashlightFollowCamera.cs",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera.cs",
-              "RelativeDocumentMoniker": "Assets\\FlashlightFollowCamera.cs",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\FlashlightFollowCamera.cs",
-              "RelativeToolTip": "Assets\\FlashlightFollowCamera.cs",
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\AudioManager.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
+              "RelativeToolTip": "Assets\\Code\\AudioManager.cs",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAuwO0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T06:31:29.025Z"
+              "WhenOpened": "2025-11-08T16:37:06.559Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
+              "Title": "PlayerRigidBodyController.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
+              "RelativeToolTip": "Assets\\Code\\PlayerRigidBodyController.cs",
+              "ViewState": "AgIAALwAAAAAAAAAAAAcwMcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T17:05:36.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GameOverUI.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameOverUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\GameOverUI.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameOverUI.cs",
+              "RelativeToolTip": "Assets\\Code\\GameOverUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:46:05.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FlashlightController.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\FlashlightController.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
+              "RelativeToolTip": "Assets\\Code\\FlashlightController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:37:50.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "CinemachineDecollider.cs",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
               "RelativeToolTip": "Library\\PackageCache\\com.unity.cinemachine\\Runtime\\Behaviours\\CinemachineDecollider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -78,11 +260,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 14,
               "Title": "Lit.shader",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "ViewState": "AgIAAG8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
@@ -90,11 +272,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "ComplexLit.shader",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
               "RelativeToolTip": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\ComplexLit.shader",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
@@ -102,23 +284,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PlayerRigidBodyController.cs",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
-              "RelativeToolTip": "Assets\\Code\\PlayerRigidBodyController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T17:05:36.144Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 16,
               "Title": "TorsoAimToCamera.cs",
-              "DocumentMoniker": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\TorsoAimToCamera.cs",
-              "ToolTip": "C:\\Users\\kariu\\Desktop\\jueguito\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
               "RelativeToolTip": "Assets\\Code\\TorsoAimToCamera.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
