@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class VictoryUI : MonoBehaviour
 {
@@ -13,12 +15,20 @@ public class VictoryUI : MonoBehaviour
     [SerializeField] CursorLock cursorLock;
     [SerializeField] private float voBlockTime = 4f;
 
+    CanvasGroup group;
+    Button[] buttons;
+    EventSystem ev;
+
     void OnEnable()
     {
+        ev = EventSystem.current;
+
         if (!playerInput) playerInput = FindFirstObjectByType<PlayerInput>();
         if (cursorLock) cursorLock.enabled = false;
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
         if (playerInput && !string.IsNullOrEmpty(uiMap))
         {
             var map = playerInput.actions != null ? playerInput.actions.FindActionMap(uiMap, false) : null;
@@ -26,15 +36,44 @@ public class VictoryUI : MonoBehaviour
             if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != uiMap)
                 playerInput.SwitchCurrentActionMap(uiMap);
         }
+
         if (root) root.SetActive(true);
+
+        if (root)
+        {
+            group = root.GetComponent<CanvasGroup>();
+            if (!group) group = root.AddComponent<CanvasGroup>();
+        }
+
+        buttons = root ? root.GetComponentsInChildren<Button>(true) : null;
+
         Time.timeScale = 0f;
+
+        if (group)
+        {
+            group.interactable = false;
+            group.blocksRaycasts = false;
+        }
+
+        if (ev) ev.enabled = false;
+
+        AudioManager.I.StopAllMusicNow();
         AudioManager.I?.PlayVO_Victory();
-        StartCoroutine(UnlockInputAfterDelay(voBlockTime));
+
+        StartCoroutine(Unlock());
     }
 
-    private IEnumerator UnlockInputAfterDelay(float seconds)
+    IEnumerator Unlock()
     {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSecondsRealtime(voBlockTime);
+
+        if (group)
+        {
+            group.interactable = true;
+            group.blocksRaycasts = true;
+        }
+
+        if (ev) ev.enabled = true;
     }
 
     void OnDisable()
@@ -46,9 +85,12 @@ public class VictoryUI : MonoBehaviour
             if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != playerMap)
                 playerInput.SwitchCurrentActionMap(playerMap);
         }
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
         if (cursorLock) cursorLock.enabled = true;
+
         var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
         if (pause != null) pause.BlockPause(false);
     }

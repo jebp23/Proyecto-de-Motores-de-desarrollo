@@ -126,7 +126,8 @@ public class GameManager : MonoBehaviour
             pause.BlockPause(true);
         }
 
-        AudioManager.I?.FadeOutAll(0.4f);
+        AudioManager.I?.FadeOutAll(0.4f, AudioManager.I.voGameOver);
+
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -155,17 +156,24 @@ public class GameManager : MonoBehaviour
     IEnumerator RespawnSequence()
     {
         respawning = true;
-        respawnInProgress = true; // *** NUEVO ***
+        respawnInProgress = true;
+
+   
+        AudioSource protectedSource = ResolveDeathSfxSource();
 
         if (AudioManager.I != null)
         {
+     
             AudioManager.I.StopAllCoroutines();
+
+       
             AudioManager.I.ForceStopChaseMusic();
 
-            // *** NUEVO: regresar a Exploration ***
+            
             AudioManager.I.SnapshotExploration.TransitionTo(0f);
 
-            AudioManager.I.FadeOutAll(0f);
+            AudioManager.I.FadeOutAll(0f, protectedSource);
+            AudioManager.I.FadeOutAll(0.25f, protectedSource);
         }
 
         var pause = FindFirstObjectByType<LogicaOpciones>(FindObjectsInactive.Include);
@@ -173,12 +181,11 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        if (!deathFader) deathFader = FindFirstObjectByType<DeathFadeController>(FindObjectsInactive.Include);
+        if (!deathFader)
+            deathFader = FindFirstObjectByType<DeathFadeController>(FindObjectsInactive.Include);
 
-        AudioSource except = ResolveDeathSfxSource();
-        AudioManager.I?.FadeOutAll(0.25f, except);
-
-        if (deathFader) yield return deathFader.FadeOut(null);
+        if (deathFader)
+            yield return deathFader.FadeOut(null);
 
         var player = GameObject.FindWithTag("Player");
         PlayerRigidBodyController ctrl = null;
@@ -201,6 +208,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(TempIgnoreCollisionsWithEnemies(player, respawnGraceSeconds));
         }
 
+
         Vector3 center = SpawnPoint.I
             ? SpawnPoint.I.SpawnPosition
             : (player ? player.transform.position : Vector3.zero);
@@ -209,21 +217,25 @@ public class GameManager : MonoBehaviour
         SuppressAllEnemies(respawnGraceSeconds);
         ResetAllEnemiesAfterRespawn(center, spawnClearRadius + 2f);
 
-        // *** NUEVO: reactivar IA de enemigos ***
+        // reactivate AI
         var enemies = FindObjectsByType<EnemyMonster>(FindObjectsSortMode.None);
         foreach (var e in enemies)
             e.ReactivateAI();
 
-        if (player != null)
-            SpawnPoint.I?.TeleportImmediate(player.gameObject);
 
-        if (deathFader) yield return deathFader.BlackHold(null);
-        else yield return new WaitForSecondsRealtime(0.15f);
+        if (deathFader)
+            yield return deathFader.BlackHold(null);
+        else
+            yield return new WaitForSecondsRealtime(0.15f);
 
-        if (deathFader) yield return deathFader.FadeIn(null);
+
+        if (deathFader)
+            yield return deathFader.FadeIn(null);
+
 
         AudioManager.I?.FadeInAll(deathFader ? deathFader.DefaultFadeIn : 0.35f);
 
+  
         if (ctrl)
         {
             ctrl.ResetMovementState(true);
@@ -232,9 +244,10 @@ public class GameManager : MonoBehaviour
 
         if (pause != null) pause.BlockPause(false);
 
-        respawnInProgress = false; // *** NUEVO ***
+        respawnInProgress = false;
         respawning = false;
     }
+
 
     IEnumerator TempIgnoreCollisionsWithEnemies(GameObject player, float seconds)
     {

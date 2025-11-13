@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class GameOverUI : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameOverUI : MonoBehaviour
     public Button retryButton;
     public Button quitButton;
     [SerializeField] private float voBlockTime = 3f;
+    CanvasGroup group;
+    EventSystem ev;
 
     void Awake()
     {
@@ -17,29 +20,52 @@ public class GameOverUI : MonoBehaviour
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
     }
 
+    void Start()
+    {
+        ev = EventSystem.current;
+        if (gameOverPanel) group = gameOverPanel.GetComponent<CanvasGroup>();
+        if (group == null && gameOverPanel) group = gameOverPanel.AddComponent<CanvasGroup>();
+    }
+
     public void TriggerGameOver()
     {
         gameOverPanel.SetActive(true);
-        retryButton.interactable = false;
-        quitButton.interactable = false;
+
+        if (group)
+        {
+            group.interactable = false;
+            group.blocksRaycasts = false;
+        }
+
+        if (ev) ev.enabled = false;
+
         AudioManager.I?.PlayVO_GameOver();
-        StartCoroutine(UnlockInputAfterDelay());
+
+        StartCoroutine(Unlock());
     }
 
-    private IEnumerator UnlockInputAfterDelay()
+    IEnumerator Unlock()
     {
-        yield return new WaitForSeconds(voBlockTime);
-        retryButton.interactable = true;
-        quitButton.interactable = true;
+        yield return new WaitForSecondsRealtime(voBlockTime);
+
+        if (group)
+        {
+            group.interactable = true;
+            group.blocksRaycasts = true;
+        }
+
+        if (ev) ev.enabled = true;
     }
 
     public void OnRetry()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnQuit()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 }

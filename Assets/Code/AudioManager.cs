@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     [Header("Voice Sources")]
     [SerializeField] private AudioSource voNewGame;
     [SerializeField] private AudioSource voToolFound;
-    [SerializeField] private AudioSource voGameOver;
+    [SerializeField] public AudioSource voGameOver;
     [SerializeField] private AudioSource voVictory;
 
     [Header("SFX Sources")]
@@ -298,6 +298,13 @@ public class AudioManager : MonoBehaviour
         lastFastState = false;
     }
 
+    public void StopAllMusicNow()
+    {
+        if (musicMainMenu) musicMainMenu.Stop();
+        if (musicChase) musicChase.Stop();
+        if (musicChaseFast) musicChaseFast.Stop();
+        if (musicNoteStinger) musicNoteStinger.Stop();
+    }
 
     public UnityEngine.Audio.AudioMixerGroup GetAmbienceGroup()
     {
