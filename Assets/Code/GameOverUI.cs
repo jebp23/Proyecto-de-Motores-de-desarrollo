@@ -2,42 +2,37 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.EventSystems;
 
 public class GameOverUI : MonoBehaviour
 {
     public static GameOverUI Instance;
+
     public GameObject gameOverPanel;
     public Button retryButton;
     public Button quitButton;
-    [SerializeField] private float voBlockTime = 3f;
-    CanvasGroup group;
-    EventSystem ev;
+    public float voBlockTime = 3f;
+
+    GraphicRaycaster raycaster;
 
     void Awake()
     {
         Instance = this;
-        if (gameOverPanel != null) gameOverPanel.SetActive(false);
-    }
+        if (gameOverPanel) gameOverPanel.SetActive(false);
 
-    void Start()
-    {
-        ev = EventSystem.current;
-        if (gameOverPanel) group = gameOverPanel.GetComponent<CanvasGroup>();
-        if (group == null && gameOverPanel) group = gameOverPanel.AddComponent<CanvasGroup>();
+        raycaster = GetComponentInParent<Canvas>().GetComponent<GraphicRaycaster>();
     }
 
     public void TriggerGameOver()
     {
         gameOverPanel.SetActive(true);
 
-        if (group)
-        {
-            group.interactable = false;
-            group.blocksRaycasts = false;
-        }
+        retryButton.interactable = false;
+        quitButton.interactable = false;
 
-        if (ev) ev.enabled = false;
+        if (raycaster) raycaster.enabled = false;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         AudioManager.I?.PlayVO_GameOver();
 
@@ -48,23 +43,22 @@ public class GameOverUI : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(voBlockTime);
 
-        if (group)
-        {
-            group.interactable = true;
-            group.blocksRaycasts = true;
-        }
+        retryButton.interactable = true;
+        quitButton.interactable = true;
 
-        if (ev) ev.enabled = true;
+        if (raycaster) raycaster.enabled = true;
     }
 
     public void OnRetry()
     {
+        LivesSystem.I.ResetLives();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnQuit()
     {
+        LivesSystem.I.ResetLives();
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] float sceneLoadDelay = 2f;
     [SerializeField] string firstLevelName = "Level1";
 
+    [Header("UI Blocking")]
+    [SerializeField] GraphicRaycaster raycaster;
+    [SerializeField] Button[] menuButtons;
+
     void Awake()
     {
         if (!mainMenuCanvas) mainMenuCanvas = GetComponentInParent<Canvas>();
@@ -33,6 +38,7 @@ public class MainMenu : MonoBehaviour
         SafeSetActive(optionsPanel, false);
         SafeSetActive(optionsCanvasRoot, false);
         SafeSetActive(howToPlayPanel, false);
+
         if (bringOptionsToFront && optionsCanvas)
         {
             optionsCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -40,11 +46,16 @@ public class MainMenu : MonoBehaviour
             int baseOrder = mainMenuCanvas ? mainMenuCanvas.sortingOrder : 0;
             optionsCanvas.sortingOrder = baseOrder + 10;
         }
+
+        if (!raycaster) raycaster = GetComponentInChildren<GraphicRaycaster>(true);
+        if (menuButtons == null || menuButtons.Length == 0)
+            menuButtons = GetComponentsInChildren<Button>(true);
+
         ApplyMenuInputState(true);
         ShowMainMenu(true);
     }
 
-    private void Start()
+    void Start()
     {
         AudioManager.I?.EnterMainMenu();
     }
@@ -124,28 +135,33 @@ public class MainMenu : MonoBehaviour
     {
         if (!playerInput) playerInput = FindFirstObjectByType<PlayerInput>();
         Time.timeScale = 1f;
+
         if (toMenu)
         {
             if (cursorLockBehaviour) cursorLockBehaviour.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
             if (playerInput && !string.IsNullOrEmpty(uiMap))
             {
                 var map = playerInput.actions?.FindActionMap(uiMap, false);
                 if (map != null) map.Enable();
-                if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != uiMap) playerInput.SwitchCurrentActionMap(uiMap);
+                if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != uiMap)
+                    playerInput.SwitchCurrentActionMap(uiMap);
             }
         }
         else
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
             if (cursorLockBehaviour) cursorLockBehaviour.enabled = true;
             if (playerInput && !string.IsNullOrEmpty(playerMap))
             {
                 var map = playerInput.actions?.FindActionMap(playerMap, false);
                 if (map != null) map.Enable();
-                if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != playerMap) playerInput.SwitchCurrentActionMap(playerMap);
+                if (playerInput.currentActionMap == null || playerInput.currentActionMap.name != playerMap)
+                    playerInput.SwitchCurrentActionMap(playerMap);
             }
         }
     }
@@ -166,6 +182,17 @@ public class MainMenu : MonoBehaviour
         return null;
     }
 
+    void BlockUI(bool on)
+    {
+        if (raycaster) raycaster.enabled = !on;
+
+        if (menuButtons != null)
+        {
+            foreach (var b in menuButtons)
+                if (b) b.interactable = !on;
+        }
+    }
+
     public void PlayNewGame()
     {
         StartCoroutine(PlayNewGameSequence());
@@ -173,6 +200,7 @@ public class MainMenu : MonoBehaviour
 
     System.Collections.IEnumerator PlayNewGameSequence()
     {
+        BlockUI(true);
         AudioManager.I?.PlayVO_NewGame();
         yield return new WaitForSeconds(sceneLoadDelay);
         StartLevel(firstLevelName);
