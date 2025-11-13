@@ -42944,6 +42944,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2108291631589063854, guid: d9f6d93d4d4ada342afa21b114cf306c, type: 3}
+      propertyPath: 'ambientClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f6a53baa3ddb0ca41a8b72e89f4480a7, type: 3}
+    - target: {fileID: 2108291631589063854, guid: d9f6d93d4d4ada342afa21b114cf306c, type: 3}
+      propertyPath: 'ambientClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ca5f62a3bb18f874387542c6db5636d6, type: 3}
     - target: {fileID: 6052593805375508176, guid: d9f6d93d4d4ada342afa21b114cf306c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.66208
@@ -53174,19 +53182,20 @@ MonoBehaviour:
   musicChase: {fileID: 0}
   musicChaseFast: {fileID: 0}
   musicNoteStinger: {fileID: 0}
+  fadeDuration: 2
+  escapeGraceSeconds: 3
   voNewGame: {fileID: 0}
   voToolFound: {fileID: 0}
   voGameOver: {fileID: 0}
   voVictory: {fileID: 0}
   footstepSource: {fileID: 0}
   deathGroanSource: {fileID: 0}
-  detectionSfxSource: {fileID: 0}
-  stunSfxSource: {fileID: 0}
   coldExhaleSource: {fileID: 0}
   coldSneezeSource: {fileID: 0}
-  growlSource: {fileID: 0}
   footstepGrass: {fileID: 0}
   footstepWood: {fileID: 0}
+  level1Name: Level1
+  level2Name: Level2
 --- !u!4 &1723553671
 Transform:
   m_ObjectHideFlags: 0

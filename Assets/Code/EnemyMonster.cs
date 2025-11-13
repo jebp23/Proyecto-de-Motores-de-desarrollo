@@ -291,4 +291,19 @@ public class EnemyMonster : MonoBehaviour
             animator.SetBool(walkBool, false);
     }
 
+
+    public void ReactivateAI()
+    {
+        isChasing = false;
+        CurrentlyDetecting = false;
+        isStunned = false;
+        detectionArmed = true;
+
+        if (agent)
+        {
+            agent.ResetPath();
+            agent.isStopped = false;
+            agent.speed = idleSpeed; 
+        }
+    }
 }

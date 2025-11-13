@@ -54,6 +54,9 @@ public class AudioManager : MonoBehaviour
     private bool lastChaseState;
     private bool lastFastState;
     private bool isChasingMusicActive;
+    public AudioMixerSnapshot SnapshotExploration => snapshotExploration;
+
+
 
     private void Awake()
     {

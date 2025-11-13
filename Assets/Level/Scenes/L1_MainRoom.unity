@@ -85420,11 +85420,11 @@ PrefabInstance:
     - target: {fileID: 5640762713858291416, guid: 7b902e3df94161e449944e22a3611f88, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: aebbe46fd41b8a94ca116bd66bf9774c, type: 3}
+      objectReference: {fileID: 8300000, guid: 11f78069433e22440892ab9560097767, type: 3}
     - target: {fileID: 5640762713858291416, guid: 7b902e3df94161e449944e22a3611f88, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: aebbe46fd41b8a94ca116bd66bf9774c, type: 3}
+      objectReference: {fileID: 8300000, guid: 11f78069433e22440892ab9560097767, type: 3}
     - target: {fileID: 6283990794386880541, guid: 7b902e3df94161e449944e22a3611f88, type: 3}
       propertyPath: m_LocalScale.x
       value: 11.25
@@ -153977,7 +153977,7 @@ PrefabInstance:
     - target: {fileID: 2108291631589063854, guid: d9f6d93d4d4ada342afa21b114cf306c, type: 3}
       propertyPath: 'ambientClips.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: 8ef3ede235a71454490bd41c8977b8bd, type: 3}
+      objectReference: {fileID: 8300000, guid: 0db11071bc0b88e439991c47a301e414, type: 3}
     - target: {fileID: 6052593805375508176, guid: d9f6d93d4d4ada342afa21b114cf306c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.66208
@@ -160131,11 +160131,11 @@ PrefabInstance:
     - target: {fileID: 5640762713858291416, guid: 7b902e3df94161e449944e22a3611f88, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 91d6d8ff1e1b9f44786127ea3a065671, type: 3}
+      objectReference: {fileID: 8300000, guid: 830707f1b520aae49b5193ed673f1c00, type: 3}
     - target: {fileID: 5640762713858291416, guid: 7b902e3df94161e449944e22a3611f88, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 91d6d8ff1e1b9f44786127ea3a065671, type: 3}
+      objectReference: {fileID: 8300000, guid: 830707f1b520aae49b5193ed673f1c00, type: 3}
     - target: {fileID: 6283990794386880541, guid: 7b902e3df94161e449944e22a3611f88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.152

@@ -284,6 +284,14 @@ PrefabInstance:
       propertyPath: snapshotTransition
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5481476324431959708, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 7649c2bd13d74cd4f99c76f83bef2d9e, type: 3}
+    - target: {fileID: 5481476324431959708, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7649c2bd13d74cd4f99c76f83bef2d9e, type: 3}
     - target: {fileID: 7352558604490243539, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1820.1299
