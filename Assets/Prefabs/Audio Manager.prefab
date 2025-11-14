@@ -336,8 +336,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7815131179868485521, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5864bb22808daf24cbc13cf1d1fccc2e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 5864bb22808daf24cbc13cf1d1fccc2e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7649c2bd13d74cd4f99c76f83bef2d9e, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7649c2bd13d74cd4f99c76f83bef2d9e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1299,9 +1299,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8863679602097757104}
   - {fileID: 2494622366719925531}
   - {fileID: 171971810110734654}
-  - {fileID: 8863679602097757104}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &660286109274665083
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   snapshotExploration: {fileID: -4661862048191146626, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
   snapshotChase: {fileID: 2421030169835754677, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
   snapshotChaseFast: {fileID: -2001327426484876788, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
-  snapshotTransition: 0.5
+  snapshotTransition: 0
   musicGroup: {fileID: 624788222412438857, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
   voiceGroup: {fileID: 7815131179868485521, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
   sfxGroup: {fileID: 7815131179868485521, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
@@ -1330,6 +1330,8 @@ MonoBehaviour:
   musicChase: {fileID: 6982435674721469768}
   musicChaseFast: {fileID: 4462519636401644116}
   musicNoteStinger: {fileID: 9157789221355561778}
+  fadeDuration: 2
+  escapeGraceSeconds: 3
   voNewGame: {fileID: 127538503610505306}
   voToolFound: {fileID: 2550012992485591600}
   voGameOver: {fileID: 8624166898869980192}
@@ -1340,5 +1342,5 @@ MonoBehaviour:
   coldSneezeSource: {fileID: 5481476324431959708}
   footstepGrass: {fileID: 8300000, guid: 8149e767670f8fb4daf55385566bc849, type: 3}
   footstepWood: {fileID: 8300000, guid: 92316b1cd95f22a4c9ae7eff80c9b930, type: 3}
-  level1Name: Level1
-  level2Name: Level2
+  level1Name: L0_Maze_NEW
+  level2Name: L1_MainRoom
