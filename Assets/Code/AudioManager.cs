@@ -58,13 +58,35 @@ public class AudioManager : MonoBehaviour
 
 
 
-    private void Awake()
+    void Awake()
     {
+        Debug.Log("AudioManager → Awake()");
         if (I != null && I != this) { Destroy(gameObject); return; }
         I = this;
         DontDestroyOnLoad(gameObject);
         AssignOutputGroups();
         SetSceneFootstepClip();
+    }
+
+    void Start() 
+    {
+        Debug.Log("AudioManager → Start()");
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void OnImportantNoteCollected()
+    {
+        if (musicNoteStinger && !musicNoteStinger.isPlaying)
+            musicNoteStinger.Play();
     }
 
     private void AssignOutputGroups()
@@ -87,9 +109,6 @@ public class AudioManager : MonoBehaviour
     {
         if (src) src.outputAudioMixerGroup = group;
     }
-
-    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
-    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) => SetSceneFootstepClip();
 
@@ -124,7 +143,12 @@ public class AudioManager : MonoBehaviour
     public void PlayVO_ToolFound() { if (voToolFound) voToolFound.Play(); }
     public void PlayVO_GameOver() { if (voGameOver) voGameOver.Play(); }
     public void PlayVO_Victory() { if (voVictory) voVictory.Play(); }
-    public void PlayNoteStinger() { if (musicNoteStinger) musicNoteStinger.Play(); }
+    public void PlayNoteStinger()
+    {
+        Debug.Log("STINGER → PlayNoteStinger() llamado de: " + Time.frameCount);
+        if (musicNoteStinger) musicNoteStinger.Play();
+    }
+
 
     public void EnterMainMenu()
     {
@@ -311,4 +335,6 @@ public class AudioManager : MonoBehaviour
         return ambienceGroup;
     }
 
+
 }
+

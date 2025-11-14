@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,9 +19,12 @@ public class DocumentInteraction : MonoBehaviour
 
     readonly HashSet<Document> inRangeDocs = new HashSet<Document>();
     Document currentDocument;
+    GameObject currentDocumentObject;
     bool isReading;
     float lastToggleTime;
     InputAction interactAction;
+
+    void Start() { Debug.Log("DocumentInteraction.Start " + Time.frameCount); }
 
     void OnEnable()
     {
@@ -61,19 +64,30 @@ public class DocumentInteraction : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Enter: " + other.name + " triggered document: " + name);
         var doc = FindDocument(other);
         if (doc == null) return;
         inRangeDocs.Add(doc);
+
+        currentDocumentObject = other.gameObject;
+
         PickClosest();
         if (!isReading && currentDocument != null && openPrompt) openPrompt.SetActive(true);
     }
 
     void OnTriggerExit(Collider other)
     {
+        Debug.Log("Exit: " + other.name + " exited document: " + name);
         var doc = FindDocument(other);
         if (doc == null) return;
         inRangeDocs.Remove(doc);
-        if (currentDocument == doc) currentDocument = null;
+
+        if (currentDocument == doc)
+        {
+            currentDocument = null;
+            currentDocumentObject = null;
+        }
+
         PickClosest();
         if (!isReading && openPrompt) openPrompt.SetActive(currentDocument != null);
     }
@@ -81,20 +95,33 @@ public class DocumentInteraction : MonoBehaviour
     void TryOpen()
     {
         if (currentDocument == null) return;
+
         NoteSequencer.I?.EnsureAssignment(currentDocument);
         if (documentTextUI) documentTextUI.text = currentDocument.documentText;
+
         if (openPrompt) openPrompt.SetActive(false);
         if (documentPanel) documentPanel.SetActive(true);
         if (docReadingPanel) docReadingPanel.SetActive(true);
         if (closePrompt) closePrompt.SetActive(true);
+
         if (player) player.SetInputEnabled(false);
         if (flashlightBehaviour) flashlightBehaviour.enabled = false;
+
         Time.timeScale = 0f;
-        if (!currentDocument.collected)
+
+        if (!currentDocument.collected && !isReading)
         {
             currentDocument.collected = true;
             GameManager.I?.DocumentCollected(currentDocument);
+
+            if (currentDocumentObject != null && currentDocumentObject.CompareTag("ImportantNote"))
+            {
+                Debug.Log("STINGER → DocumentInteraction.TryOpen() Frame: " + Time.frameCount);
+                Debug.Log("DocumentInteraction → Llamando PlayMusic_NoteStinger");
+                AudioManager.I?.PlayNoteStinger();
+            }
         }
+
         isReading = true;
         lastToggleTime = Time.unscaledTime;
     }
@@ -104,11 +131,15 @@ public class DocumentInteraction : MonoBehaviour
         if (documentPanel) documentPanel.SetActive(false);
         if (docReadingPanel) docReadingPanel.SetActive(false);
         if (closePrompt) closePrompt.SetActive(false);
+
         Time.timeScale = 1f;
+
         if (player) player.SetInputEnabled(true);
         if (flashlightBehaviour) flashlightBehaviour.enabled = true;
+
         isReading = false;
         lastToggleTime = Time.unscaledTime;
+
         PickClosest();
         if (openPrompt) openPrompt.SetActive(currentDocument != null);
     }
@@ -116,10 +147,13 @@ public class DocumentInteraction : MonoBehaviour
     Document FindDocument(Collider c)
     {
         if (c == null) return null;
+
         var d = c.GetComponent<Document>();
         if (d != null) return d;
+
         d = c.GetComponentInParent<Document>();
         if (d != null) return d;
+
         var t = c.transform;
         for (int i = 0; i < t.childCount; i++)
         {
@@ -134,12 +168,18 @@ public class DocumentInteraction : MonoBehaviour
         Document best = null;
         float bestDist = float.MaxValue;
         Vector3 p = transform.position;
+
         foreach (var d in inRangeDocs)
         {
             if (d == null) continue;
             float dist = Vector3.SqrMagnitude(d.transform.position - p);
-            if (dist < bestDist) { bestDist = dist; best = d; }
+            if (dist < bestDist)
+            {
+                bestDist = dist;
+                best = d;
+            }
         }
+
         currentDocument = best;
     }
 }
