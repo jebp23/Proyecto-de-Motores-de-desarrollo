@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4026802812020196706}
-  sliderValue: 0
   muteImage: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 3c0f1eaffd0c114468a82ea38528a904, type: 2}
 --- !u!1 &1119926395895497122
 GameObject:
   m_ObjectHideFlags: 0

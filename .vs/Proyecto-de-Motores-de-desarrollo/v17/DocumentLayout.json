@@ -3,19 +3,23 @@
   "WorkspaceRootPath": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\development projects\\unity\\proyecto-de-motores-de-desarrollo\\assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\development projects\\unity\\proyecto-de-motores-de-desarrollo\\assets\\code\\controlvolumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\controlvolumen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\development projects\\unity\\proyecto-de-motores-de-desarrollo\\assets\\code\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\development projects\\unity\\proyecto-de-motores-de-desarrollo\\assets\\code\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\documentinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|f:\\development projects\\unity\\proyecto-de-motores-de-desarrollo\\assets\\code\\livessystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\assets\\code\\livessystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B176FDD-6382-56BA-E0C5-AB89266AD87E}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\livessystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -86,7 +90,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Lit.shader",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.universal\\Shaders\\Lit.shader",
@@ -98,21 +102,25 @@
               "IsPinned": true
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Document.cs",
-              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\Document.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\Document.cs",
-              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\Document.cs",
-              "RelativeToolTip": "Assets\\Code\\Document.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T00:27:56.079Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ControlVolumen.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ControlVolumen.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ControlVolumen.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ControlVolumen.cs",
+              "RelativeToolTip": "Assets\\Code\\ControlVolumen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T20:45:48.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "DocumentInteraction.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DocumentInteraction.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\DocumentInteraction.cs",
@@ -120,16 +128,23 @@
               "RelativeToolTip": "Assets\\Code\\DocumentInteraction.cs",
               "ViewState": "AgIAAJ4AAAAAAAAAAAAkwLkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T23:10:32.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "WhenOpened": "2025-11-13T23:10:32.825Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Document.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\Document.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\Document.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\Document.cs",
+              "RelativeToolTip": "Assets\\Code\\Document.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T00:27:56.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "LivesSystem.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\LivesSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\LivesSystem.cs",
@@ -137,12 +152,11 @@
               "RelativeToolTip": "Assets\\Code\\LivesSystem.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAkwGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T16:45:24.509Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-08T16:45:24.509Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MainMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\MainMenu.cs",
@@ -154,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "VictoryUI.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\VictoryUI.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\VictoryUI.cs",
@@ -166,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "DeathFadeController.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\DeathFadeController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\DeathFadeController.cs",
@@ -178,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GameManager.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\GameManager.cs",
@@ -190,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "SanitySystem.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\SanitySystem.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\SanitySystem.cs",
@@ -202,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "ToolPickup.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\ToolPickup.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\ToolPickup.cs",
@@ -214,7 +228,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\AudioManager.cs",
+              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
+              "RelativeToolTip": "Assets\\Code\\AudioManager.cs",
+              "ViewState": "AgIAADgBAAAAAAAAAAAIwEgBAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:37:06.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "EnemyMonster.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\EnemyMonster.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\EnemyMonster.cs",
@@ -226,20 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AudioManager.cs",
-              "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Code\\AudioManager.cs",
-              "ToolTip": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\AudioManager.cs",
-              "RelativeToolTip": "Assets\\Code\\AudioManager.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAswFIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T16:37:06.559Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "FlashlightRaycast.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightRaycast.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\FlashlightRaycast.cs",
@@ -251,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GameOverUI.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\GameOverUI.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\GameOverUI.cs",
@@ -262,12 +280,8 @@
               "WhenOpened": "2025-11-08T16:46:05.842Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "MonsterSpawnManager.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\MonsterSpawnManager.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\MonsterSpawnManager.cs",
@@ -279,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "PlayerRigidBodyController.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\PlayerRigidBodyController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerRigidBodyController.cs",
@@ -291,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "FlashlightController.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\FlashlightController.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\FlashlightController.cs",
@@ -303,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "TorsoAimToCamera.cs",
               "DocumentMoniker": "F:\\Development Projects\\Unity\\Proyecto-de-Motores-de-desarrollo\\Assets\\Code\\TorsoAimToCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\TorsoAimToCamera.cs",

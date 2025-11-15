@@ -495,7 +495,7 @@ MonoBehaviour:
   stoppingDistance: 2
   rotationSpeed: 5
   idleSpeed: 1.5
-  chaseSpeed: 4.5
+  chaseSpeed: 5.5
   animator: {fileID: 3290512891414042708}
   walkBool: isWalking
   stunnedBool: isStunned
@@ -590,7 +590,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 85
+  Priority: 12
   DopplerLevel: 1
   MinDistance: 2
   MaxDistance: 24
@@ -687,7 +687,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 105
+  Priority: 15
   DopplerLevel: 1
   MinDistance: 2.5
   MaxDistance: 20

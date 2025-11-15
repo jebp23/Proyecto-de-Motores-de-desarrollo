@@ -264,6 +264,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 127538503610505306, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1629272621694268111, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550012992485591600, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462519636401644116, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392743479866907339, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020710718233094370, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6733605463042476660, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982435674721469768, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7352558604490243539, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1820.1299
@@ -304,9 +336,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8624166898869980192, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773621838415596032, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8845698747195659975, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
       propertyPath: m_Name
       value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157789221355561778, guid: caf9b65077e7e834c8739c79586e58b0, type: 3}
+      propertyPath: Priority
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
